@@ -1,0 +1,177 @@
+\section{Probability Space}
+
+\subsection{Random Experiment}
+\begin{itemize}
+\item A \textbf{random experiment} is an experiment in which the
+outcome varies in an unpredictable fashion when the experiment is
+repeated under the same conditions, i.e., \emph{random}.
+\item An \textbf{outcome} of a random experiment is a result that
+cannot be decomposed into other results.
+\end{itemize}
+
+\subsection{Sample Space}
+\begin{itemize}
+\item The set of all possible outcomes for a random experiment is
+called the \textbf{sample space} \(\Omega\).
+\end{itemize}
+
+\paragraph{Examples:}
+\begin{enumerate}
+\item Tossing a coin: \(\Omega=\{H, T\}\)
+\item Tossing a coin twice: \(\Omega=\{H H, H T, T H, T T\}\)
+\item Taking EEE 5544 and getting a grade:
+\(
+\Omega=\{A, A-, B+, B, B-, C+, C, D, F\}
+\)
+\item Picking an integer at random:
+\(\Omega=\{\ldots,-3,-2,-1,0,1,2,3, \ldots \}\)
+\item Checking the temperature (in $K$) at a random location
+\(
+\Omega=(0, \infty)
+\)
+\end{enumerate}
+
+\begin{itemize}
+\item \textbf{Finite} \(\Omega\): Examples 1, 2, 3
+\item \textbf{Countably infinite} \(\Omega\): Example 4
+\item \textbf{Discrete} \(\Omega\):  Examples 1--4
+\item \textbf{Continuous (uncountably infinite)} \(\Omega\):  Example
+5
+\end{itemize}
+
+\subsection{Event Class}
+\begin{itemize}
+\item An \textbf{event} is a set of outcomes (a subset of \(\Omega\))
+   that we can ``quantify its happenstance'' (see below). 
+\item Two special events: 
+\begin{itemize}
+\item \(\Omega =\)  \textbf{certain event} 
+\item \(\emptyset =\) \textbf{impossible event}
+\end{itemize}
+\item An \textbf{event class} \(\mathcal{F}\) of a random experiment
+is a collection of events.
+\end{itemize}
+
+\subsubsection{Discrete sample space}
+\begin{itemize}
+\item For a discrete \(\Omega\), we typically consider the event class
+that is the collection of all subsets of \(\Omega\), i.e., \(\mathcal{F} = 2^{\Omega}\),
+which is called the \emph{power set} of \(\Omega\).
+\end{itemize}
+
+\paragraph{Examples:}
+\begin{enumerate}
+\item Tossing a coin: \(\mathcal{F} =\{\emptyset,\{H\},\{T\},\{H T\}\}\).
+\item Tossing a coin twice:  
+\begin{equation*}
+\mathcal{F} = \left\{\emptyset,\{H H\},\{T T\},\{H T\},\{T H\},
+ \{H H, T T\},\{H H, H T\}, \ldots, 
+\{H H, T T, H T\}, \ldots,\{H H, T T, H T, T H\} \right\}.
+\end{equation*}
+\item If \( \Omega=\left\{a_{1}, a_{2}, \ldots, a_{N}\right\}\), then 
+\begin{equation*}
+\mathcal{F}=\left\{\emptyset,\{a_{1}\},
+\ldots,\{a_{N}\}, \{a_{1}, a_{2}\},
+\ldots,\{a_{1}, a_{2}, a_{3}\}, \ldots,
+\{a_{1}, a_{2}, \ldots, a_{N}\}\right\}.
+\end{equation*}
+Altogether \(2^{N}\) events (why?).
+
+\item For a countably infinite  \( \Omega = \left\{a_{1}, a_{2},
+\ldots \right\}\), we can use the same idea as in the finite case
+using the power set as the event space, i.e., 
+\begin{equation*}
+\mathcal{F} = 2^{\Omega} = \left\{\emptyset,\{a_{1}\},
+\ldots,\{a_{N}\}, \{a_{1}, a_{2}\},
+\ldots,\{a_{1}, a_{2}, a_{3}\}, \ldots,
+\{a_{1}, a_{2}, \ldots, a_{n}\}, \ldots \right\}
+\end{equation*}
+by enumerating all subsets of \(\Omega\). However, we need a better
+way to describe the power set.
+\end{enumerate}
+
+\subsubsection{Continuous sample space}
+\begin{itemize}
+\item For a continuous sample space, e.g., \(\Omega = (0,\infty)\),
+there are uncountably infinite number of outcomes and hence the method
+of enumeration used in the finite case can't be used to construct the
+event class anymore.
+\item Luckily mathematicians have solved the problem for us. To
+discuss the solution, we need to study a bit about set operations.
+\end{itemize}
+
+\subsection{Set operations}
+\begin{itemize}
+  \item \textbf{Union:} \(A \cup B=\{x \in \Omega: x \in A\) or \(x \in B\}\)
+  \item \textbf{Intersection:} \(A \cap B=\{x \in \Omega: x \in A\) and \(x \in B\}\)
+  \item \textbf{Complement:} \(A^{c}=\{x \in \Omega: x \notin A\}\)
+  \item \textbf{Difference:} \(A \setminus B=\{x \in \Omega: x \in A\) and \(x \notin B\}=A \cap B^{c}\)
+\end{itemize}
+
+\newtheorem{fact}{Fact}
+  
+\begin{fact}\textbf{De Morgan's Laws}
+\begin{enumerate}
+\item \((A \cup B)^{c}=A^{c} \cap B^{c}\).
+\item \((A \cap B)^{c}=A^{c} \cup B^{c}\)
+\end{enumerate}
+\end{fact}
+\paragraph*{\emph{Proof:}} We give the proof of 1. as an example here:\\
+(i) Since \(x \in(A \cup B)^{c} \Rightarrow x \notin A \cup B \Rightarrow 
+x \notin A\) and \(x \notin B \Rightarrow x \in A^{c}\) and \(x \in
+B^{c} \Rightarrow x \in A^{c} \cap B^c\), 
+\((A \cup B)^{c} \subseteq A^{c} \cap B^{c}\).
+
+(ii) Since \(x \in A^{c} \cap B^{c} \Rightarrow x \in A^{c}\)
+and \(x \in B^{c} \Rightarrow x \notin A\) and \(x \notin B
+\Rightarrow x \notin A \cup B \Rightarrow x \in(A \cup B)^{c}\),
+\(A^{c} \cap B^{c} \subseteq (A \cup B)^{c}\).
+
+Combining (i) and (ii), we have \((A \cup B)^{c} = A^{c} \cap B^{c}\).
+
+\begin{fact}
+Union and complement are enough to specify all other set operations.
+\end{fact}
+
+\subsection{Field (Algebra)}
+\begin{itemize}
+\item An \textbf{field (algebra)} is a collection of subsets of
+  \(\Omega\) that is closed under union and complement, and contains
+  both \(\emptyset\) and \(\Omega\). That is, \(\mathcal{F}\) is a
+  field (algebra) if it satisfies the following three conditions:
+\begin{enumerate}
+\item \(\emptyset \in \mathcal{F}\) and \(\Omega \in \mathcal{F}\).
+\item If \(A \in \mathcal{F}\) and \(B \in \mathcal{F}\), then \(A \cup B \in \mathcal{F}\). 
+\item If \(A \in \mathcal{F}\), then \(A^{c} \in \mathcal{F}\).
+\end{enumerate}
+  
+\item Operationally speaking, a field contains all subsets of
+  \(\Omega\) that can be obtained from applying a finite number of set
+  operations.
+\end{itemize}
+
+\begin{fact}
+ For any finite \(\Omega\), the power set \(2^{\Omega}\) is a field.
+\end{fact}
+
+\subsection{\(\sigma\)-Field ( \(\sigma\)-Algebra)}
+\begin{itemize}
+\item A field \(\mathcal{F}\) is a \(\sigma\)-field if it satisfies the
+additional condition: \\
+\ \ 4. If \(A_{1}, A_{2}, \ldots \in \mathcal{F}\), then \(\bigcup_{i=1}^{\infty} A_{i} \in \mathcal{F}\).
+
+\item Operationally speaking, a \(\sigma\)-algebra contains all
+  subsets of \(\Omega\) that can be obtained from a countably number
+  of set operations.
+\end{itemize}
+\begin{fact}
+For countably infuite \(\Omega\), \(2^{\Omega}\) is a \(\sigma\)-field.
+\end{fact} 
+
+
+\begin{itemize}
+  \item[-] Need a rath object to allow description of a random experiment.
+  \item[-] Probability space \((\Omega, F, P)\) Sample space
+  \item[] probability measure
+  \item[-] Sample space \(\Omega\) : set that contains all possible ants of the random experiment.
+\end{itemize}

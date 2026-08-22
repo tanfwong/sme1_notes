@@ -1,0 +1,483 @@
+% This LaTeX document needs to be compiled with XeLaTeX.
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{ucharclasses}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, filecolor=magenta, urlcolor=cyan,}
+\urlstyle{same}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+\usepackage{bbold}
+\usepackage{mathrsfs}
+\usepackage[fallback]{xeCJK}
+\usepackage{polyglossia}
+\usepackage{fontspec}
+\IfFontExistsTF{Noto Serif CJK TC}
+{\setCJKmainfont{Noto Serif CJK TC}}
+{\IfFontExistsTF{STSong}
+  {\setCJKmainfont{STSong}}
+  {\IfFontExistsTF{Droid Sans Fallback}
+    {\setCJKmainfont{Droid Sans Fallback}}
+    {\setCJKmainfont{SimSun}}
+}}
+
+\setmainlanguage{english}
+\setotherlanguages{german, serbian}
+\IfFontExistsTF{CMU Serif}
+{\newfontfamily\lgcfont{CMU Serif}}
+{\IfFontExistsTF{DejaVu Sans}
+  {\newfontfamily\lgcfont{DejaVu Sans}}
+  {\newfontfamily\lgcfont{Georgia}}
+}
+\setDefaultTransitions{\lgcfont}{}
+\newfontfamily\cyrillicfont{CMU Serif}
+\setDefaultTransitions{\cyrillicfont}{}
+
+\begin{document}
+\section*{EEL 5544 : Motivation}
+\begin{itemize}
+  \item[*] What is random?
+  \item[-] Some behavior that we counot perfectly predict (as oppose to deterministic)
+  \item[*] Why randan?\\
+Theologian : We can't know God's mind! ("nature"\\
+Quantum physicist = the laus of quantum physics are fundamentally random.
+  \item[*] What use of random?\\
+Atthough cannot parfectly determine, still want to be able to obtain save degree of specifications.
+  \item[*] Probability Theory is the theory that systewatically studies e characterizes randomness.
+  \item[*] We will go through an engineering (operational, can less about wath vigor) trostment in this course.
+  \item[*] Important concept (more like "terminology").\\
+Randon experiment: An experiment whose atcomes are well randon!
+\end{itemize}
+
+\section*{How should we study prob.?}
+\begin{enumerate}
+  \item Intuition\\
+E.g.) Dr. Wong is a nice gry, the will probably give me a good grade in EEL 5544 .
+\end{enumerate}
+
+\begin{itemize}
+  \item[-] Not systematic , quessing, cannot quantify.
+\end{itemize}
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item Relative Frequency/Counting
+\end{enumerate}
+
+Lig.) Dr. Worg taught EEL5544 3 times in the past There were altogether 200 students who took Pr. War classes. Out of these 200 students, 50 of them got the grode "A". Thas the prob. of getting \(A\) in Dr. Wing's class is \(\frac{50}{200}=\frac{1}{4}\).
+
+\begin{itemize}
+  \item[-] Assume equally likely. this may not be the cate.
+  \item[-] What about infinite possiblities.
+\end{itemize}
+
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item Axiomatic throy
+\end{enumerate}
+
+\begin{itemize}
+  \item[-] Identify a few basic axious that fit intertion
+  \item[-] Build wath ansisteme system based on axioms
+  \item[-] Utilize measure thery (a generalization of integration
+  \item[-] Developed by Kolnogorou in conly 1900 s
+\end{itemize}
+
+\section*{Probability Space}
+\begin{itemize}
+  \item[-] Need a rath object to allow description of a random experiment.
+  \item[-] Probability space \((\Omega, F, P)\) Sample space
+  \item[] probability measure
+  \item[-] Sample space \(\Omega\) : set that contains all possible ants of the random experiment.
+\end{itemize}
+
+egc)(i) Tossing a com: \(\Omega=\{H, T\}\)\\
+(ii) Tossing coin twise \(=\Omega=\{H H, H T, T H, T T\}\)\\
+(iii) Taking EEL5544 and getting a grade:
+
+\[
+\Omega=\{A, B, C, D, F\}
+\]
+
+\begin{itemize}
+  \item[(iv)] Picking an integer at rarbon: \(\Omega=\{\ldots,-3,-2,-1,0,1,2,3\)
+  \item[(v)] Checking temperature at a rarbon location on eut
+\[
+\Omega=[0, \infty) k .
+\]
+  \item[(i)] , (ii), (iii): finite, (ir): countatly infinite\\
+(i)-(iv): discrete, (V) = uncountably infricte, contrumes.
+\end{itemize}
+
+\section*{Event Space \(\mathcal{F}\).}
+\begin{itemize}
+  \item[-] a collection of supsets of \(\Omega\) (meaning: subsets of outcomes / "events" that can bappen)
+  \item[] -two special events < \(\Omega\) : certain event \(\phi\) : impossible event
+  \item[-] \href{http://e.gs}{e.gs}): (i) Tossing \(\operatorname{cosin} \vartheta=\{\phi,\{H\},\{T\},\{H T\}\}\)\\
+(ii) Tossing cain twice : \(\exists=\{\varnothing,\{H H\},\{T T\},\{H T\},\{T H\}\),
+\[
+\begin{aligned}
+& \{H H, T T\},\{H H, H T\}, \ldots, \\
+& \{H H, T T, H T\}, \cdots,\{H H, T T, H T,
+\end{aligned}
+\]
+(iii) Generally if \(\Omega=\left\{a_{1}, a_{2}, \ldots a_{N}\right\}\), then \(\mathcal{F}=\left\{\phi,\left\{a_{1}\right\}, \ldots,\left\{a_{N}\right\},\left\{a_{1}, a_{2}\right\}, \ldots\left\{a_{1}, a_{2}, a_{3}\right\}, \ldots, \ldots\right.\)
+\[
+\left\{a_{1}, a_{2}, \ldots, a_{n}\right\}
+\]
+Altegether \(2^{N}\) rests (why.) If which is usually deverted a \(2^{\Omega}\), the power set of \(\Omega\).
+  \item[-] What Roppen when \(\Omega\) is infuitely?\\
+Countably infinite: - same idea applies \(F=2^{\Omega}\)
+  \begin{itemize}
+    \item[-] countably infinite events in 7.
+    \item[-] need a better way \(T_{0}\) describe
+  \end{itemize}
+\end{itemize}
+
+Uncountably infinite : Hum....?\\
+Luckily rathematicians have solver the problem for us.
+
+Set Calculus
+
+\begin{itemize}
+  \item[(i)] Union: \(A \cup B=\{x \in \Omega: x \in A\) or \(x \in B\}\)
+  \item[(ii)] Intersection: \(A \cap B=\{x \in \Omega: x \in A\) and \(x \in \beta\}\)
+  \item[(iii)] Complement: \(A^{C}=\{x \in \Omega: x \notin A\}\)
+  \item[(iv)] Difference: \(A \backslash B=\{x \in \Omega: x \in A\) and \(x \notin B\}=A \cap B^{\circ}\)
+  \item[(v)] .....
+\end{itemize}
+
+(or (i) \& (i))\\
+Fact: (i) and (iii) arme are enough to specify all other operations.
+
+Fact: De Morgan Law: \(i)(A \cup B)^{c}=A^{c} \cap B^{c}\)
+
+\begin{itemize}
+  \item[(ii)] \((A \cap B)^{C}=A^{C} \cup B^{C}\)
+\end{itemize}
+
+e.g. Proof of \(i\) i): \(x \in(A \cup B)^{c} \Rightarrow x \notin A \cup B \Rightarrow\left\{\begin{array}{l}x \notin A \\ x \notin B\end{array} \Rightarrow\left\{\begin{array}{l}x \in A^{c} \\ x \in B^{c}\end{array}\right.\right.\)\\
+Thus \((A \cup B)^{C} \subset A^{C} \cap B^{C}\)
+
+\[
+\Rightarrow x \in A^{c} \cap 1
+\]
+
+\(x \in A^{C} \cap B^{C} \Rightarrow\left\{\begin{array}{l}x \in A^{C} \\ x \in B^{C}\end{array} \Rightarrow\left\{\begin{array}{l}x \notin A \\ x \notin B\end{array} \Rightarrow x \notin A \cup B \Rightarrow x \in(A \cup B)^{C}\right.\right.\) Thus \(A^{C} \cap B^{C} \subset(A \cup B)^{C}\)
+
+Therefore \((A \cup B)^{C}=A^{C} \cap B^{C}\).\\
+Venn diagram:\\
+\includegraphics[max width=\textwidth, alt={}, center]{images/d9bd1b15-0be6-4153-b5f5-a3e74296fb76-05_566_775_2025_996}
+
+Temarent If \(A \cap B=\varnothing\), then \(A\) and \(B\) disjoint
+
+If \(A \cup B=\Omega\), then \(A\) and \(B\) partiture \(\Omega\)
+
+\section*{Algebra (Pield)}
+\begin{itemize}
+  \item[-] a collection of absets that is closed under union and complement, and contain both \(\phi\) and \(\Omega\). That is \(A\) is an algebra if
+  \begin{itemize}
+    \item[(i)] \(\phi \in \mathcal{A}\) and \(\Omega \in A\)
+    \item[(ii)] if \(A \in \mathcal{A}\) and \(B \in A\), then \(A \cup B \in A\). (iii) If \(A \in \mathcal{A}\), then \(A^{c} \in \mathcal{A}\).
+  \end{itemize}
+  \item[-] Physianally, an algebra curtairs all subsets of \(\Omega\) that con be obtained by set calculars in a fairte \(\#\) of staps.
+  \item[-] For finite \(\Omega, 2^{\Omega}\) is an algebra. (Why?)
+\end{itemize}
+
+\section*{\(\sigma\)-algebra ( \(\sigma\)-field)}
+It is an \(\sigma\)-algebra if it is an algebra and (iii) ' If \(A_{1}, A_{2}, \ldots \in \mathcal{A}\), then \(\bigcup_{i=1}^{\infty} A_{i} \in \mathcal{A}\).
+
+\begin{itemize}
+  \item[-] an \(\sigma\)-algebra contains all subsets of \(\Omega\) that can be obtaina by set calculars in a countably \# of steps.
+  \item[-] For countably infuite \(\Omega, 2^{\Omega}\) is an \(\sigma\)-algebra (and finite too of course) (why?)
+\end{itemize}
+
+\section*{Uncountably Infinite Case：}
+\begin{itemize}
+  \item[] －We saw that in the courtillecases，\(F=2^{\Omega}\) is an 6 －alget
+  \item[] －Obviously an \(\sigma\)－algebra is a very rich collection of subsets of \(\Omega\) in the case where \(\Omega\) is uncontable．
+  \item[] －We will carider the evert space of an uncountable \(\Omega\) be \(\mathcal{F}=\) some \(\sigma\)－algebra of \(\Omega\) ．
+  \item[] necessarily
+  \item[] －It turns at that \(\mathcal{F}\) such defined does vot cantain all subkets of \(\Omega\) ．However to obtain a rath carsistant （see later）system，we should owid those＂crazy＂ subsets．
+  \item[] －e．g．）\(\Omega=\mathbb{R}\) ，consider all the subsets of \(\mathbb{R}\) of the from of \((-\infty, a]\) for \(a \in \mathbb{R}\) ：Then the 0 －algebra formin by all contable set calculus operations on \((-\infty, a]\) for \(a \in \mathbb{R}\) ，i．e．，the \(\sigma\)－algebra greasted by \((-\infty, a]\) for all \(a \in \mathbb{R}\) ，is a common event space that contains alrost all subsets of \(\mathbb{R}\) that ane of prootical interest．The subsets of \(\mathbb{R}\) so obtained ore calls Bovel sets B．
+\end{itemize}
+
+（Give same examples？）
+
+\section*{Probability mosure}
+\begin{itemize}
+  \item[-] With \((\Omega, F)\) apecifiod, we can now assign "probabilities" to the events in \(\mathcal{F}\).
+  \item[-] Such an assignivent is specifica by a prob. mosseme \(P=\mathcal{F} \rightarrow[0,1]\),
+  \item[-] To make sure that the assignment reflects our intur about probabilities, we restrict \(P\) such tast it satisfu the following 3 canditions. These carditions one usually refered to as the axious of prob:
+  \item[(1)] \(P(A) \geqslant 0\) for all \(A \in \mathcal{A}\).
+  \item[(2)] \(P(\Omega)=1\).
+  \item[(3)] \(P\left(\bigcup_{i=1}^{\infty} A_{i}\right)=\sum_{i=1}^{\infty} P\left(A_{i}\right)\) if \(A_{i} \cap A_{j}=\phi\) for all \(i \neq\) where \(A_{i} \in A\).
+\end{itemize}
+
+Examples: (i) Tosing a fair coin. \(\Omega=\{H, T\}, \mathcal{F}=2^{\Omega}\)
+
+\[
+P(\phi)=0, P(\Omega)=1, P(\{H\})=\frac{1}{2}, P\{(T\})=\frac{1}{2}
+\]
+
+verify \(P\) satisfies all (1)-(3).
+
+\begin{itemize}
+  \item[(ii)] Randon choosing a natural \#, \(\Omega=\{0,1,2, \ldots\}, \mathcal{F}=2^{\Omega}\)
+\[
+P(\phi)=0, P(\Omega)=1, P(\{n\})=\left(\frac{1}{2}\right)^{n+1}
+\]
+Employing (3) completely defines. \(P\).
+\end{itemize}
+
+(iii) Randou pt. temperature: \(\Omega=(0, \infty)\),\\
+\(F=0\)-algebra generated by \([0, a]\) for all \(a \in(0, \infty)\).
+
+\[
+P(\phi)=0, P(\Omega)=1, P([0, a])=\left\{\begin{array}{cc}
+0 & \text { if } a \leq 210 \\
+\frac{a-210}{120} & \text { if } 210<a \leq \\
+1 & \text { if } a>330
+\end{array}\right.
+\]
+
+Employing (3) completely specifies. P..\\
+other properties of prob. nosemes (conseq. of (1)-(3))\\
+(4) \(P(\phi)=0\)\\
+(5) \(P(A \backslash B)=P(A)-P(A \cap B) \quad A, B \in \mathcal{A}\).\\
+(6) \(P(\cdot A)=1-P\left(A^{0}\right) \quad A, \in A\) 。\\
+(7) \(P(A \cup B)=P(A)+P(B)-P(A \cap B)\)\\
+(8) \(P\left(\bigcup_{i=1}^{\infty} A_{i}\right) \leq \sum_{i=1}^{\infty} P\left(A_{i}\right) \quad A_{i} \in A\).\\[0pt]
+[contable ubadditivity or union bound]\\
+Q.g.) Prof of (7) : \(A \cup B=(A \backslash B) \cup(A \cap B) \cup(B \backslash A)\)\\
+\includegraphics[max width=\textwidth, alt={}, center]{images/d9bd1b15-0be6-4153-b5f5-a3e74296fb76-09_201_315_1664_1737}
+
+From axim (3) , \(P(A \cup B)=P(A \cap B)+P(A \cap B)+P(B \backslash A)\)
+
+\[
+\begin{aligned}
+& =P(A)-P(A \cap B)+P(A \cap B)+P(B)-P(A \cap E \\
+& =P(A)+P(B)-P(A \cap B) .
+\end{aligned}
+\]
+
+Proof of (8) = (7) says \(P\left(A_{1} \cup A_{2}\right) \leq P\left(A_{1}\right)+P\left(A_{2}\right)\) sime \(P\left(A_{1} \cap\right.\). by axion (1)\\
+Now suppose that \(P\left(\bigcup_{i=1}^{n} A_{i}\right) \leq \sum_{i=1}^{n} P\left(A_{i}\right)\)
+
+Usning (7) again, we have \(P\left(\bigcup_{i=1}^{n+1} A_{i}\right) \leq P\left(\bigcup_{i=1}^{n} A_{i}\right)+P\left(A_{n+1}\right)\)\\
+Thes \((*)\) True by induction.
+
+\[
+\begin{aligned}
+& \leq \sum_{i=1}^{n} P\left(A_{i}\right)+P\left(A_{n+1}\right) . \\
+& =\sum_{i=1}^{n} P\left(A_{i}\right)
+\end{aligned}
+\]
+
+Need to bok at 2 different cases :\\
+\(\left.\begin{array}{l}\text { (i) } \sum_{i=1}^{n e} P\left(A_{i}\right) \uparrow \infty \\ \text { (ii) } \sum^{n} P\left(A_{i}^{-}\right)\end{array}\right\} \begin{aligned} & \text { there are the arey ture possibilites } \\ & \text { sure }\end{aligned}\)\\
+(i) (8) is obviously true since \(P\left(\bigcup_{i=1}^{\infty} A_{i}\right) \leq 1 \quad\) by \((5) / 1\)\\
+(ii) \(\quad \sum_{i=1}^{n} P\left(A_{i}\right) \ldots \sum_{i=1}^{\infty} P\left(A_{i}\right)\) (funite \#).
+
+First by (5) if \(A \subset B\), then \(P(A) \leq P(B)\) (why?) Since \(A_{1} \subset\left[A_{1} \cup A_{2}\right] \subset\left[A_{1} \cup A_{2} \cup A_{3}\right] \subset \cdots C \cdots \cdot C \bigcup_{i=1}^{\infty} A_{i}\), \(P\left(\bigcup_{i=1}^{n} A_{i}\right)\) in increasing and bounded above, ie, \(P\left(\bigcup_{i=1}^{n} A_{i}\right)\) Canverges.\\
+disjoint.\\
+Mrever, \(\bigcup_{C_{1}=1} A_{i}=A_{1} \cup\left[\left(A_{1} \cup A_{2}\right) \backslash A_{1}\right] \cup\left[\left(A_{1} \cup A_{2} \cup A_{3}\right) \backslash\left(A_{1} \cup A_{2}\right)\right.\). U....\\
+By axiom (3),
+
+\[
+\begin{aligned}
+P\left(\bigcup_{i=1}^{\infty} A_{i}\right)= & P\left(A_{1}\right)+\left[P\left(A_{1} \cup A_{2}\right)-P\left(A_{1}\right)\right] \\
+& +\left[P\left(A_{1} \cup A_{2} \cup A_{3}\right)-P\left(A_{1} \cup A_{2}\right)\right]+\ldots \\
+= & P\left(\bigcup_{i=1}^{n} A_{i}\right)+\text { terms that get arbitra }
+\end{aligned}
+\]
+
+Thus \(P\left(\bigcup_{i=1}^{n} A_{i}\right) \uparrow P\left(\bigcup_{i=1}^{\infty} A_{i}\right)\) swall as \(n \rightarrow \infty\).
+
+For the finite case, we have \(P\left(\bigcup_{i=1}^{n} A_{i}\right) \leq \sum_{i=1}^{n} P\left(A_{i}\right)\)\\
+Taking limits on both sides, we have \(P\left(\bigcup_{i=1}^{\infty} A_{i}\right) \leq \sum_{i=1}^{\infty} P\left(A_{i}\right.\)
+
+\begin{itemize}
+  \item Also are ppil4-15 for the generatization of (7) to mult; ple Aets.
+\end{itemize}
+
+\begin{itemize}
+  \item[-] Firally, recall that by restricting \(\mathcal{F}\) to an \(\sigma\)-algebra and assigning "probabilities" to rents in I does not allow is to Rardle some subsets in \(\Omega\). uncrentable
+\end{itemize}
+
+These subsets are called non-measurable sets. It turns ont that if we try to include chase subsets into our prob. assignment, then the 3 aximes (1)-(B) will not be consistent, i.e. no watter how we chose \(P\), there will be some sets that dart satisfy (1)-(3) We will omit the details Rere. For interested students, pls. refer to Billingsley.
+
+\begin{itemize}
+  \item[-] Any practical reants space be described by an \(\sigma\)-algebra. No need to consider those "crazy"
+\end{itemize}
+
+\section*{Carditional Probability}
+\begin{itemize}
+  \item[-] Intuition: Want to dgéribe the "ikelihood" of an event given that we know and we went happens.
+  \item[-] Start from a prob. space \((\Omega, \mathcal{F}, P)\). Given an event \(A \in \mathcal{F}\) with \(P(A)>0\), defino the set fu.
+\[
+P(B \mid A) \triangleq \frac{P(A \cap B)}{P(A)}
+\]
+for every \(B \in \mathscr{F}\).
+  \item[-] It is lasy to verify that \(P(\cdot \mid A)\) so defined satisfies the 3 axioms of prob. and hence it is a prob. woosent Thus \((\Omega, F, P(\cdot(A))\) fours arother prob. space.
+  \item[-] The definition in(*) has intuition from relatively freq. (see example in textbook).
+  \item[-] e.g.) Tossing a fair coin twice. \((\Omega, F, P)\)
+\[
+\begin{aligned}
+& \Omega=\{H H, T T, H T, T H\}, \quad F=2^{\Omega}, \quad P(\{H H T)=P(\{T T\})=P(\{H T\})=P\{T H\}) \\
+&=\frac{1}{4} .
+\end{aligned}
+\]
+Let \(B=\{H T\}=1\) st toss hand and \(2 r d\) toss tail (What do you intuition tell you the prob. of \(B\) given \(A\) ?)
+\[
+P(B \mid A) \triangleq \frac{P(A \cap B)}{P(A)}=\frac{P(\{(H, T T\} \cap\{H T\})}{P(A)}=\frac{P(\varnothing)}{P(A)}=0 \text {. }
+\]
+\end{itemize}
+
+\section*{Total Probability \& Bayes' theorem}
+\begin{itemize}
+  \item[-] Simple that useful fact : \(A, B \in \mathcal{F}\) s.t. \(P(A), P(B)>0\) \(P(A \mid B) P(B)=P(B \mid A) P(A)\)\\
+Proof: \(P(A \mid B) \triangleq \frac{P(A \cap B)}{P(B)}\) and \(P(B \mid A)=\frac{P(A \cap B)}{P(A)}\) \#
+  \item[-] Total Prob.: Let \(A_{1}, A_{2}, \ldots, A_{n}\) partitiar \(\Omega\) Gie. \(A_{1}, A_{2}, \ldots, A_{n} \in \mathcal{F}\) s.t. \(A_{i} \cap A_{j}=\varnothing\) for \(i \neq j\) and \(\bigcup_{i=1}^{n} A_{i}=\Omega\) ) Also suppose that \(P\left(A_{i}\right)>0\) for all \(i=1, \ldots, h\).\\
+Then for any \(B \in \mathcal{F}\),
+\[
+P(B)=\sum_{i=1}^{k} P\left(B \mid A_{i}\right) P\left(A_{i}\right)
+\]
+Prof: \(B=B \cap \Omega=B \cap\left(\bigcup_{i=1}^{n} A_{i}\right)=\bigcup_{i=1}^{n}\left(B \cap A_{i}\right)\)\\
+Also \(\left(B \cap A_{i}\right) \cap\left(B \cap A_{j}\right)=B \cap\left(A_{i} \cap A_{j}\right)=B \cap \phi=\phi\) for \(i \neq j\) By axiom (3), \(P(B)=P\left(\bigcup_{i=1}^{n}\left(B \cap A_{i}\right)\right)=\sum_{i=1}^{n} P\left(B \cap A_{i}\right)\)
+\[
+=\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right) .
+\]
+  \item[-] Bayes' throm: the same cardition as in the total prob. result above \(+P(B)>0\), then
+\[
+P\left(A_{j} \mid B\right)=\frac{P\left(B \mid A_{j}\right) \cdot P\left(A_{j}\right) \ll}{\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right)} \text { a provi prob. }
+\]
+a posteriori\\
+tate pub pmb.\\
+Prof: Obvinus by uning the sample fact \& total publ. \#,
+\end{itemize}
+
+\section*{Independent Events}
+Suppose \(A_{1}, A_{2}, \ldots A_{n} \in \mathcal{F}[\) in \((\Omega, F, P)]\). They one Arid to be independent if
+
+\[
+\begin{aligned}
+& P\left(A_{i} A_{j}\right)=P\left(A_{i}\right) P\left(A_{j}\right) \\
+& P\left(A_{i} A_{j} A_{k}\right)=P\left(A_{i}\right) P\left(A_{j}\right) P\left(A_{k}\right) \\
+& P\left(A_{1} A_{2}, \ldots A_{n}\right)=P\left(A_{1}\right) P\left(A_{2}\right) \cdots P\left(A_{n}\right)
+\end{aligned}
+\]
+
+for all \(1 \leq i<j<k<\ldots \leq n\).
+
+Examples: Carsider throwing a fair dice.
+
+\[
+\Omega=\{1,2, \ldots, 6\}, \quad F=2^{\Omega}, \quad P(\{,\})=\cdots=P(\{6\})=\frac{1}{6} .
+\]
+
+\[
+\begin{aligned}
+& A=\{\text { getting liven } \#\}=\{2,4,6\} \\
+& B=\{\text { getting a } \# \leqslant 2\}=\{1,2\}
+\end{aligned}
+\]
+
+\[
+P(A \cap B)=P(\{2\})=\frac{1}{6}=\frac{1}{2} \times \frac{1}{3}=P(A) \times P(B)
+\]
+
+\(\Rightarrow A \& B\) are indept. events.
+
+\[
+P(A O C)=P(\{6\})=\frac{1}{6}=\frac{1}{2} \times \frac{1}{3}=P(A) \cdot P(C)
+\]
+
+\(\Rightarrow A \& C\) are indept. events.
+
+\[
+P(B \cap C)=P(\varnothing)=0 \neq \frac{1}{3} \times \frac{1}{3}=P(B) \cdot P(C)
+\]
+
+\(\Rightarrow A, B \in C\) are not indept. Cusidersed trather.
+
+\section*{Example : (Bernoulli Trials and Biromial Distribution)}
+\begin{itemize}
+  \item[-] First cardider tossing a, possibly unfair, coin ance.
+\[
+\Omega^{\prime}=\{H, T\}, \quad F=2^{\Omega^{\prime}}, \quad P(H)=p \quad \text { and } P(T)=q . \quad(p+q=1)
+\]
+  \item[-] Now consider tossing the same com twice, but each flip is "indept"? of the other.
+\[
+\Omega^{2}=\{H H, T T, H T, T H\}=\Omega \times \Omega, \mathcal{F}=2^{\Omega^{2}}
+\]
+To bove adepent, we must Rave
+\[
+P(H H)=p^{2}, \quad P(H T)=p q, \quad P(T H)=q p, \quad P(T T)=q^{2}
+\]
+Thus it suffice to speify \(P(H)=p\) and \(P(T)=q\) -\\
+* this means that are went associated with the lost tous are indept. If are event associated with the and toos. We ait frunalize this corrept biter on.
+  \item[-] Cartinue this way and curider \(n_{1}^{\text {irdept. }}\) tosses of the same com.
+\[
+\begin{array}{ll}
+\Omega^{n}=\frac{\Omega \times \Omega y \cdots \times \Omega}{n \text { times }}, & \mathcal{F}=2^{\Omega} \text { and we have } \\
+P(H T \cdots T T H)=p^{k} q^{n-k} & \text { for } 0 \leq k \leq n .
+\end{array}
+\]
+where \(k=\#\) if hoods and \(n-k: \#\) of tails
+  \item[-] Now consider the event \(A=\left\{\right.\) Aegs, with \(\left.k H_{s}\right\}\) First since all individual seqs one disjoit. Thes by axian (3),
+\[
+P(A)=\sum_{\operatorname{seq} \in A} P(\text { seq })=\left(\text { 井 of seq with } k H_{s}\right) \cdot p^{k} q^{n-k}
+\]
+all \(P\left(\log _{1}\right) s\) are the same as above.
+\end{itemize}
+
+\begin{itemize}
+  \item[-] So read to count hav vary ags with \(k\) Hs.
+  \item[-] Chis is the same as delecting \(k\) \#s from \(\{1,2, \ldots, n\}\) e.g. the celection \(\{1,2, \ldots k\}\) cowespids to the 1st toss gives a head, 2nd toss gives \(H, \ldots\), kth toss diso gives \(H\), all the rewaining tosses give \(T_{5}\)..
+  \item[-] Ist selection con pick from \(n\) \#5, 2 rd selection con piek from \((n-1) \# S_{\ldots} \ldots\), keth polection can piek from \((n-k)\) (\#s. Thes altogether \(n \cdot(n-1) \cdot(n-2) \cdots(n-k+1)\) possible ways of picking.
+  \item[-] But some of these solutions convespred \(E\) the same xeg. e.g. \(\{1,2, \ldots k\}\) the same as \(\{k, k-1, \ldots, 1\}\) Specifically, all rearrangenat of any selection give the same saqu. For. Trey seq, there are \(\overrightarrow{k a}=k,(k-1) \cdots \cdots 2 \cdot 1\) rearrangement. bandnal coeffi.
+  \item[-] Hence the \# of kegs with \(k H_{s}=\frac{n!}{(n-k)!k!}=\binom{n}{k}\)
+  \item[-] Finally \(P(k\) Hs in \(n\) tosses \()=\binom{n}{k} p^{k} q^{n-k}\)
+  \item[-] Now cansider a game tast includes two rounds of tossin the
+    coin. In the first round, the cain is tossed in times! as
+    above. In the second round, the coin is tossed \(k\) times where \(k\) is the \(\#\) of \(H\) sotained in the first round Want to find prob. if hourng \(l\). Its in the 2nd row
+\end{itemize}
+
+A complicated calculation rade rasy by caditanal prob.\\
+Let \(A_{k}\) be event of getting \(k\) Hs in 1st round Be be onet of getting \& Hs in 2rdroad.
+
+First calculate \(P\left(B_{e} / A R\right)\).\\
+According to rale of game,
+
+\[
+\left\{B_{l} \mid A_{k}\right\}=\left\{\begin{array}{lll}
+\phi & \text { if } & l>k \\
+l \text { Hs in } k \text { toses } & \text { if } \cdot l \leq k
+\end{array}\right.
+\]
+
+Thus \(P(B e \mid A k)= \begin{cases}0 & \text { if } e k \\ \binom{k}{l} p^{l} q^{k-l} & \text { if } e \leq k\end{cases}\)\\
+Now big the low of total prob., sime Aor...An partition \(\Omega, \quad P\left(B_{l}\right)=\sum_{k=0}^{n} P\left(B_{l} \mid A_{k}\right) P\left(A_{k}\right)=\sum_{k=k}^{n}\binom{k}{l} P^{l} q^{k-l} \cdot\binom{n}{k} P^{k} q^{n-k}\)
+
+\[
+=\sum_{k=l}^{n} \frac{n!}{(n-k)!(k-l)!l!}\left(p^{2}\right)^{l}(p q)^{k-l} q^{n-k}
+\]
+
+purtinomial selection \(\left.\underbrace{\text { HHs }}_{l}\right|_{k-l} \frac{H_{s}\left|T_{s}\right| T_{s}}{T_{k-k}}\)
+
+\begin{itemize}
+  \item[-] Next want to fird \(P\left(A_{k} \mid \beta_{l}\right)\). By Baye's thorem.
+\[
+P\left(A_{k} \mid B_{l}\right)=\frac{P\left(B_{l} \mid A_{k}\right) P\left(A_{k}\right)}{P\left(B_{l}\right)}= \begin{cases}0 & \text { if } l>k \\ \frac{\frac{n!}{(n-k)!(k-l)!l!}\left(p^{2}\right)^{l}\left(p q q^{k-l} q^{n-k}\right.}{\sum_{m=l}^{n} \frac{n!}{(n-m)!(m-l)!l!}\left(p^{2}\right)^{l}(p q)^{m-l} q^{n-k}}\end{cases}
+\]
+  \item[*] Read sectans 1.6-1.11 for if \(l \leqslant k\) Nore combiatorics bramples.
+\end{itemize}
+
+\end{document}
