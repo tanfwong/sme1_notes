@@ -1,0 +1,27 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 9b6ba63a-36bb-410d-8f95-150cdeb056a0
+  title: EEE5544 Stochastic Methods for Engineering 1
+  description: Class notes
+  # keywords: []
+  authors: 
+    - name: Tan F. Wong
+  github: tanfwong/sme1_notes
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  toc: 
+    - file: index.md
+    - file: intro.md
+      title: Introduction
+    - file: probspace.md
+      title: Probability Space
+  exports:
+    - format: pdf
+      template: curvenote 
+
+site:
+  template: book-theme
+  options:
+  #   favicon: favicon.ico
+    logo: logo.png
+
