@@ -1,0 +1,244 @@
+\section{Probability Space}
+
+\subsection{Random Experiment}
+
+\begin{itemize}
+\item A \textit{\textbf{random experiment}} is an experiment in which the outcome varies in an unpredictable fashion when the experiment is repeated under the same conditions, i.e., \textit{random}.
+\item An \textit{\textbf{outcome}} of a random experiment is a result that cannot be decomposed into other results.
+\end{itemize}
+
+\subsection{Sample Space}
+
+\begin{itemize}
+\item The set of all possible outcomes for a random experiment is called the \textit{\textbf{sample space}} $\Omega$.
+\end{itemize}
+
+\begin{example}\begin{enumerate}
+\item Tossing a coin: $\Omega = \{H,T\}$
+\item Tossing a coin twice: $\Omega = \{HH,HT,TH,TT\}$
+\item Taking EEE 5544 and getting a grade:
+$\Omega = \{A,A -,B+,B,B -,C+,C,D,F\}$
+\item Picking an integer at random:
+$\Omega = \{\ldots, -3, -2, -1,0,1,2,3,\ldots\}$
+\item Checking the temperature (in $K$) at a random location:
+$\Omega = (0,\infty)$
+\end{enumerate}
+
+\begin{itemize}
+\item \textbf{Finite} $\Omega$: Examples 1, 2, and 3
+\item \textbf{Countably infinite} $\Omega$: Example 4
+\item \textbf{Discrete} $\Omega$: Examples 1--4
+\item \textbf{Continuous (uncountably infinite)} $\Omega$: Example 5
+\end{itemize}
+
+\end{example}\subsection{Event Class}
+
+\begin{itemize}
+\item An \textit{\textbf{event}} is a set of outcomes, i.e., a subset of $\Omega$,
+whose ``likelihood'' can be quantified.
+\item Two special events:
+
+\begin{itemize}
+\item $\Omega =$ \textit{\textbf{certain event}}
+\item $\emptyset =$ \textit{\textbf{impossible event}}
+\end{itemize}
+
+
+\item An \textit{\textbf{event class}} $\mathcal{F}$ of a random experiment is a collection of events.
+\end{itemize}
+
+\subsubsection{Discrete Sample Space}
+
+For a discrete $\Omega$, we typically consider the event class
+consisting of all subsets of $\Omega$, i.e.,
+$\mathcal{F} = 2^\Omega.$
+This is called the \textit{power set} of $\Omega$.
+
+\begin{example}\begin{enumerate}
+\item Tossing a coin:
+$\mathcal{F} = \{\emptyset,\{H\},\{T\},\{H,T\}\}.$
+\item Tossing a coin twice:
+\end{enumerate}
+\begin{equation*}
+\mathcal{F}
+   =
+   \left\{
+   \emptyset,
+   \{HH\},
+   \{TT\},
+   \{HT\},
+   \{TH\},
+   \{HH,TT\},
+   \{HH,HT\},
+   \ldots,
+   \{HH,TT,HT\},
+   \ldots,
+   \{HH,TT,HT,TH\}
+   \right\}.
+\end{equation*}
+
+\begin{enumerate}[resume]
+\item If $\Omega=\{a_1,a_2,\ldots,a_N\}$, then
+
+\begin{equation*}
+\mathcal{F}
+   =
+   \left\{
+   \emptyset,
+   \{a_1\},
+   \ldots,
+   \{a_N\},
+   \{a_1,a_2\},
+   \ldots,
+   \{a_1,a_2,a_3\},
+   \ldots,
+   \{a_1,a_2,\ldots,a_N\}
+   \right\}.
+\end{equation*}
+
+Altogether, there are $2^N$ events (why?).
+
+
+\item For a countably infinite sample space
+$\Omega=\{a_1,a_2,\ldots\},$
+we can use the same idea as in the finite case, using the power set as the event space:
+\begin{equation*}
+\mathcal{F}
+   =
+   2^\Omega
+   =
+   \left\{
+   \emptyset,
+   \{a_1\},
+   \ldots,
+   \{a_N\},
+   \{a_1,a_2\},
+   \ldots,
+   \{a_1,a_2,a_3\},
+   \ldots,
+   \{a_1,a_2,\ldots,a_n\},
+   \ldots
+   \right\}.
+\end{equation*}
+
+This enumerates all subsets of $\Omega$. However, we need a better way to describe the power set.
+\end{enumerate}
+
+\end{example}\subsubsection{Continuous Sample Space}
+
+\begin{itemize}
+\item For a continuous sample space, such as $\Omega=(0,\infty)$, there are uncountably infinitely many outcomes. Therefore, the enumeration method used in the finite case cannot be used to construct the event class.
+\item To discuss the solution, we first need to study set operations.
+\end{itemize}
+
+\subsection{Set Operations}
+
+\begin{itemize}
+\item \textbf{Union}:
+$A\cup B=\{x\in\Omega:x\in A\text{ or }x\in B\}$
+\item \textbf{Intersection}:
+$A\cap B=\{x\in\Omega:x\in A\text{ and }x\in B\}$
+\item \textbf{Complement}:
+$A^c=\{x\in\Omega:x\notin A\}$
+\item \textbf{Difference}:
+$A \setminus B =
+\{x\in\Omega:x\in A \text{ and } x\notin B\}
+= A\cap B^c$
+\end{itemize}
+
+\begin{remark}[De Morgan’s Laws]\begin{enumerate}
+\item $(A\cup B)^c=A^c\cap B^c$.
+\item $(A\cap B)^c=A^c\cup B^c$.
+\end{enumerate}
+
+\end{remark}\begin{proof}We prove the first identity as an example.
+
+Since
+\begin{align*}
+   x\in(A\cup B)^c
+   &\Rightarrow x\notin A\cup B \\
+   &\Rightarrow x\notin A\text{ and }x\notin B \\
+   &\Rightarrow x\in A^c\text{ and }x\in B^c \\
+   &\Rightarrow x\in A^c\cap B^c,
+   \end{align*}
+we have $(A\cup B)^c\subseteq A^c\cap B^c$.
+
+Conversely, since
+\begin{align*}
+   x\in A^c\cap B^c
+   &\Rightarrow x\in A^c\text{ and }x\in B^c \\
+   &\Rightarrow x\notin A\text{ and }x\notin B \\
+   &\Rightarrow x\notin A\cup B \\
+   &\Rightarrow x\in(A\cup B)^c,
+   \end{align*}
+we have $A^c\cap B^c\subseteq(A\cup B)^c$.
+
+Combining the two inclusions gives
+$(A\cup B)^c=A^c\cap B^c$.
+
+\end{proof}\begin{remark}Union and complement are enough to specify all other set operations.
+
+\end{remark}\subsection{Field (Algebra)}
+
+\begin{itemize}
+\item A \textbf{field (algebra)} is a collection of subsets of $\Omega$ that is closed under union and complement and contains both $\emptyset$ and $\Omega$. Thus, $\mathcal{F}$ is a field if it satisfies the following conditions:
+
+\begin{enumerate}
+\item $\emptyset\in\mathcal{F}$ and $\Omega\in\mathcal{F}$.
+\item If $A\in\mathcal{F}$ and $B\in\mathcal{F}$, then $A\cup B\in\mathcal{F}$.
+\item If $A\in\mathcal{F}$, then $A^c\in\mathcal{F}$.
+\end{enumerate}
+
+
+\item Operationally, a field contains all subsets of $\Omega$ that can be obtained by applying a finite number of set operations.
+\end{itemize}
+
+\begin{remark}For any finite $\Omega$, the power set $2^\Omega$ is a field.
+
+\end{remark}\subsection{$\sigma$-Field ($\sigma$-Algebra)}
+
+\begin{itemize}
+\item A field $\mathcal{F}$ is a \textbf{$\sigma$-field} if it satisfies the additional condition
+
+\begin{enumerate}[resume]
+\item If $A_1,A_2,\ldots\in\mathcal{F}$, then
+$\bigcup_{i=1}^{\infty}A_i\in\mathcal{F}$.
+\end{enumerate}
+
+
+\item Operationally, a $\sigma$-algebra contains all subsets of $\Omega$ that can be obtained through a countable number of set operations.
+\end{itemize}
+
+\begin{remark}For countably infinite $\Omega$, $2^\Omega$ is a $\sigma$-field.
+
+\end{remark}\subsubsection{Generating a $\sigma$-Field}
+
+\begin{itemize}
+\item For a continuous (uncountably infinite) sample space $\Omega$, we often \textit{generate} $\sigma$-fields from collections of subsets of $\Omega$.
+\item For a collection $\mathcal{A}$ of subsets of $\Omega$, consider the $\sigma$-field generated by $\mathcal{A}$: the smallest $\sigma$-field containing every subset that can be formed by performing countable set operations on members of $\mathcal{A}$.
+\item The $\sigma$-field generated by $\mathcal{A}$ is denoted by $\sigma(\mathcal{A})$.
+\end{itemize}
+
+\subsection{Event Class for a Continuous Sample Space}
+
+\begin{itemize}
+\item For a continuous (uncountably infinite) sample space $\Omega$, we consider event classes that are $\sigma$-fields on $\Omega$.
+\end{itemize}
+
+\begin{example}[Event class for ]\textbf{$\Omega=\mathbb{R}$}\\
+\begin{itemize}
+\item Consider the collection $\mathcal{A}$ of all subsets of $\mathbb{R}$ of the form $( -\infty,a)$ for some $a\in\mathbb{R}$.
+\item The $\sigma$-field generated by $\mathcal{A}$ is called the \textit{Borel $\sigma$-field}. It is commonly used as an event class for the sample space $\mathbb{R}$.
+\item The Borel $\sigma$-field contains essentially all events of practical interest.
+\item Although the \textit{Borel sets} form a very rich class of subsets of $\mathbb{R}$, some subsets of $\mathbb{R}$ are not Borel sets. This is critically important for allowing the likelihoods of events to be quantified.
+\end{itemize}
+
+\end{example}\subsection{Description of a Random Experiment}
+
+\begin{itemize}
+\item The sample space $\Omega$ and an event class $\mathcal{F}$ can be used to describe a random experiment mathematically.
+\item We also need a way to quantify the likelihood of events. This is done by a mapping called a \textit{probability measure} $P$, which will be discussed in the next section.
+\item In summary, the mathematical object describing a random experiment is the triple
+$(\Omega,\mathcal{F},P)$,
+called the \textit{\textbf{probability space}} of the random experiment.
+\end{itemize}
