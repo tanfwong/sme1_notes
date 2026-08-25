@@ -15,6 +15,10 @@ project:
       title: Introduction
     - file: probspace.md
       title: Probability Space
+    - file: probspace.md
+      title: Probability Space
+    - file: probmeasure.md
+      title: Probability Measure
   exports:
     - format: pdf
       template: curvenote 
@@ -23,5 +27,5 @@ site:
   template: book-theme
   options:
   #   favicon: favicon.ico
-    logo: logo.png
+    logo: images/logo.png
 
