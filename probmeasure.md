@@ -72,7 +72,7 @@ $a>0$,
 
 ## Properties of Probability
 - Assuming all subsets of $\Omega$ below are in the event class
-$\mathcal{F}, listed below are some direct consequences of the axioms of
+$\mathcal{F}$, listed below are some direct consequences of the axioms of
 probability:
 :::{prf:property}
 4. $P(\emptyset)=0$
