@@ -15,8 +15,6 @@ project:
       title: Introduction
     - file: probspace.md
       title: Probability Space
-    - file: probspace.md
-      title: Probability Space
     - file: probmeasure.md
       title: Probability Measure
   exports:
