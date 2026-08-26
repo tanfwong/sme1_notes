@@ -27,13 +27,13 @@ numbering:
 :::{prf:example}
 1. *Tossing a fair coin:* $\Omega=\{H, T\}, \mathcal{F}=2^{\Omega}$,
   $$
-  P(\emptyset)=0, P(\Omega)=1, P(\{H\})=\frac{1}{2}, P\{(T\})=\frac{1}{2}.
+  P(\emptyset)=0, P(\Omega)=1, P(\{H\})=\frac{1}{2}, P(\{T\})=\frac{1}{2}.
   $$
     - We can easily verify that $P$ satisfies all three axioms above.
 
 2. *Randomly choosing a natural number:* $\Omega=\{0,1,2, \ldots\},
 \mathcal{F}=2^{\Omega}$,
-  $$ P(\empty)=0, P(\Omega)=1,
+  $$ P(\emptyset)=0, P(\Omega)=1,
   P(\{n\})=\left(\frac{1}{2}\right)^{n+1} 
   $$ 
   and employ Axiom 1.3 to completely define $P$.
