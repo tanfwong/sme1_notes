@@ -65,9 +65,9 @@ $a>0$,
   here. Interested students can see a standard measure theory
   textbook, e.g., Billingsley.
 
-- Event classes described by a $\sigma$-fields are sufficient in
-  practice. There is no need to consider those "crazy" and exotic
-  subsets.
+- Event classes described by $\sigma$-fields are sufficient for
+  practical purposes. There is no need to consider those "crazy" and
+  exotic subsets. 
 :::
 
 ## Properties of Probability
