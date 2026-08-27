@@ -75,6 +75,7 @@ $a>0$,
 $\mathcal{F}$, listed below are some direct consequences of the axioms of
 probability:
 :::{prf:property}
+%:::{prf:lemma}
 4. $P(\emptyset)=0$
 5. $P(A \setminus B)=P(A)-P(A \cap B)$
 6. $P(A)=1-P\left(A^{c}\right)$ 
@@ -174,4 +175,53 @@ To prove the countable infinite result, we need to look at 2 different cases:
   $$
   P\left(\bigcup_{i=1}^{\infty} A_{i}\right) \leq \sum_{i=1}^{\infty} P\left(A_{i}\right).
   $$
+:::
+
+## Conditional Probability
+- **<u>Intuition:</u>** Want to quantify the "likelihood"of an event
+  given that we know another event happens. We may do so based on the
+  intuition from relative frequency.
+- Start from a probability space $(\Omega, \mathcal{F}, P)$. Given an
+  event $A \in \mathcal{F}$ with $P(A)>0$, define the mapping $P(
+  \cdot \mid A) : \mathcal{F} \rightarrow [0.1]$ by
+  
+  $$ 
+  P(B \mid A) = \frac{P(A \cap B)}{P(A)} 
+  $$ 
+
+  for every $B \in \mathcal{F}$.
+- It is easy to verify that $P(\cdot \mid A)$ satisfies the
+  3 axioms of probability. Hence, it is a probability measure, and $(\Omega, F,
+  P(\cdot \mid (A))$ forms another probability space.
+- The probability measure $P(\cdot \mid (A))$ is often called the _**conditional probability given
+  $A$**_.
+
+:::{prf:example} Tossing a fair coin twice
+Start with the probability space $(\Omega, \mathcal{F}, P)$, where 
+$\Omega=\{H H, T T, H T, T H\}$, $\mathcal{F}=2^{\Omega}$ and
+
+$$
+P(\{H H\})=P(\{T T\})=P(\{H T\})=P(\{T H\}) =\frac{1}{4}.
+$$
+
+Consider the event $A$ of same faces in both tosses, i.e., $A=\{HH,
+TT\}$. By Axiom 1.3,
+
+$$
+P(A) = P(\{HH\}) + P(\{TT\}) = \frac{1}{4} + \frac{1}{4} = \frac{1}{2} > 0,
+$$
+
+and hence we can define the conditional probability given $A$ as
+above. 
+
+Let $B$ be the event that we get a head in the first toss and a tail
+in the second, i.e., 
+$B=\{H T\}$. Then the conditional probability of $B$ given $A$ is
+
+$$
+P(B \mid A) = \frac{P(A \cap B)}{P(A)}=\frac{P(\{(HH, T T\} \cap\{H T\})}{P(A)}
+=\frac{P(\emptyset)}{P(A)}=0.
+$$
+
+*Does this match your intuition?*
 :::
