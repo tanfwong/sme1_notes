@@ -244,7 +244,8 @@ $$
   - $\bigcup_{i=1}^{n} A_{i}=\Omega$.
 
 :::{prf:lemma} Total Probability and Bayes' Rule
-Suppose that $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
+Let $A_{1}, A_{2}, \ldots, A_{n} \in \mathcal{F}$
+partition $\Omega$, and $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
 
 1. ***Law of total probability***: For any $B \in \mathcal{F}$,
   $$
@@ -256,8 +257,27 @@ Suppose that $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
   P\left(A_{j} \mid B\right)=\frac{P\left(B \mid A_{j}\right) \cdot P\left(A_{j}\right) }{\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right)} 
   $$
 :::
-%Prof: $B=B \cap \Omega=B \cap\left(\bigcup_{i=1}^{n} A_{i}\right)=\bigcup_{i=1}^{n}\left(B \cap A_{i}\right)$
-%Also $\left(B \cap A_{i}\right) \cap\left(B \cap A_{j}\right)=B \cap\left(A_{i} \cap A_{j}\right)=B \cap \phi=\phi$% for $i \neq j$ By axiom (3), $P(B)=P\left(\bigcup_{i=1}^{n}\left(B \cap A_{i}\right)\right)=\sum_{i=1}^{n} P\left%(B \cap A_{i}\right)$
-%$$
-%=\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right) .
-%$$
+:::{prf:proof}
+:enumerated: false
+1. Since $A_{1}, A_{2}, \ldots, A_{n} \in \mathcal{F}$ partition $\Omega$,
+  $$
+  B=B \cap \Omega=B \cap\left(\bigcup_{i=1}^{n}
+  A_{i}\right)=\bigcup_{i=1}^{n}\left(B \cap A_{i}\right),
+  $$
+  and
+  $$
+  \left(B \cap A_{i}\right) \cap\left(B \cap A_{j}\right)=B
+  \cap\left(A_{i} \cap A_{j}\right)=B \cap \emptyset =\emptyset
+  $$
+  for $i \neq j$. 
+  Hence, by Axiom 1.3, 
+  $$
+  \begin{aligned}
+  P(B) &=
+  P\left(\bigcup_{i=1}^{n}\left(B \cap A_{i}\right)\right) \\
+  &=\sum_{i=1}^{n} P\left(B \cap A_{i}\right) \\
+  &=\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right).
+  \end{aligned}
+  $$
+2. Use Remark 2 and the law of total probability.
+:::
