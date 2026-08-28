@@ -183,7 +183,7 @@ To prove the countable infinite result, we need to look at 2 different cases:
   intuition from relative frequency.
 - Start from a probability space $(\Omega, \mathcal{F}, P)$. Given an
   event $A \in \mathcal{F}$ with $P(A)>0$, define the mapping $P(
-  \cdot \mid A) : \mathcal{F} \rightarrow [0.1]$ by
+  \cdot \mid A) : \mathcal{F} \rightarrow [0,1]$ by
   
   $$ 
   P(B \mid A) = \frac{P(A \cap B)}{P(A)} 
@@ -192,8 +192,8 @@ To prove the countable infinite result, we need to look at 2 different cases:
   for every $B \in \mathcal{F}$.
 - It is easy to verify that $P(\cdot \mid A)$ satisfies the
   3 axioms of probability. Hence, it is a probability measure, and $(\Omega, F,
-  P(\cdot \mid (A))$ forms another probability space.
-- The probability measure $P(\cdot \mid (A))$ is often called the _**conditional probability given
+  P(\cdot \mid A))$ forms another probability space.
+- The probability measure $P(\cdot \mid A)$ is often called the _**conditional probability given
   $A$**_.
 
 :::{prf:example} Tossing a fair coin twice
@@ -225,3 +225,39 @@ $$
 
 *Does this match your intuition?*
 :::
+
+- The following simple but useful fact is a direct consequence of the
+  definition of conditional probability:
+
+:::{prf:remark}
+If $A, B \in \mathcal{F}$ satisfying $P(A)>0$ and $P(B)>0$, then
+
+$$
+P(A \mid B) P(B)=P(B \mid A) P(A) = P(A \cap B).
+$$
+:::
+
+
+- We say that $A_{1}, A_{2}, \ldots, A_{n} \in \mathcal{F}$
+  ***partition*** $\Omega$ if
+  - $A_{i} \cap A_{j} = \emptyset$ for $i \neq j$ and 
+  - $\bigcup_{i=1}^{n} A_{i}=\Omega$.
+
+:::{prf:lemma} Total Probability and Bayes' Rule
+Suppose that $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
+
+1. ***Law of total probability***: For any $B \in \mathcal{F}$,
+  $$
+  P(B)=\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right).
+  $$
+
+2. ***Bayes' rule***: If $B \in \mathcal{F}$ satisfies $P(B)>0$, then
+  $$
+  P\left(A_{j} \mid B\right)=\frac{P\left(B \mid A_{j}\right) \cdot P\left(A_{j}\right) }{\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right)} 
+  $$
+:::
+%Prof: $B=B \cap \Omega=B \cap\left(\bigcup_{i=1}^{n} A_{i}\right)=\bigcup_{i=1}^{n}\left(B \cap A_{i}\right)$
+%Also $\left(B \cap A_{i}\right) \cap\left(B \cap A_{j}\right)=B \cap\left(A_{i} \cap A_{j}\right)=B \cap \phi=\phi$% for $i \neq j$ By axiom (3), $P(B)=P\left(\bigcup_{i=1}^{n}\left(B \cap A_{i}\right)\right)=\sum_{i=1}^{n} P\left%(B \cap A_{i}\right)$
+%$$
+%=\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right) .
+%$$
