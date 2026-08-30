@@ -254,9 +254,13 @@ partition $\Omega$, and $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
 
 2. ***Bayes' rule***: If $B \in \mathcal{F}$ satisfies $P(B)>0$, then
   $$
-  P\left(A_{j} \mid B\right)=\frac{P\left(B \mid A_{j}\right) \cdot P\left(A_{j}\right) }{\sum_{i=1}^{n} P\left(B \mid A_{i}\right) P\left(A_{i}\right)} 
+  P\left(A_{i} \mid B\right)=\frac{P\left(B \mid A_{i}\right) \cdot P\left(A_{i}\right) }{\sum_{j=1}^{n} P\left(B \mid A_{j}\right) P\left(A_{j}\right)} 
   $$
 :::
+- $ P\left(A_{i}\right)$ and $P\left(A_{i} \mid B\right)$ are often
+  referred to as ***a priori*** and ***a posteriori*** probability,
+  respectively.
+
 :::{prf:proof}
 :enumerated: false
 1. Since $A_{1}, A_{2}, \ldots, A_{n} \in \mathcal{F}$ partition $\Omega$,
@@ -281,3 +285,66 @@ partition $\Omega$, and $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
   $$
 2. Use Remark 2 and the law of total probability.
 :::
+
+## Independent Events
+- Consider the probability space $(\Omega, F, P)$. The events $A_{1},
+ A_{2}, \ldots A_{n} \in \mathcal{F}$ are said to be 
+ ***(statistical) independent*** if
+  $$
+  \begin{aligned}
+  P\left(A_{i} \cap A_{j}\right)&=P\left(A_{i}\right) P\left(A_{j}\right) \\
+  P\left(A_{i} \cap A_{j} \cap A_{k}\right)&=P\left(A_{i}\right) P\left(A_{j}\right) P\left(A_{k}\right) \\
+  & ~~\vdots \\
+  P\left(A_{1} \cap A_{2} \cap \cdots \cap A_{n}\right)&=P\left(A_{1}\right) P\left(A_{2}\right) \cdots P\left(A_{n}\right)
+  \end{aligned}
+  $$
+  for all $1 \leq i<j<k<\ldots \leq n$.
+
+:::{prf:example} Throwing a fair dice.
+$$
+\Omega=\{1,2, \ldots, 6\}, \quad F=2^{\Omega}, \quad P(\{1\})=\cdots=P(\{6\})=\frac{1}{6} .
+$$
+Consider the events
+$$
+\begin{aligned}
+A &=\{\text {Getting an even number}=\{2,4,6\} \\
+B &=\{\text {Getting a number} \leq 2\}=\{1,2\} \\
+C &= \{\text {Getting a number} \geq 5\}=\{5,6\}.
+\end{aligned}
+$$
+Then
+$$
+\begin{aligned}
+P(A) &= \frac{1}{6} + \frac{1}{6} +\frac{1}{6} = \frac{1}{2} \\
+P(B) & = \frac{1}{6} + \frac{1}{6} = \frac{1}{3} \\
+P(C) &= \frac{1}{6} + \frac{1}{6} = \frac{1}{3}.
+\end{aligned}
+$$
+Since
+$$
+P(A \cap B)=P(\{2\})=\frac{1}{6}=\frac{1}{2} \times \frac{1}{3}=P(A) P(B),
+$$
+the events $A$ and $B$ are independent.
+Similarly, the events $A$ and $C$ are independent because
+$$
+P(A\cap C)=P(\{6\})=\frac{1}{6}=\frac{1}{2} \times \frac{1}{3}=P(A) P(C).
+$$
+However, the events $A$, $B$, and $C$ considered
+together are not independent as
+$$
+P(B \cap C)=P(\emptyset)=0 \neq \frac{1}{3} \times \frac{1}{3}=P(B)
+P(C).
+$$
+:::
+
+- Note that the concept of independence is with respect to (w.r.t.) a
+   probability space. Events that are independent w.r.t. one
+   probability space may not be independent w.r.t. another. 
+- For example, let $B \in \mathcal{F}$ with $P(B)>0$. Consider the
+  probability space $(\Omega, \mathcal{F}, P\left(\cdot \mid
+  B\right) )$, events that are independent w.r.t. $(\Omega, \mathcal{F}, P\left(\cdot \mid
+  B\right) )$ is referred to as ***conditionally independent given
+  $B$***. Events that are independent may not be conditionally
+  independent or vice versa. 
+   
+
