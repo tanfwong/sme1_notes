@@ -286,7 +286,7 @@ partition $\Omega$, and $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
 2. Use Remark 2 and the law of total probability.
 :::
 
-## Independent Events
+## Statistical Independence
 - Consider the probability space $(\Omega, F, P)$. The events $A_{1},
  A_{2}, \ldots A_{n} \in \mathcal{F}$ are said to be 
  ***(statistical) independent*** if
