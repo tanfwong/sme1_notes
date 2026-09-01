@@ -254,7 +254,7 @@ partition $\Omega$, and $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
 
 2. ***Bayes' rule***: If $B \in \mathcal{F}$ satisfies $P(B)>0$, then
   $$
-  P\left(A_{i} \mid B\right)=\frac{P\left(B \mid A_{i}\right) \cdot P\left(A_{i}\right) }{\sum_{j=1}^{n} P\left(B \mid A_{j}\right) P\left(A_{j}\right)} 
+  P\left(A_{i} \mid B\right)=\frac{P\left(B \mid A_{i}\right) P\left(A_{i}\right) }{\sum_{j=1}^{n} P\left(B \mid A_{j}\right) P\left(A_{j}\right)} 
   $$
 :::
 - $ P\left(A_{i}\right)$ and $P\left(A_{i} \mid B\right)$ are often
@@ -307,7 +307,7 @@ $$
 Consider the events
 $$
 \begin{aligned}
-A &=\{\text {Getting an even number}=\{2,4,6\} \\
+A &=\{\text {Getting an even number} \}=\{2,4,6\} \\
 B &=\{\text {Getting a number} \leq 2\}=\{1,2\} \\
 C &= \{\text {Getting a number} \geq 5\}=\{5,6\}.
 \end{aligned}
@@ -348,3 +348,207 @@ $$
   independent or vice versa. 
    
 
+## Bernoulli Trials and Binomial Distribution
+- The following sequence of examples summarize the concepts
+  and tools discussed in the previous sections.
+:::{prf:example} Bernoulli trial
+- Consider tossing a, possibly unfair, coin once:\
+  The probability space is $(\Omega, 2^{\Omega}, P)$, where
+  $$
+  \Omega=\{H, T\}, \quad P(\{H\})=p, \text{ and } P(\{T\})=q,
+  $$
+  where $p+q=1$.
+- This random experiment with the probability space $(\Omega,
+  2^{\Omega}, P)$ is called a ***Bernoulli trial***.
+:::
+:::{prf:example} Pair of independent Bernoulli trials
+- Next, consider tossing the same coin twice:\
+  The probability space is $(\Omega^2, 2^{\Omega^2}, P_2)$, where
+  $$
+  \Omega^{2}=\Omega \times \Omega = \{H H, T T, H T, T H\}
+  $$
+  and
+  $$
+  P_2(\{H H\})=p^{2}, \quad P_2(\{H T\})=p q, \quad P_2(\{T H\})=q p,
+  \quad P_2(\{T T\})=q^{2}.
+  $$
+  By Axiom 1.3, the probability of any event in $2^{\Omega^2}$ can be
+  expressed in terms of $p^2$, $q^2$, and $pq$.
+
+- Consider the event $H_1$ that the first toss results in a $H$
+  and the event $H_2$ that the second toss results in a $H$, i.e.,
+  $H_1=\{HH, HT\}$ and $H_2=\{HH, TH\}$. Also note that $H_1^c = \{
+  TH, TT\}$ and
+  $H_2^c = \{HT, TT\}$ are the events that the first and the second toss results in
+  a $T$, respectively. We have
+  $$
+  \begin{aligned}
+  P_2(H_1) &= p^2 + pq = p  = P(\{H\})\\
+  P_2(H_1^c) &= 1-P_2(H_1) = q = P(\{T\})\\
+  P_2(H_2) & = p^2 + qp = p = P(\{H\})\\\
+  P_2(H_2^c) &= 1 - P_2(H_2) = q = P(\{T\}).
+  \end{aligned}
+  $$
+  In addition, 
+  $$
+  \begin{aligned}
+  P_2(\{HH\}) & = p \times p = P_2(H_1) \times P_2(H_2) = P(\{H\})
+  \times P(\{H\}) \\
+  P_2(\{HT\}) & = p \times q = P_2(H_1) \times P_2(H_2^c) = P(\{H\})
+  \times P(\{T\}) \\
+  P_2(\{TH\}) & = q \times p = P_2(H_1^c) \times P_2(H_2) = P(\{T\})
+  \times P(\{H\}) \\
+  P_2(\{TT\}) & = q \times q = P_2(H_1^c) \times P_2(H_2^c) = P(\{T\})
+  \times P(\{T\}).
+  \end{aligned}
+  $$
+- Hence, we may interpret the probability space $(\Omega^2,
+  2^{\Omega^2}, P_2)$ as $(\Omega \times \Omega, 2^{\Omega} \times
+  2^{\Omega}, P \times P)$. We may also interpret the latter as the
+  Cartesian product $(\Omega, 2^\Omega, P) \times (\Omega, 2^\Omega,
+  P)$, which has the intuition that each of the two tosses can be
+  considered individually as a single toss without influence from the other
+  toss (aka *independent*). 
+- This random experiment with the probability space $(\Omega,
+  2^\Omega, P)^2$ is referred to as a ***pair of independent Bernoulli
+  trials***.
+- Note that this interpretation of the random experiment as independent Bernoulli
+  trials is valid only for the specific probability measure $P_2$ on $(\Omega^2,
+  2^{\Omega^2})$. 
+:::
+
+:::{prf:example} Sequence of $n$ independent Bernoulli trials
+- Continue in the same way as the previous example, we can construct
+  the probability space $(\Omega^n, (2^{\Omega})^n, P^n)$ or $(\Omega,
+  2^\Omega, P)^n$ to describe a ***sequence of $n$ independent Bernoulli
+  trials***.
+  
+ - The probability for any singleton event $S$ that is a sequence of faces with 
+  $k$ $H$s and $(n-k)$ $T$s,  for $0 \leq k \leq n$, is
+  $$
+  P^n(S)=p^{k} q^{n-k}.
+  $$
+- Using Axiom 1.3, the probability of any other event can that be determined. 
+:::
+:::{prf:example} Binomial distribution
+- Consider the sequence of $n$ independent Bernoulli trials with the
+  probability space $(\Omega, 2^\Omega, P)^n$ in the previous example.
+- For $0 \leq k \leq n$, let $A_k$ be the event that there are exactly
+  $k$ $H$s and $(n-k)$ $T$s in the $n$ tosses. 
+- Clearly, $A$ is the union of all singleton events, each of which
+  corresponds to a specific  sequence of faces with 
+  $k$ $H$s and $(n-k)$ $T$s. By Axiom 1.3, we have then
+  $$ 
+  P^n(A_k)=\left(\text {\# of sequences with } k \, H\text{s and } (n-k)
+  \, T\text{s}\right) \cdot p^{k} q^{n-k}.
+  $$
+
+- So it remains to count the number of sequences with $k$ $H$s and
+  $(n-k)$ $T$s. That is, to find the number of ways to pick $k$ $H$s
+  in $n$ tosses or equivalently to select $k$ numbers, without
+  replacement, from $\{1,2, \ldots, n\}$ as one may interpret the
+  selected numbers as the position of the $k$ $H$s in the $n$ tosses.
+- To count the number of ways, notice that we can pick from $n$
+  numbers in the first selection, from $(n-1)$ numbers in the second
+  selection, and so on until the $k$th selection for which we can pick
+  from $(n-k)$ numbers. Thus, there are altogether $n (n-1) (n-2)
+  \cdots (n-k+1)$ possible ways to pick $k$ numbers from $\{1,2,
+  \ldots, n\}$.
+- But some of the selections above give the same set of positions,
+  e.g., $\{1,2, \ldots, k\}$ gives the same set of positions as $\{k,
+  k-1, \ldots, 1\}$. Specifically, all rearrangenat of any selection
+  give the same set of positions. For every set of positions, there
+  are $k(k-1) \cdots 2 \cdot 1$ rearrangements.
+- Hence, the number of sequences  with $k$ $H$s is
+  $$ 
+  \frac{n (n-1) (n-2) \cdots (n-k+1)}{ k(k-1) \cdots 2 \cdot 1} =
+  \frac{n!}{(n-k)!k!}=\binom{n}{k} 
+  $$
+  and 
+  $$
+  P^n(A_k)=\binom{n}{k} p^{k} q^{n-k}.
+  $$
+- As will be introduced later under a bit different context, the
+  probability assignments for the events $A_0, A_1, \ldots, A_n$ form
+  the ***binomial distribution***.
+:::
+
+:::{prf:example} Law of total probability
+- Now, consider a game that includes two rounds of tossing the
+  coin. In the first round, the coin is tossed in $n$ times as in the
+  previous examples. In the second round, the coin is tossed $k$ times
+  where $k$ is the number of $H$s obtained in the first round of
+  tossing. 
+
+- It is not hard to see that the probability space $(\Omega^{2n},
+  (2^{\Omega})^{2n}, \tilde P)$ can describe the random experiment,
+  where $\tilde P$ is the probability measure that specifies the
+  possibility assignment to events that conforms to the two rounds of
+  independent Bernoulli trials.
+
+- The specification of $\tilde P$ can be made easy using the concept
+  of conditional probability and the law of total probability. \
+  Let $A_{k}$ be the event of getting (exactly) $k$ $H$s in the first round of
+  tossing and $B_l$ be the event of getting (exactly) $l$ $H$s in the
+  second round of tossing. Our goal here is to calculate $\tilde P(B_l)$.
+
+- First, we clearly have
+  $$
+  \tilde P(A_k) = P^n(A_k) = \binom{n}{k} p^{k} q^{n-k}
+  $$
+  from the previous example.
+
+- According to rule of the game, the event
+  $$
+  B_{l} \cap A_{k} =\begin{cases}
+  \emptyset & \text { if } l>k \\ 
+  \{ l \ H\text {s in } k \text { tosses }\} \cap A_k & 
+  \text { if } l \leq k 
+  \end{cases}
+  $$
+  and hence
+  $$
+  \tilde P(B_l \mid A_k) = \begin{cases}
+  0 & \text { if } l > k \\
+  P^k \left(  \{ l \ H\text {s in } k \text { tosses }\}\right) = \binom{k}{l} p^{l} q^{k-l} 
+  & \text { if } l \leq k.
+  \end{cases}
+  $$
+ 
+- Since $A_0, A_1, \ldots, A_n$ partition $\Omega^{2n}$, using the
+  low of total probability, we have
+  $$
+  \begin{aligned}
+  \tilde P\left(B_{l}\right) &=
+  \sum_{k=0}^{n} \tilde P\left(B_{l} \mid A_{k}\right) 
+  \tilde P\left(A_{k}\right) \\
+  &=\sum_{k=l}^{n}\binom{k}{l} p^{l} q^{k-l}
+  \cdot\binom{n}{k} p^{k} q^{n-k} \\
+  &=\sum_{k=l}^{n} \frac{n!}{(n-k)!(k-l)!l!}\left(p^{2}\right)^{l}(p
+  q)^{k-l} q^{n-k}.
+  \end{aligned}
+  $$
+
+- The term $\left(p^{2}\right)^{l}(p q)^{k-l} q^{n-k}$ corresponds to
+  the probability of any singleton with the choice of $l$ $HH$s,
+  $(n-l)$ $HT$s, and $(n-k)$ $T$s in the combined two rounds of
+  tosses. In addition, the ***multinomial*** term
+  $\frac{n!}{(n-k)!(k-l)!l!}$ tells us how many ways such a pattern
+  can be made.
+
+- Using Bayes' rule, we can also calculate the *a posteriori* probability 
+  $$
+  \begin{aligned}
+  \tilde P\left(A_{k} \mid B_{l}\right) 
+  &=\frac{\tilde P\left(B_{l} \mid A_{k}\right) \tilde
+  P\left(A_{k}\right)}{\tilde P\left(B_{l}\right)} \\
+  & = \begin{cases}
+  0 & \text { if } l>k \\ 
+  \displaystyle
+  \frac{\frac{n!}{(n-k)!(k-l)!l!}
+  \left(p^{2}\right)^{l}\left(pq\right)^{k-l} q^{n-k}}{\sum_{m=l}^{n} \frac{n!}{(n-m)!(m-l)!l!}\left(p^{2}\right)^{l}(p q)^{m-l} q^{n-k}}
+  & \text { if } l \leq k.
+  \end{cases}
+  \end{aligned}
+  $$
+:::
