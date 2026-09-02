@@ -336,7 +336,14 @@ P(B \cap C)=P(\emptyset)=0 \neq \frac{1}{3} \times \frac{1}{3}=P(B)
 P(C).
 $$
 :::
-
+:::{prf:remark}
+- If $A, B \in \mathcal{F}$ are independent and $P(A)>0$, then
+  $$
+  P(B|A) = \frac{P(A) P(B)}{P(A)} = P(B). 
+  $$
+- This gives the common intuition of independence that knowing $A$
+happens does not affect the "likelihood" of $B$.
+:::
 - Note that the concept of independence is with respect to (w.r.t.) a
    probability space. Events that are independent w.r.t. one
    probability space may not be independent w.r.t. another. 
@@ -357,7 +364,7 @@ $$
   $$
   \Omega=\{H, T\}, \quad P(\{H\})=p, \text{ and } P(\{T\})=q,
   $$
-  where $p+q=1$.
+  with the restriction $p+q=1$.
 - This random experiment with the probability space $(\Omega,
   2^{\Omega}, P)$ is called a ***Bernoulli trial***.
 :::
