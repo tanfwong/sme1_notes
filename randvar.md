@@ -127,3 +127,62 @@ numbering:
   :height: 300px
   ```
 :::
+
+:::{prf:property} Properties of cdf
+1. $F_{X}(x)$ is a non-decreasing function of $x$, i.e, if $x_{1}
+  \leq x_{2}$, then $F_{X}(x_{1}) \leq F_{X}(x_{2})$.
+
+2. For any $x_1 \leq x_2$, we have $F_{X}(x_2)-F_{X}(x_1) = P(x_1<X \leq
+x_2)$.
+
+3. $\lim_{x \rightarrow \infty} F_{X}(x)=1$ and $\lim_{x \rightarrow
+   -\infty} F_{X}(x)=0$. Because of the existence of the limits, we will
+   simply write $F_X(\infty) = 1$ and $F_X(-\infty) = 0$ for shorter
+   notation.
+
+4. $F_{X}(x)$ is a continuous from the right, i.e.,
+  $F_{X}(x)=\lim_{\epsilon \downarrow 0} F_{X}(x+\epsilon)$.
+:::
+
+:::{prf:proof}
+:enumerated: false
+1. Fix $x_1 \leq x_2$. Consider the events $\left\{ X \leq x_{1}\right\}$, $\left\{X \leq
+   x_{2}\right\}$, and $\left\{x_{1}<X \leq x_{2}\right\}$. Note that
+   $\left\{X \leq x_{2}\right\} = \left\{X \leq x_{1}\right\}
+   \cup \left\{x_{1}< X \leq x_{w}\right\}$ and
+   $\left\{X \leq x_{1}\right\}
+   \cap \left\{x_{1}< X \leq x_{w}\right\} = \emptyset$.
+   Hence by Axiom 1.3,
+   $$
+   \begin{aligned}
+   F_X\left(x_{2}\right) &=P\left(X \leq x_{2}\right) \\
+   & = P\left(X \leq x_{1}\right) + P\left(x_{1}< X \leq x_{2}\right) \\
+   & = F_{X}\left(x_{1}\right) + P\left(x_{1}< X \leq x_{2}\right)
+   \end{aligned}
+   $$
+   By Axiom 1.1, $P\left(x_{1}<X \leq x_{2}\right) \geq 0$, and hence
+   $F_{X}\left(x_{2}\right) \geq F_X\left(x_{1}\right)$. 
+2. Proved in the process above.
+3. We prove $\lim _{x \rightarrow \infty} F_{X}(x) = 1$ here. The
+  other assertion can be proved in a similar manner.\
+  First, note that for any $x \in \mathbb{R}$, there are integers
+  such that $m \leq x \leq n$, e.g., $m=\lfloor x\rfloor$ and
+  $n=\lceil x\rceil$. From Property 1.1, we there $F_{X}(m) \leq
+  F_{X}(x) \leq F_{X}(n)$. Thus, if we can show $\lim _{n \rightarrow
+  \infty} F_{X}(n) = 1$, then $\lim _{x
+  \rightarrow \infty} F_X(x) =1$.
+  To that end, consider the event $\bigcup_{n=1}^{\infty}\{X \leq
+  n\}=\Omega$, and note that $\{X\leq 1\} \subseteq \{X \leq 2\}
+  \subseteq \cdots$. From the continuity (from below) of probability
+  measure, we have
+  $$
+  \begin{aligned}
+  1 &=P(\Omega) \\
+  & =P\left(\bigcup_{i=1}^{\infty}\{X \leq i\}\right) \\
+  & =\lim_{n \rightarrow \infty} P\left(\bigcup_{i=1}^{n}\{X \leq i\}\right) \\
+  & =\lim_{n \rightarrow \infty} P(X \leq n) \\
+  & =\lim _{n \rightarrow \infty} F_{X}(n).
+  \end{aligned}
+  $$
+
+:::

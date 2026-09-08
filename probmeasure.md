@@ -165,7 +165,8 @@ To prove the countable infinite result, we need to look at 2 different cases:
   \end{aligned}
   $$
   Thus $P\left(\bigcup_{i=1}^{n} A_{i}\right) \uparrow
-  P\left(\bigcup_{i=1}^{\infty} A_{i}\right)$.  \
+  P\left(\bigcup_{i=1}^{\infty} A_{i}\right)$. This result is often
+  referred as the ***continuity (from below)*** of probability measure. \
   From the finite case, we have 
   $$
   P\left(\bigcup_{i=1}^{n} A_{i}\right) 
