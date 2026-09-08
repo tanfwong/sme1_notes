@@ -52,6 +52,9 @@ numbering:
   $$
   for every $S \in \mathcal{B}$.
 - $P_{X}$ is usually called the ***distribution*** of the r.v. $X$.
+- We often directly use the r.v. $X$ and its distribution $P_X$,
+  without referring back to the underlying probability space $(\Omega,
+  \mathcal{F}, P)$, as a shortcut to describe a random experiment.
 
 ## Cumulative Distribution Function
 - Defined the ***cumulative distribution function (cdf)*** of $X$ as
@@ -91,6 +94,35 @@ numbering:
 
   ```{image} images/bernoulli_cdf.png
   :alt: cdf of Bernoulli r.v.
+  :align: center
+  :height: 300px
+  ```
+
+2. Random-point temperature:
+  $$
+  \Omega=(0, \infty), \quad \mathcal{F}=\mathcal{B}(0, \infty) \quad,
+  \quad P((0, a))=
+  \begin{cases}
+  0 & \text{ if } a<210 \\
+  \frac{a-210}{120} & \text{ if } 210 \leq a<330 \\
+  1 & \text{ if } a \geq 330.
+  \end{cases}
+  $$
+
+  - Let $X: \Omega \rightarrow \mathbb{R}$ be the "identity" mapping
+    that $X(\omega) = \omega$ for all $\omega \in \Omega$. Clearly,
+    $X$ is measurable and hence a random variable.
+  - The cdf of $X$ is given by (see Property 1.3 below)
+  $$
+  F_{X}(x)=P(X \leq x)=
+  \begin{cases}
+  0 & \text{ if } x<210 \\
+  \frac{x-210}{120} & \text{ if } 210 \leq x<330 \\
+  1 & \text{ if } x\geq 330.
+  \end{cases}
+  $$
+  ```{image} images/unif_cdf.png
+  :alt: cdf of uniform r.v.
   :align: center
   :height: 300px
   ```
