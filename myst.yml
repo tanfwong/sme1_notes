@@ -17,6 +17,8 @@ project:
       title: Probability Space
     - file: probmeasure.md
       title: Probability Measure
+    - file: randvar.md
+      title: Random Variable
   exports:
     - format: pdf
       template: curvenote 

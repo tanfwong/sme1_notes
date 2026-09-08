@@ -6,7 +6,7 @@ numbering:
 # Probability Measure
 
 ## Axioms of Probability
-- With $(\Omega, F)$ specified, we can now assign *probabilities*
+- With $(\Omega, \mathcal{F})$ specified, we can now assign *probabilities*
   (measures of how likely events may occur) to the events in
   $\mathcal{F}$.
 - Such an assignment is done by a _**probability measure**_ 
@@ -191,8 +191,8 @@ To prove the countable infinite result, we need to look at 2 different cases:
 
   for every $B \in \mathcal{F}$.
 - It is easy to verify that $P(\cdot \mid A)$ satisfies the
-  3 axioms of probability. Hence, it is a probability measure, and $(\Omega, F,
-  P(\cdot \mid A))$ forms another probability space.
+  3 axioms of probability. Hence, it is a probability measure, and
+  $(\Omega, \mathcal{F}, P(\cdot \mid A))$ forms another probability space.
 - The probability measure $P(\cdot \mid A)$ is often called the _**conditional probability given
   $A$**_.
 
@@ -287,7 +287,7 @@ partition $\Omega$, and $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
 :::
 
 ## Statistical Independence
-- Consider the probability space $(\Omega, F, P)$. The events $A_{1},
+- Consider the probability space $(\Omega, \mathcal{F}, P)$. The events $A_{1},
  A_{2}, \ldots A_{n} \in \mathcal{F}$ are said to be 
  ***(statistical) independent*** if
   $$
@@ -302,7 +302,7 @@ partition $\Omega$, and $P\left(A_{i}\right)>0$ for all $i=1, \ldots, n$.
 
 :::{prf:example} Throwing a fair dice.
 $$
-\Omega=\{1,2, \ldots, 6\}, \quad F=2^{\Omega}, \quad P(\{1\})=\cdots=P(\{6\})=\frac{1}{6} .
+\Omega=\{1,2, \ldots, 6\}, \quad \mathcal{F}=2^{\Omega}, \quad P(\{1\})=\cdots=P(\{6\})=\frac{1}{6} .
 $$
 Consider the events
 $$
@@ -523,7 +523,7 @@ happens does not affect the "likelihood" of $B$.
   $$
  
 - Since $A_0, A_1, \ldots, A_n$ partition $\Omega^{2n}$, using the
-  low of total probability, we have
+  law of total probability, we have
   $$
   \begin{aligned}
   \tilde P\left(B_{l}\right) &=
