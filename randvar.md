@@ -349,3 +349,40 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
     \end{aligned}
     $$
 :::
+
+## Probability Mass Function
+- For a discrete r.v. $X$, let its countable range be $\left\{x_{1},
+  x_{2}, \ldots\right\}$. Then, the cdf of $X$ is given by
+  $$
+  F_{X}(x)=P(X \leq x) = \sum_{i: x_{i} \leq x} P\left(X=x_{i}\right).
+  $$
+  
+  Thus, $F_{X}(x)$ is in the form of a "staircase" function as shown
+  in the figure below for the case of the range of $X$ is $\{x_1,
+  x_2, x_3\}$: 
+  ```{image} images/staircase.png
+  :alt: Staircase cdf of a discrete r.v.
+  :align: center
+  :height: 350px
+  ```
+- Clearly, the staircase cdf cannot be absolutely continuous and hence
+  no pdf can exist for the discrete r.v. $X$.
+
+- Luckily, in the case of the discrete r.v. $X$, the distribution
+  $P_X$ is convenient enough for us to calculate the cdf.  In
+  particular, we call the probability assignment of the range of $X$
+  by $P_X$ the ***probability mass function (pmf) of $X$***. That is,
+  $$
+  p_{X}(x_{i}) = P_X(\{x_i\}) = P\left(X=x_{i}\right)
+  $$ 
+  for all $x_{i}$ in range of $X$.
+- Thus, we may use the pmf of the discrete r.v. $X$ in a way similar
+  to the pdf of a continuous r.v.. In particular, the cdf of $X$ can
+  again be calculated from the pmf $p_X(x)$ as
+  $$ 
+  F_{X}(x)=\sum_{i: x_{i} \leq x} p_X(x_{i}). 
+  $$
+- Note that the value of $p_{X}\left(x_{i}\right)$ is the height of
+  the jump of the staircase $F_{X}(x)$ at $x=x_{i}$, as shown in the
+  figure above.
+
