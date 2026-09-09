@@ -386,3 +386,45 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
   the jump of the staircase $F_{X}(x)$ at $x=x_{i}$, as shown in the
   figure above.
 
+:::{prf:example}
+1. ***Bernoulli r.v.:***
+  - A discrete r.v. $X$ is called a ***Bernoulli r.v.*** if its range
+  is $\{0,1\}$ and its pmf is given by
+  $$
+  p_{X}(x)= \begin{cases}
+  p & \text{ if } x = 1 \\
+  q & \text{ if } x = 0
+  \end{cases}
+  $$
+  where $p \geq 0$ and $q=1-p$
+
+2. ***Binomial r.v.:***
+  - A discrete r.v. $X$ is called a ***Binomial r.v.*** if its range
+  is $\{0,1,2, \ldots, n\}$ and its pmf is given by
+  $$
+  p_{X}(k)=\binom{n}{k} p^{k} q^{n-k}
+  $$
+  for $k=0,1, \ldots, n$, where $p>0$ and $q=1-p$.
+
+3. ***Poisson r.v.:***
+  - A discrete r.v. $X$ is called a ***Poisson r.v.*** if its range is
+  $\{0,1,2, \ldots\}$ and its pmf is given by
+  $$
+  p_{X}(k)=e^{-\lambda} \frac{\lambda^{k}}{k!}
+  $$ 
+  for $k=0,1,2, \ldots$, where $\lambda>0$.
+:::
+
+:::{prf:remark}
+1. There are random variables that are neither discrete (staircase
+  cdf) nor continuous (absolutely continuous cdf). For such a random
+  variables, neither the pmf nor pdf as described above can be used to
+  calculate the cdf of the random variable.
+2. It turns out that we may unify the two cases of discrete and
+   continuous r.v. above and generalize Theorem 1 to any general
+   r.v. by defining the pdf as the *Radon-Nykodym derivative* of the
+   cdf. Unfortunately, we need much more math machinery in order to
+   describe this approach. For this class, we will restrict ourselves
+   to either discrete and continuous r.v.'s for simplicity..
+
+:::
