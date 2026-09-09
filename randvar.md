@@ -112,7 +112,7 @@ numbering:
   - Let $X: \Omega \rightarrow \mathbb{R}$ be the "identity" mapping
     that $X(\omega) = \omega$ for all $\omega \in \Omega$. Clearly,
     $X$ is measurable and hence a random variable.
-  - The cdf of $X$ is given by (see Property 1.3 below)
+  - The cdf of $X$ is given by (see the proof of Property 1.4 below)
   $$
   F_{X}(x)=P(X \leq x)=
   \begin{cases}
@@ -185,4 +185,21 @@ x_2)$.
   \end{aligned}
   $$
 
+4. Similar to the argument for Property 1.3 above, it suffices to show
+   $$\lim _{n \rightarrow \infty} F_{X}\left(x+\frac{1}{n}\right) =
+   F_{X}(x).$$
+   This is evident from the following argument:
+   $$
+   \begin{aligned}
+   F_X(x) &= P(X \leq x) \\
+   & =P\left(\bigcap_{i=1}^{\infty} \left\{ X \leq
+   x+\frac{1}{i}\right\}\right) \\
+   & =\lim _{n \rightarrow \infty} P\left(X
+   \leq x+\frac{1}{n}\right) \\
+   & = \lim _{n \rightarrow \infty} F_X\left(
+   x+\frac{1}{n}\right)
+   \end{aligned}
+   $$
+   where the third equality is again due to the continuity (from above) of
+   probability measure. 
 :::
