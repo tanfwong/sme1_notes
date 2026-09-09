@@ -129,6 +129,7 @@ numbering:
 :::
 
 :::{prf:property} Properties of cdf
+%:::{prf:lemma} Properties of cdf
 1. $F_{X}(x)$ is a non-decreasing function of $x$, i.e, if $x_{1}
   \leq x_{2}$, then $F_{X}(x_{1}) \leq F_{X}(x_{2})$.
 
@@ -151,7 +152,7 @@ x_2)$.
    $\left\{X \leq x_{2}\right\} = \left\{X \leq x_{1}\right\}
    \cup \left\{x_{1}< X \leq x_{w}\right\}$ and
    $\left\{X \leq x_{1}\right\}
-   \cap \left\{x_{1}< X \leq x_{w}\right\} = \emptyset$.
+   \cap \left\{x_{1}< X \leq x_{2}\right\} = \emptyset$.
    Hence by Axiom 1.3,
    $$
    \begin{aligned}
@@ -202,4 +203,93 @@ x_2)$.
    $$
    where the third equality is again due to the continuity (from above) of
    probability measure. 
+:::
+
+## Probability Density Function
+- Let $F_X(x)$ be the cdf of a r.v. $X$. We say that $F_X(x)$ is
+  ***absolutely continuous*** if:\
+  For every $\epsilon>0$, there exists a $\delta>0$ such that for any
+  finite collection of non-overlapping (i.e., interiors are disjoint)
+  intervals $[a_i, b_i]$, $i=1, 2, \ldots, k$,
+  $$
+  \sum_{i=1}^{k} \left(F_{X}(b_{i})-F_{X}(a_{i})\right) < \epsilon
+  $$
+  whenever $\sum_{i=1}^{k}\left(b_{i}-a_{i}\right) < \delta$.
+
+:::{prf:remark}
+If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
+   absolutely continuous.
+:::
+
+:::{prf:theorem} Billingsley Theorem 3.18
+1. A cdf $F_X(x)$ is absolutely continuous  if and only If
+  $$
+  F_X(x) = \int_{-\infty}^x f_X(\xi) d\xi
+  $$ 
+  for an integrable $f_X(x)$.
+
+2. If $F_X(x)$ is absolutely continuous, its derivative
+  $F_{X}^{\prime}(x) = f_X(x)$ on $\mathbb{R}$ except perhaps for a
+  subset of length $0$.
+:::
+
+- The function $f_X(x)$ is called the ***probability density
+  function*** of the r.v. $X$.
+- If the pdf $f_X(x)$ exists, the r.v. $X$ is called a ***continuous
+  random variable***.
+- Below is a list of immediate properties of the pdf:
+  
+:::{prf:property} Properties of pdf
+1. $f_{X}(x) \geq 0$.
+2. $\int_{-\infty}^{\infty} f_{X}(x) dx =
+  F_{X}(\infty)-F_{X}(-\infty)=1$.
+3. $\int_{x_{1}}^{x_{2}} f_X(x) dx =F_X(x_{2})-F_{X}(x_{1}) =
+  P\left(x_{1}<X \leq x_{2}\right)$ for any $x_{1} < x_{2}$.
+4. If the pdf $f_X(x)$ exists, then $P(X=x)=0$. (Why?)
+
+:::
+
+:::{prf:example}
+1. ***Gaussion (Normal) r.v. $\mathcal{N}\left(\mu,
+   \sigma^{2}\right)$:***
+
+  - A continuous r.v. $X$ is called ***Gaussian (normal) r.v.*** if its pdf is given by
+    $$
+    f_X(x)=\frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}}
+    $$
+    where the parameters $\mu$ and $\sigma^2$, respectively called the ***mean*** and
+    ***variance***, completely specify the Gaussian r.v.. 
+  - It is not hard to check that they satisfy the following equations: 
+    $$
+    \begin{aligned}
+    \mu &=\int_{-\infty}^{\infty} x f_X(x) dx \\
+    \sigma^{2} &=\int_{-\infty}^{\infty}(x-\mu)^{2} f_{X}(x) d x.
+    \end{aligned}
+    $$
+  ```{image} images/normal_pdf.png
+  :alt: pdfs of Gaussian r.v.'s
+  :align: center
+  :height: 400px
+  ```
+  - By Theorem 1, the cdf of the Gaussian r.v. $X$ is given by
+    $$
+    \begin{aligned}
+    F_{X}(x) & =\int_{-\infty}^{x} f_{X}(\xi) d\xi \\
+    & =\int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi \sigma^{2}}}
+    e^{-\frac{(\xi-\mu)^{2}}{2 \sigma^{2}}} d \xi \\
+    & =\int_{-\infty}^{\frac{x-\mu}{\sigma}} \frac{1}{\sqrt{2 \pi}}
+    e^{-\frac{\xi^{2}}{2}} d \xi \\
+    & =\Phi\left(\frac{x-\mu}{\sigma}\right)=1-Q\left(\frac{x-\mu}{\sigma}\right)
+    \end{aligned}
+    $$
+    where 
+    $$
+    \Phi(x)=\int_{-\infty}^{x} \frac{1}{\sqrt{2 \pi}} e^{-\frac{\xi^{2}}{2}} d \xi
+    $$ 
+    is the cdf of the ***standard normal r.v.*** ($\mu=0$ and
+    $\sigma^2 =1$) and 
+    $$
+    Q(x)=\int_{x}^{\infty} \frac{1}{\sqrt{2 \pi}} e^{-\frac{\xi^{2}}{2}} d \xi
+    $$
+    is called the ***Q-function***, which is the tail probability of a standard normal r.v.. 
 :::
