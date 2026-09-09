@@ -250,10 +250,10 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
 :::
 
 :::{prf:example}
-1. ***Gaussion (Normal) r.v. $\mathcal{N}\left(\mu,
-   \sigma^{2}\right)$:***
+1. ***Gaussion (Normal) r.v.*** $\mathcal{N}\left(\mu,
+   \sigma^{2}\right)$***:***
 
-  - A continuous r.v. $X$ is called ***Gaussian (normal) r.v.*** if its pdf is given by
+  - A continuous r.v. $X$ is called a ***Gaussian (normal) r.v.*** if its pdf is given by
     $$
     f_X(x)=\frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}}
     $$
@@ -292,4 +292,60 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
     Q(x)=\int_{x}^{\infty} \frac{1}{\sqrt{2 \pi}} e^{-\frac{\xi^{2}}{2}} d \xi
     $$
     is called the ***Q-function***, which is the tail probability of a standard normal r.v.. 
+
+2. ***Exponential r.v.:***
+  - A continuous r.v. $X$ is called an ***exponential r.v.*** if its pdf is given by
+  $$
+  f_{X}(x)=\begin{cases}
+  \lambda e^{-\lambda x} & \text{ if } x \geq 0 \\
+  0 & \text{ if } x<0
+  \end{cases}
+  $$
+  where the parameter $\lambda>0$.
+  - By Theorem 1, the cdf of the exponential r.v. $X$ is given by
+    $$
+    \begin{aligned}
+    F_{X}(x) & =\int_{-\infty}^{x} f_{X}(\xi) d\xi \\
+    & = \int_{0}^{x} \lambda e^{-\lambda \xi}  d\xi \\
+    & = 1 - e^{-\lambda x}.
+    \end{aligned}
+    $$
+
+3. ***Uniform r.v.*** on $(a, b)$***:***
+  - A continuous r.v. $X$ is called an ***uniform r.v.*** on the
+  interval $(a, b)$ if its pdf is given by
+  $$
+  f_{X}(x)=\begin{cases}
+  \frac{1}{b-a} & \text{ if } a<x<b \\
+  0 & \text { otherwise }.
+  \end{cases}
+  $$
+  - By Theorem 1, the cdf of the uniform r.v. $X$ is given by
+    $$
+    \begin{aligned}
+    F_{X}(x) & =\int_{-\infty}^{x} f_{X}(\xi) d\xi \\
+    & =\begin{cases}
+    0 & \text { if } x \leq a \\
+    \frac{x-a}{b-a} & \text{ if } a<x<b \\
+    1 & \text{ if } x\geq b.
+    \end{cases}
+    \end{aligned}
+    $$
+
+4. ***Laplacian r.v.:***
+  - A continuous r.v. $X$ is called an ***Laplacian r.v.*** if its pdf is given by
+  $$
+  f_{X}(x)=\frac{1}{\sqrt{2} \sigma} e^{-\frac{\sqrt{2}|x|}{\sigma}} 
+  $$
+  where the parameter $\sigma >0$.
+  - By Theorem 1, the cdf of the Laplacian r.v. $X$ is given by
+    $$
+    \begin{aligned}
+    F_{X}(x) &=\int_{-\infty}^{x} f_{X}(\xi) d\xi \\
+    & =\begin{cases}
+    \frac{1}{2} e^{\frac{x}{\sigma}} & \text { if } x \leq 0 \\
+    1- \frac{1}{2} e^{-\frac{x}{\sigma}} & \text{ if } x \geq 0.
+    \end{cases}
+    \end{aligned}
+    $$
 :::
