@@ -247,8 +247,13 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
 3. $\int_{x_{1}}^{x_{2}} f_X(x) dx =F_X(x_{2})-F_{X}(x_{1}) =
   P\left(x_{1}<X \leq x_{2}\right)$ for any $x_{1} < x_{2}$.
 4. If the pdf $f_X(x)$ exists, then $P(X=x)=0$. (Why?)
-
+5. For any Borel set $S\in \mathbb{B}$, $P(X\in S) = \int_S f_X(x)
+dx$.
 :::
+- Note that we need the math machinery of Lebesgue integral in order
+  to understand the general form of Property 2.5. For here, we may
+  restrict ourselves to the special case of $S$ being a countable union of
+  intervals. 
 
 :::{prf:example}
 1. ***Gaussion (Normal) r.v.*** $\mathcal{N}\left(\mu,
@@ -498,5 +503,85 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
   \sigma^{2}}}  & \text { if } x \geq \mu.
   \end{cases}
   $$
+:::
+:::{prf:lemma} Law of total probability
+1. Suppose that $A_{1}, A_2, \ldots, A_n$ partition $\Omega$ with
+  $P\left(A_{i}\right)>0$ for each $i=1,2,\ldots,n$. Then 
+  $$
+  F_{X}(x)=\sum_{i=1}^{n} F_{X}\left(x \mid A_{i}\right)
+  P\left(A_{i}\right). 
+  $$ 
+2. Further, if $F_X\left(x \mid A_{i}\right)$ is absolutely continuous
+  for each $i=1,2,\ldots,n$, then 
+  $$
+  f_{X}(x)=\sum_{i=1}^{n} f_{X}\left(x \mid A_{i}\right) P\left(A_{i}\right). 
+  $$
+:::
+
+:::{prf:lemma} Bayes' rule
+Let $X$ be a continuous r.v. with pdf $f_X(x)$ and $B \in
+  \mathcal{F}$ with $P(B)>0$. Further, assume that $F_{X}(x \mid B)$
+      is absolutely continuous and hence the conditional pdf $f_X(x
+  \mid B)$ exists. 
+1. For any $x \in \mathbb{R}$, other than perhaps for
+   a subset of length $0$, with $f_X(x)>0$, the limit
+    $$
+    \lim _{\Delta x \downarrow 0} P(B \mid x< X \leq x+\Delta x)
+    $$ 
+    exists.
+2. Denote the limit in 1. as $P(B \mid X=x)$ when it exists. We have
+   $$
+   P\left(B \mid X=x\right)=\frac{f_{X}(x \mid B) P(B)}{f_{X}(x)}.
+   $$
+3. The following version of the law of total probability also holds:
+   $$
+   P(B) = \int_{-\infty}^{\infty} P(B \mid X=x) f_{X}(x) dx.
+   $$
+:::
+:::{prf:proof}
+:enumerated: false
+1. Consider the event $\left\{x<X \leq x+\Delta x\right\}$ where
+   $\Delta x>0$. If $f_X(x)>0$, then by Property 2.3
+   $$
+   P\left(x<X \leq x+\Delta x\right) = \int_x^{x+\Delta x} f_X(\xi)
+   d\xi > 0
+   $$
+   where the inequality is due to Billingsley Theorem 31.4, whose
+   details will be skipped over here to avoid introducing more math
+   machinery. 
+   Then, by Bayes' rule and Property 1.2, we have
+   $$
+   \begin{aligned}
+   P(B \mid x<X \leq x+\Delta x) 
+   & =\frac{P(x<X \leq x+\Delta x \mid B) P(B)}{P(x<X \leq x+\Delta x)} \\
+   & =\frac{\frac{F_{X}(x+\Delta x \mid B)-F_X(x\mid B)}{\Delta x}
+   }{\frac{F_{X}(x+\Delta x)-F_{X}(x)}{\Delta x}} \, P(B).
+   \end{aligned}
+   $$
+   From Theorem 1, $F_{X}^{\prime}(x)=f_{X}(x)$ and $F_{X}^{\prime}(x
+   \mid B)=f_{X}(x \mid B)$ on $\mathbb{R}$ except perhaps for a
+   subset of length $0$. As a result, the assertion holds.
+
+2. Clearly, taking limits on both sides of the equation in 1. above,
+   we have $P\left(B \mid X=x\right)=\frac{f_{X}(x \mid B)
+   P(B)}{f_{X}(x)}$.
+
+3. Let $S \subseteq \mathbb{R}$ be the ***support*** of $f_X(x)$,
+   i.e. $S=\{x\in\mathbb{R}: f_X(x)>0\}$. Then
+   $$
+   \begin{aligned}
+   \int_{-\infty}^{\infty} P(B \mid X=x) f_{X}(x) dx 
+   & = \int_{S} \frac{f_{X}(x \mid B) P(B)}{f_{X}(x)}  \, f_{X}(x) dx \\
+   & = P(B) \int_{S} f_{X}(x \mid B)  dx \\
+   & = P(B) \int_{-\infty}^{\infty} f_{X}(x \mid B)  dx \\
+   & = P(B)
+   \end{aligned}
+   $$
+   where the last equality is due to Property 2.2, and the third equality can be explained as follows:\
+   For any $x\in S$, $f_X(x)=0$. Thus, by Property 2.5, $P(X \in S) = 0$, which
+   implies $P(X\in S \mid B) = 0$. Using Property 2.5 again, we must have
+   $f_X(x\mid B)=0$ for all $x\in S$.
 
 :::
+
+
