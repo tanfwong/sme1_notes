@@ -540,16 +540,18 @@ Let $X$ be a continuous r.v. with pdf $f_X(x)$ and $B \in
 :::
 :::{prf:proof}
 :enumerated: false
-1. Consider the event $\left\{x<X \leq x+\Delta x\right\}$ where
-   $\Delta x>0$. If $f_X(x)>0$, then by Property 2.3
+1. First, we claim that $P\left(x<X \leq x+\Delta
+   x\right) > 0$ for all $\Delta x>0$. Otherwise, suppose that there
+   exists a $\Delta x> 0$ such that $P\left(x<X \leq x+\Delta
+   x\right) = 0$. Then, $P\left(x<X \leq x+\epsilon
+   \right) = 0$ for all $0<\epsilon \leq \Delta x$. But by Theorem 1 and
+   Property 1.2, we would have 
    $$
-   P\left(x<X \leq x+\Delta x\right) = \int_x^{x+\Delta x} f_X(\xi)
-   d\xi > 0
+   f_X(x) = \lim_{\epsilon \downarrow 0} \frac{F_X(x+\epsilon) -
+   F_X(x)}{\epsilon} = \lim_{\epsilon \downarrow 0} \frac{P\left(x<X \leq x+\epsilon\right)}{\epsilon} = 0,
    $$
-   where the inequality is due to Billingsley Theorem 31.4, whose
-   details will be skipped over here to avoid introducing more math
-   machinery. 
-   Then, by Bayes' rule and Property 1.2, we have
+   contradicting the assumption that $f_X(x)>0$.\
+   Hence, by Bayes' rule and Property 1.2, we have
    $$
    \begin{aligned}
    P(B \mid x<X \leq x+\Delta x) 
