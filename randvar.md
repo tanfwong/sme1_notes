@@ -168,7 +168,7 @@ x_2)$.
   other assertion can be proved in a similar manner.\
   First, note that for any $x \in \mathbb{R}$, there are integers
   such that $m \leq x \leq n$, e.g., $m=\lfloor x\rfloor$ and
-  $n=\lceil x\rceil$. From Property 1.1, we there $F_{X}(m) \leq
+  $n=\lceil x\rceil$. From Property 1.1, we have $F_{X}(m) \leq
   F_{X}(x) \leq F_{X}(n)$. Thus, if we can show $\lim _{n \rightarrow
   \infty} F_{X}(n) = 1$, then $\lim _{x
   \rightarrow \infty} F_X(x) =1$.
@@ -234,12 +234,13 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
 :::
 
 - The function $f_X(x)$ is called the ***probability density
-  function*** of the r.v. $X$.
+  function (pdf)*** of the r.v. $X$.
 - If the pdf $f_X(x)$ exists, the r.v. $X$ is called a ***continuous
   random variable***.
 - Below is a list of immediate properties of the pdf:
   
 :::{prf:property} Properties of pdf
+%:::{prf:lemma} Properties of pdf
 1. $f_{X}(x) \geq 0$.
 2. $\int_{-\infty}^{\infty} f_{X}(x) dx =
   F_{X}(\infty)-F_{X}(-\infty)=1$.
@@ -426,5 +427,76 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
    cdf. Unfortunately, we need much more math machinery in order to
    describe this approach. For this class, we will restrict ourselves
    to either discrete and continuous r.v.'s for simplicity..
+
+:::
+
+## Conditional Distribution
+
+- Starting from $(\Omega, \mathcal{F}, P)$. Let $B \in \mathcal{F}$
+  with $P(B)>0$. Let $X$ be a r.v. defined on $(\Omega, \mathcal{F},
+  P)$. The ***conditional distribution of $X$ given $B$*** is
+  defined as 
+  $$
+  P_{X}(S \mid B) = P\left(X^{-1} (S) \mid B\right)= \frac{P\left(X^{-1}(S) \cap B\right)}{P(B)} 
+  $$ 
+  for all $S \in \mathcal{B}$
+- Clearly, $\left(\mathbb{R}, \mathcal{B}, P_{X}(\cdot \mid B)\right)$
+  forms a probability space.
+- We may define the ***conditional cdf of $X$ conditioned on $B$*** as
+  $$
+  F_{X}(x \mid B) = P_{X}((-\infty, x] \mid B) = \frac{P(\{X \leq x\} \cap B)}{P(B)}
+  $$
+  for any $x \in \mathbb{R}$.
+- Of course, $F_{X}(x \mid B)$ satisfies all properties of a cdf as
+  listed in Property 1 above.
+
+- Particularly, if $F_{X}(x \mid B)$ is absolutely continuous, then 
+  $$
+  F_{X}(x \mid B)=\int_{-\infty}^{x} f_{X}(\xi \mid B) d \xi
+  $$
+  where the integrable $f_{X}(x \mid B)$ is called the ***conditional
+  pdf of $X$ given $B$***.
+
+:::{prf:example}
+- Consider $X$ is a Gaussian r.v. with mean $\mu$ and variance
+  $\sigma^2$. Hereafter, we may use the abbreviated notation $X \sim
+  \mathcal{N}\left(\mu, \sigma^{2}\right)$ to say the same
+  assumption.
+- Consider the event $\{X \geq \mu\}$. Since 
+  $$
+  \begin{aligned}
+  P(X \geq \mu) 
+  &= \int_{\mu}^{\infty} \frac{1}{\sqrt{2 \pi \sigma^{2}}}
+  e^{-\frac{(\xi-\mu)^{2}}{2 \sigma^{2}}} d \xi \\
+  & =\int_{0}^{\infty} \frac{1}{\sqrt{2 \pi}}
+  e^{-\frac{\xi^{2}}{2}} d \xi \\
+  & =Q\left(0\right) = \frac{1}{2} > 0,
+  \end{aligned}
+  $$
+  we have
+  $$
+  \begin{aligned}
+  F_{X}\left(x \mid X \geq \mu \right)
+  & =\frac{P(X \leq x, X \geq \mu)}{P(X \geq \mu)} \\
+  & =\begin{cases}
+  P(\emptyset) & \text { if } x<\mu \\
+  \frac{P( \mu \leq X \leq x)}{P(X \geq \mu)} & \text { if } x \geq \mu
+  \end{cases} \\
+  & =\begin{cases}
+  0 & \text { if } x<\mu \\
+  \frac{\Phi\left(\frac{x-\mu}{\sigma}\right)-\frac{1}{2}}{\frac{1}{2}} & \text { if } x \geq \mu
+  \end{cases}
+  \end{aligned}
+  $$
+  and 
+  $$
+  f_{X}\left(x \mid X \geq \mu \right) 
+  = F_{X}^{\prime}\left(x \mid X \geq \mu \right) 
+  =\begin{cases}
+  0 & \text { if } x<\mu \\
+  \frac{2}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2
+  \sigma^{2}}}  & \text { if } x \geq \mu.
+  \end{cases}
+  $$
 
 :::
