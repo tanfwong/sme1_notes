@@ -447,7 +447,7 @@ dx$.
   for all $S \in \mathcal{B}$
 - Clearly, $\left(\mathbb{R}, \mathcal{B}, P_{X}(\cdot \mid B)\right)$
   forms a probability space.
-- We may define the ***conditional cdf of $X$ conditioned on $B$*** as
+- We may define the ***conditional cdf of $X$ given $B$*** as
   $$
   F_{X}(x \mid B) = P_{X}((-\infty, x] \mid B) = \frac{P(\{X \leq x\} \cap B)}{P(B)}
   $$
@@ -585,5 +585,62 @@ Let $X$ be a continuous r.v. with pdf $f_X(x)$ and $B \in
    $f_X(x\mid B)=0$ for all $x\in S$.
 
 :::
+- When applying Lemma 2 to practical problem, we often use it
+  "backward" by specifying $P(B \mid X=x)$ (assuming its existence)
+  and then use the lemma's results to calculate $P(B)$ and
+  $f_X(x|B)$. This process is shown in the following example.
 
+:::{prf:example}
+- Recall from the Bernoulli trial example in the previous section, the
+  bias of a coin is often specified by the probability of getting a $H$. 
 
+- Suppose a coin maker tries to make a biased coin by adding different
+  amounts of metal to its two faces ($H$ and $T$). In the production
+  process, the coin maker cannot achieve good quality control on the
+  exact amount of metal added to each face. The poor quality control
+  in the coin making process can be described
+  by a uniform r.v. $X$ on $(0,1)$ such that the 
+  probability of tossing the coin after it is made and getting a $H$
+  is $X$.
+- Note that this description is not exactly the same as specifying
+  $P(B\mid X=x)$ since it says that the probability is a random
+  variable while $P(B\mid X=x)$ is the limit of a sequence of
+  probability values. The two concepts are different, and we will delve
+  deeper into the former later.
+- For now, let us just fudge the specification a bit by accepting that 
+  $P(H \mid X=x) = x$ (clearly, $B = \{ H\}$ in this example).
+  
+- Now, by Lemma 2, we get
+  $$
+  \begin{aligned}
+  P(H) & =\int_{-\infty}^{\infty} P(H \mid X=x) f_{X}(x) d x \\
+  & =\int_{0}^{1} x d x\\
+  & =\frac{1}{2},
+  \end{aligned}
+  $$
+   just the same as tossing a fair coin! 
+- Hence, the moral of the example is that we need not to worry
+   about a biased coin as long as the quality control of the coin maker
+   is poor!
+- Further, using the Bayes's rule, we get
+   $$
+  \begin{aligned}
+   f_X(x\mid H) &= \frac{P(H \mid X=x) f_X(x)}{P(H)} \\
+   & = \begin{cases}
+   2x & \text{ if } 0 < x < 1 \\
+   0 & \text{ otherwise.}
+   \end{cases}
+  \end{aligned}
+  $$
+- Hence, by Property 2.3,
+   $$
+  \begin{aligned}
+   P\left( X > \frac{1}{2} \middle| H\right) &= 
+   \int_{\frac{1}{2}}^{\infty} f_X(x\mid H) dx \\
+   &= \int_{\frac{1}{2}}^{1} 2x dx \\
+   & = \frac{3}{4},
+    \end{aligned}
+   $$
+   i.e., after seeing a $H$, then we may conclude that it is more
+   likely for the coin to bias towards $H$!
+:::
