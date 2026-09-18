@@ -437,7 +437,7 @@ dx$.
 
 ## Conditional Distribution
 
-- Starting from $(\Omega, \mathcal{F}, P)$. Let $B \in \mathcal{F}$
+- Starting from $(\Omega, \mathcal{F}, P)$, let $B \in \mathcal{F}$
   with $P(B)>0$. Let $X$ be a r.v. defined on $(\Omega, \mathcal{F},
   P)$. The ***conditional distribution of $X$ given $B$*** is
   defined as 
@@ -622,7 +622,7 @@ Let $X$ be a continuous r.v. with pdf $f_X(x)$ and $B \in
 - Hence, the moral of the example is that we need not to worry
    about a biased coin as long as the quality control of the coin maker
    is poor!
-- Further, using the Bayes's rule, we get
+- Further, using Bayes's rule, we get
    $$
   \begin{aligned}
    f_X(x\mid H) &= \frac{P(H \mid X=x) f_X(x)}{P(H)} \\

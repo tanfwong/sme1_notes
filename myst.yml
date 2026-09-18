@@ -19,6 +19,8 @@ project:
       title: Probability Measure
     - file: randvar.md 
       title: Random Variable
+    - file: jdistr.md 
+      title: Random Pair
   exports:
     - format: pdf
       template: curvenote 
