@@ -119,7 +119,62 @@ numbering:
   are the pdfs of the random variables $X$ and $Y$, respectively. They
   are often referred to as ***marginal*** pdfs.
 
-## Joint Probability Mass Functon
+:::{prf:example} Joint continuous random pair
+   Consider the joint pdf of $(X,Y)$ as shown in the plot below:
+   ```{image} images/jcont.png
+   :alt: Joint pdf and cdf for a continuous random pair
+   :align: center
+   :height: 350px
+   ```
+   The joint cdf 
+   $$
+   \begin{aligned}
+   F_{X,Y}(x, y) & =\int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(u, v) d v d u \\
+   & = \begin{cases}
+   0 & \text{ if  }  x<0 \text{ or } y<0 \\
+   2 x y & \text{ if  } x \geq 0, y \geq 0, x+y<1 \\
+   2 x y-(x+y-1)^{2} & \text{ if  } 0\leq x<1, 0 \leq y<1, x+y \geq 1 \\
+   2 x-x^{2} & \text{ if  } 0 \leq x<1, y \geq1 \\
+   2 y-y^{2} & \text{ if  } x \geq 1 , 0 \leq y<1 \\
+   1 & \text{ if  } x \geq 1,y \geq 1
+   \end{cases}
+   \end{aligned}
+   $$
+   and the marginal cdfs
+   $$
+   \begin{aligned}
+   F_{X}(x) &=F_{X,Y}(x, \infty)=
+   \begin{cases}
+   0 & \text{ if  } x<0 \\
+   2 x-x^{2} & \text{ if  }  0 \leq x<1 \\
+   1 & \text{ if  }  x \geq 1
+   \end{cases} \\
+   F_{Y}(y) &=F_{X,Y}(\infty, y)=
+   \begin{cases}
+   0 & \text{ if  } y<0 \\
+   2 y-y^{2} & \text{ if  }  0 \leq y<1 \\
+   1 & \text{ if  }  y \geq 1.
+   \end{cases}
+   \end{aligned}
+   $$
+   Thus, the marginal pdfs
+   $$
+   \begin{aligned}
+   f_{X}(x) &=\frac{d F_{X}(x)}{d x}
+   =\begin{cases}
+   2-2 x &  \text{ if  }  0 \leq x<1 \\
+   0 &  \text {otherwise}
+   \end{cases} \\
+   f_{Y}(y) &=\frac{d F_{Y}(y)}{d y}
+   =\begin{cases}
+   2-2 y &  \text{ if  }  0 \leq y<1 \\
+   0 &  \text {otherwise.}
+   \end{cases}
+   \end{aligned}
+   $$
+:::
+
+## Joint Probability Mass Function
 - If the range of $(X,Y)$ is discrete, we may define the ***joint
   pmf*** of the random pair be
   $$
@@ -140,8 +195,7 @@ numbering:
   are often referred to as ***marginal*** pmfs.
 
 
-:::{prf:example}
-1. Tossing a coin twice with a skillful hand:\
+:::{prf:example} Tossing a coin twice with a skillful hand
    $\Omega=\{H H, H T, T H, T T\}$, $\mathcal{F}=2^{\Omega}$, and\
    $P(H H)=0.4$, $P(T T)=0.4$, $P(H T)=0.1$, $P(TH)=0.1$.\
    Define the random pair $(X,Y)$ by
@@ -210,57 +264,4 @@ numbering:
    \end{cases}
    $$
 
-2. Continuous random pair:\
-   Consider the joint pdf of $(X,Y)$ as shown in the plot below:
-   ```{image} images/jcont.png
-   :alt: Joint pdf and cdf for a continuous random pair
-   :align: center
-   :height: 350px
-   ```
-   The joint cdf 
-   $$
-   \begin{aligned}
-   F_{X,Y}(x, y) & =\int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(u, v) d v d u \\
-   & = \begin{cases}
-   0 & \text{ if  }  x<0 \text{ or } y<0 \\
-   2 x y & \text{ if  } x \geq 0, y \geq 0, x+y<1 \\
-   2 x y-(x+y-1)^{2} & \text{ if  } 0\leq x<1, 0 \leq y<1, x+y \geq 1 \\
-   2 x-x^{2} & \text{ if  } 0 \leq x<1, y \geq1 \\
-   2 y-y^{2} & \text{ if  } x \geq 1 , 0 \leq y<1 \\
-   1 & \text{ if  } x \geq 1,y \geq 1
-   \end{cases}
-   \end{aligned}
-   $$
-   and the marginal cdfs
-   $$
-   \begin{aligned}
-   F_{X}(x) &=F_{X,Y}(x, \infty)=
-   \begin{cases}
-   0 & \text{ if  } x<0 \\
-   2 x-x^{2} & \text{ if  }  0 \leq x<1 \\
-   1 & \text{ if  }  x \geq 1
-   \end{cases} \\
-   F_{Y}(y) &=F_{X,Y}(\infty, y)=
-   \begin{cases}
-   0 & \text{ if  } y<0 \\
-   2 y-y^{2} & \text{ if  }  0 \leq y<1 \\
-   1 & \text{ if  }  y \geq 1.
-   \end{cases}
-   \end{aligned}
-   $$
-   Thus, the marginal pdfs
-   $$
-   \begin{aligned}
-   f_{X}(x) &=\frac{d F_{X}(x)}{d x}
-   =\begin{cases}
-   2-2 x &  \text{ if  }  0 \leq x<1 \\
-   0 &  \text {otherwise}
-   \end{cases} \\
-   f_{Y}(y) &=\frac{d F_{Y}(y)}{d y}
-   =\begin{cases}
-   2-2 y &  \text{ if  }  0 \leq y<1 \\
-   0 &  \text {otherwise.}
-   \end{cases}
-   \end{aligned}
-   $$
 :::
