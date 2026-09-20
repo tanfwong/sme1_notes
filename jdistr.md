@@ -48,7 +48,8 @@ numbering:
 - As in case of a single r.v., the joint distribution $P_{X,Y}$ is
   completely specified by the joint cdf $F_{X,Y}(x,y)$.
 
-:::{prf:property} Properties of joint cdf
+%:::{prf:property} Properties of joint cdf
+:::{prf:lemma} Properties of joint cdf
 1. $F_{X,Y}(\infty, \infty)=1$, $F_{X,Y}(-\infty,
   y)=F_{X,Y}(x,-\infty)=0$, $F_{X,Y}(x, \infty)=F_{Z}(x)$ and
   $F_{X,Y}(\infty, y)=F_{Y}(y)$.
@@ -70,11 +71,11 @@ numbering:
    \end{aligned}
    $$
    See the figure below for an illustration of this property:
-  ```{image} images/FXY.png
-  :alt: Sqaure area in terms of joint cdf
-  :align: center
-  :height: 300px
-  ```
+   ```{image} images/FXY.png
+   :alt: Sqaure area in terms of joint cdf
+   :align: center
+   :height: 300px
+   ```
 :::
 
 - Referring back to Remark 1.1, $F_X(x)$ and $F_Y(y)$ in Property 1.1
@@ -100,7 +101,8 @@ numbering:
   minimize the amount of math machinery needed here.
 :::
 
-:::{prf:property} Properties of joint pdf
+%:::{prf:property} Properties of joint pdf
+:::{prf:lemma} Properties of joint pdf
 1. $F_{X,Y}(x, y)=\int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(u, v) d
    u d v$.
 2. $f_{X,Y}(x, y)=\frac{\partial^{2} F_{X,Y}(x, y)}{\partial x
@@ -125,7 +127,8 @@ numbering:
   $$
   for all $(x_i, y_j)$ in the ranges of $(X,Y)$.
 
-:::{prf:property} Properties of joint pmf
+:::{prf:lemma} Properties of joint pdf
+%:::{prf:property} Properties of joint pmf
 1. $F_{X,Y}(x,y) = \sum_{x_i \leq x, y_j \leq y} p_{X,Y}(x_i, y_j)$. 
 
 2. $p_{X}\left(x_{i}\right)=\sum_{j} p_{X,Y}\left(x_{i}, y_{j}\right)$
@@ -135,3 +138,78 @@ numbering:
 - Referring back to Remark 1.1, $p_X(x)$ and $p_Y(y)$ in Property 3.2
   are the pmfs of the random variables $X$ and $Y$, respectively. They
   are often referred to as ***marginal*** pmfs.
+
+
+:::{prf:example}
+1. Tossing a coin twice with a skillful hand:\
+   $\Omega=\{H H, H T, T H, T T\}$, $\mathcal{F}=2^{\Omega}$, and\
+   $P(H H)=0.4$, $P(T T)=0.4$, $P(H T)=0.1$, $P(TH)=0.1$.\
+   Define the random pair $(X,Y)$ by
+   $$
+   \begin{aligned}
+   X(HH) &=1, \quad X(HT)=1, \quad X(TT)=0, \quad X(TH)=0\\
+   Y(HH) &=1, \quad Y(HT)=0, \quad Y(TT)=0, \quad Y(TH)=1.
+   \end{aligned}
+   $$
+   Referring to the figure below,
+   ```{image} images/jdiscrete.png
+   :alt: Joint pmf and cdf for a discrete random pair
+   :align: center
+   :height: 350px
+   ```
+   it is not hard to see that the joint pmf 
+   $$ 
+   p_{X,Y}(x, y)= 
+   \begin{cases}
+   0.4 & \text{ if  } (x, y)=(0,0) \\ 
+   0.1 & \text{ if  } (x, y)=(0,1) \\
+   0.1 & \text{ if  } (x, y)=(1,0) \\
+   0.4 & \text{ if  } (x, y)=(1,1) ,
+   \end{cases}
+   $$
+   and thus the marginal pmfs
+   $$
+   \begin{aligned}
+   p_{X}(x) &= p_{X,Y}(x, 0)+p_{X,Y}(x, 1) 
+   = \begin{cases}
+   0.5 & \text{ if  }  x=0 \\
+   0.5 & \text{ if  }  x=1
+   \end{cases} \\
+   p_{Y}(y) &= p_{X,Y}(0, y)+p_{X,Y}(1, y) 
+   = \begin{cases}
+   0.5 & \text{ if  }  y=0 \\
+   0.5 & \text{ if  }  y=1.
+   \end{cases}
+   \end{aligned}
+   $$
+   Hence, the joint cdf
+   $$
+   F_{X,Y}(x, y)=P(X \leq x, Y \leq y) =\begin{cases}
+   0 & \text{ if  } x<0 \text{ or } y<0\\
+   0.4 & \text{ if  } 0 \leq x<1, 0 \leq y<1\\
+   0.5 & \text{ if  } x \geq 1, 0 \leq y<1\\
+   0.5 & \text{ if  } 0 \leq x<1,  y \geq 1\\
+   1 & \text{ if  } x \geq 1, y \geq 1,
+   \end{cases}
+   $$
+   and the marginal cdfs 
+   $$
+   F_{X}(x) =F_{X,Y}(x, \infty)= \begin{cases}
+   0 & \text{ if  }  x<0 \\
+   0.5 & \text{ if  }  0 \leq x<1 \\
+   1 & \text{ if  } x \geq 1,
+   \end{cases}
+   $$
+   and 
+   $$
+   F_{Y}(y)=F_{X,Y}(\infty, y)
+   = \begin{cases}
+   0 & \text{ if  } y<0 \\
+   0.5 & \text{ if  } 0 \leq y<1 \\
+   1 & \text{ if  } y \geq 1.
+   \end{cases}
+   $$
+
+2. 
+
+:::

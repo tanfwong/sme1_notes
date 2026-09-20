@@ -23,7 +23,7 @@ project:
       title: Random Pair
   exports:
     - format: pdf
-      template: curvenote 
+      template: curvenote
 
 site:
   template: book-theme
