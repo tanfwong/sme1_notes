@@ -580,9 +580,9 @@ Let $X$ be a continuous r.v. with pdf $f_X(x)$ and $B \in
    \end{aligned}
    $$
    where the last equality is due to Property 2.2, and the third equality can be explained as follows:\
-   For any $x\in S$, $f_X(x)=0$. Thus, by Property 2.5, $P(X \in S) = 0$, which
-   implies $P(X\in S \mid B) = 0$. Using Property 2.5 again, we must have
-   $f_X(x\mid B)=0$ for all $x\in S$.
+   For any $x\notin S$, $f_X(x)=0$. Thus, by Property 2.5, $P(X \notin S) = 0$, which
+   implies $P(X\notin S \mid B) = 0$. Using Property 2.5 again, we must have
+   $f_X(x\mid B)=0$ for all $x\notin S$.
 
 :::
 - When applying Lemma 2 to practical problem, we often use it
