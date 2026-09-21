@@ -585,7 +585,7 @@ Let $X$ be a continuous r.v. with pdf $f_X(x)$ and $B \in
    $f_X(x\mid B)=0$ for all $x\notin S$.
 
 :::
-- When applying Lemma 2 to practical problem, we often use it
+- When applying Lemma 4 to practical problem, we often use it
   "backward" by specifying $P(B \mid X=x)$ (assuming its existence)
   and then use the lemma's results to calculate $P(B)$ and
   $f_X(x|B)$. This process is shown in the following example.
@@ -602,15 +602,16 @@ Let $X$ be a continuous r.v. with pdf $f_X(x)$ and $B \in
   by a uniform r.v. $X$ on $(0,1)$ such that the 
   probability of tossing the coin after it is made and getting a $H$
   is $X$.
+- In this example, the event $B = \{H\}$.
 - Note that this description is not exactly the same as specifying
-  $P(B\mid X=x)$ since it says that the probability is a random
-  variable while $P(B\mid X=x)$ is the limit of a sequence of
+  $P(H\mid X=x)$ since it says that the probability is a random
+  variable while $P(H\mid X=x)$ is the limit of a sequence of
   probability values. The two concepts are different, and we will delve
   deeper into the former later.
 - For now, let us just fudge the specification a bit by accepting that 
-  $P(H \mid X=x) = x$ (clearly, $B = \{ H\}$ in this example).
+  $P(H \mid X=x) = x$.
   
-- Now, by Lemma 2, we get
+- Now, by Lemma 4, we get
   $$
   \begin{aligned}
   P(H) & =\int_{-\infty}^{\infty} P(H \mid X=x) f_{X}(x) d x \\
