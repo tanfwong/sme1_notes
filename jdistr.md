@@ -48,8 +48,8 @@ numbering:
 - As in case of a single r.v., the joint distribution $P_{X,Y}$ is
   completely specified by the joint cdf $F_{X,Y}(x,y)$.
 
-%:::{prf:property} Properties of joint cdf
-:::{prf:lemma} Properties of joint cdf
+:::{prf:property} Properties of joint cdf
+%:::{prf:lemma} Properties of joint cdf
 1. $F_{X,Y}(\infty, \infty)=1$, $F_{X,Y}(-\infty,
   y)=F_{X,Y}(x,-\infty)=0$, $F_{X,Y}(x, \infty)=F_{Z}(x)$ and
   $F_{X,Y}(\infty, y)=F_{Y}(y)$.
@@ -101,8 +101,8 @@ numbering:
   minimize the amount of math machinery needed here.
 :::
 
-%:::{prf:property} Properties of joint pdf
-:::{prf:lemma} Properties of joint pdf
+:::{prf:property} Properties of joint pdf
+%:::{prf:lemma} Properties of joint pdf
 1. $F_{X,Y}(x, y)=\int_{-\infty}^{x} \int_{-\infty}^{y} f_{X,Y}(u, v) d
    u d v$.
 2. $f_{X,Y}(x, y)=\frac{\partial^{2} F_{X,Y}(x, y)}{\partial x
@@ -182,8 +182,8 @@ numbering:
   $$
   for all $(x_i, y_j)$ in the ranges of $(X,Y)$.
 
-:::{prf:lemma} Properties of joint pdf
-%:::{prf:property} Properties of joint pmf
+%:::{prf:lemma} Properties of joint pdf
+:::{prf:property} Properties of joint pmf
 1. $F_{X,Y}(x,y) = \sum_{x_i \leq x, y_j \leq y} p_{X,Y}(x_i, y_j)$. 
 
 2. $p_{X}\left(x_{i}\right)=\sum_{j} p_{X,Y}\left(x_{i}, y_{j}\right)$

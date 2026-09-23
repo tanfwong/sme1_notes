@@ -74,8 +74,8 @@ $a>0$,
 - Assuming all subsets of $\Omega$ below are in the event class
 $\mathcal{F}$, listed below are some direct consequences of the axioms of
 probability:
-%:::{prf:property}
-:::{prf:lemma}
+:::{prf:property}
+%:::{prf:lemma}
 4. $P(\emptyset)=0$
 5. $P(A \setminus B)=P(A)-P(A \cap B)$
 6. $P(A)=1-P\left(A^{c}\right)$ 

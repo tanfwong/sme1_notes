@@ -128,8 +128,8 @@ numbering:
   ```
 :::
 
-%:::{prf:property} Properties of cdf
-:::{prf:lemma} Properties of cdf
+:::{prf:property} Properties of cdf
+%:::{prf:lemma} Properties of cdf
 1. $F_{X}(x)$ is a non-decreasing function of $x$, i.e, if $x_{1}
   \leq x_{2}$, then $F_{X}(x_{1}) \leq F_{X}(x_{2})$.
 
@@ -239,8 +239,8 @@ If $F_X(x)$ is continuously differentiable, then $F_X(x)$ is
   random variable***.
 - Below is a list of immediate properties of the pdf:
   
-%:::{prf:property} Properties of pdf
-:::{prf:lemma} Properties of pdf
+:::{prf:property} Properties of pdf
+%:::{prf:lemma} Properties of pdf
 1. $f_{X}(x) \geq 0$.
 2. $\int_{-\infty}^{\infty} f_{X}(x) dx =
   F_{X}(\infty)-F_{X}(-\infty)=1$.
