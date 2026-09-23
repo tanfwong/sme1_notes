@@ -435,6 +435,7 @@ dx$.
 
 :::
 
+(rv-condist)=
 ## Conditional Distribution
 
 - Starting from $(\Omega, \mathcal{F}, P)$, let $B \in \mathcal{F}$
@@ -519,6 +520,7 @@ dx$.
 :::
 
 :::{prf:lemma} Bayes' rule
+:label: bayes
 Let $X$ be a continuous r.v. with pdf $f_X(x)$ and $B \in
   \mathcal{F}$ with $P(B)>0$. Further, assume that $F_{X}(x \mid B)$
       is absolutely continuous and hence the conditional pdf $f_X(x
