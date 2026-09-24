@@ -51,7 +51,7 @@ numbering:
 :::{prf:property} Properties of joint cdf
 %:::{prf:lemma} Properties of joint cdf
 1. $F_{X,Y}(\infty, \infty)=1$, $F_{X,Y}(-\infty,
-  y)=F_{X,Y}(x,-\infty)=0$, $F_{X,Y}(x, \infty)=F_{Z}(x)$ and
+  y)=F_{X,Y}(x,-\infty)=0$, $F_{X,Y}(x, \infty)=F_{X}(x)$ and
   $F_{X,Y}(\infty, y)=F_{Y}(y)$.
 
 2. If $x_{1} \leq x_{2}$ and $y_{1} \leq y_{2}$, then
@@ -351,3 +351,51 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   f_{Y}(y)=\int_{-\infty}^{\infty} f_{X,Y}(x, y) d
   x=\int_{-\infty}^{\infty} f_{Y \mid X}(y \mid x) f_{X}(x) d x.
   $$
+
+:::{prf:example} Bivariate Gaussian Distribution
+- The continuous random pair $(X,Y)$ are said to be ***bivariate (jointly)
+  Gaussian*** if its joint pdf $f_{X,Y}(x, y)$ has the form 
+
+  $$
+  \frac{1}{2 \pi \sigma_{x} \sigma_y \sqrt{1-\rho^{2}}} \exp
+  \left\{-\frac{1}{2\left(1-\rho^{2}\right)}\left[\frac{(x-\mu_x)^{2}}{\sigma_{x}^{2}}-2
+  \rho
+  \frac{(x-\mu_x)(y-\mu_y)}{\sigma_{x}\sigma_{y}}+\frac{(y-\mu_y)^{2}}{\sigma_{y}^{2}}\right]\right\}
+  $$
+  where $\mu_x$, $\mu_y$, $\sigma_{x}>0, \sigma_{y}>0$, and
+  $-1<\rho<1$ are parameters of the Gaussian random pair.
+
+- Using Property 2.4, the marginal pdf of $X$ is
+  $$
+  \begin{aligned}
+  & f_{X}(x) =\int_{-\infty}^{\infty} f_{X,Y}(x, y) d y \\
+  & =\left(\frac{1}{\sqrt{2 \pi \sigma^2_{x}}}
+  e^{-\frac{(x-\mu_x)^{2}}{2 \sigma_{x}^{2}}}\right) \\
+ & ~~~~~~ \cdot \underbrace{\frac{1}{\sqrt{2 \pi \sigma^2_{y} (1-\rho^{2})}} \int_{-\infty}^{\infty} \exp \left(-\frac{1}{2 \sigma_{y}^{2}\left(1-\rho^{2}\right)}
+ \left[y-\mu_y-\frac{\rho\sigma_{y}}{\sigma_{x}} (x-\mu_x)\right]^2
+  \right) dy }_{=1}\\
+  & =\frac{1}{\sqrt{2 \pi \sigma_{x}^{2}}} e^{-\frac{(x-\mu_x)^{2}}{2 \sigma_{x}^{2}}}
+  \end{aligned}
+  $$
+  Thus,  $X$ is marginally Gaussian with mean $\mu_x$ and variance $\sigma_x^2$.
+
+- Similarly, $Y$ is also marginally Gaussian with mean $\mu_y$ and
+  variance $\sigma_y^2$. 
+
+- Further, the conditional pdf of $Y$ give $X$ is 
+  $$
+  \begin{aligned}
+  & f_{Y \mid X}(y \mid x) \\
+  &=\frac{f_{X,Y} (x, y)}{f_X(x)} \\
+  & =\frac{1}{\sqrt{2 \pi \sigma_y^{2}\left(1-\rho^{2}\right)}} 
+  \exp \left(-\frac{1}{2 \sigma^{2}_y \left(1-p^{2}\right)}
+  \left[y-\mu y-\frac{\rho \sigma_{y}}{\sigma_{x}}(x-\mu_x)\right]^{2}\right)
+  \end{aligned}
+  $$
+- Notice that for any fixed $x\in\mathbb{R}$, $f_{Y \mid X}(y \mid x)$
+  is a Gaussian pdf with mean $\mu_y+\frac{\rho
+  \sigma_{y}}{\sigma_{x}}(x-\mu_x)$ and variance
+  $\sigma_{y}^{2}\left(1-\rho^{2}\right)$. Thus, we say that $Y$ is
+  ***conditional Gaussian*** given $X$.
+
+:::
