@@ -331,8 +331,9 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   \frac{F_{Y\mid X}(y+\Delta y \mid x)-F_{Y\mid X}(y \mid x)}{\Delta y}
   \\
   &=\frac{1}{f_{X}(x)} \lim _{\Delta x \downarrow 0, \Delta y \downarrow 0}
-  \frac{F_{X,Y}(x+\Delta x, y+\Delta y)-F_{X,Y}(x, y+\Delta
-  y)-F_{X,Y}(x+\Delta x, y)+F_{X,Y}(x, y)}{\Delta x \Delta y} \\
+  \frac{1}{\Delta x \Delta y}  \Big[ F_{X,Y}(x+\Delta x, y+\Delta y) \\
+  & \quad\quad\quad\quad\quad\quad -F_{X,Y}(x, y+\Delta y)-F_{X,Y}(x+\Delta x,
+  y)+F_{X,Y}(x, y) \Big] \\
   & = \frac{f_{X,Y}(x,y)}{f_X(x)}
   \end{aligned}
   $$
@@ -354,13 +355,16 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
 
 :::{prf:example} Bivariate Gaussian Distribution
 - The continuous random pair $(X,Y)$ are said to be ***bivariate (jointly)
-  Gaussian*** if its joint pdf $f_{X,Y}(x, y)$ has the form 
+  Gaussian*** if its joint pdf has the form 
 
   $$
-  \frac{1}{2 \pi \sigma_{x} \sigma_y \sqrt{1-\rho^{2}}} \exp
-  \left\{-\frac{1}{2\left(1-\rho^{2}\right)}\left[\frac{(x-\mu_x)^{2}}{\sigma_{x}^{2}}-2
+  \begin{aligned}
+  f_{X,Y}(x, y) &= \frac{1}{2 \pi \sigma_{x} \sigma_y \sqrt{1-\rho^{2}}} \exp
+  \Bigg\{-\frac{1}{2\left(1-\rho^{2}\right)} \\
+  & ~~~~~~~~~~~~~~\cdot \left[\frac{(x-\mu_x)^{2}}{\sigma_{x}^{2}}-2
   \rho
-  \frac{(x-\mu_x)(y-\mu_y)}{\sigma_{x}\sigma_{y}}+\frac{(y-\mu_y)^{2}}{\sigma_{y}^{2}}\right]\right\}
+  \frac{(x-\mu_x)(y-\mu_y)}{\sigma_{x}\sigma_{y}}+\frac{(y-\mu_y)^{2}}{\sigma_{y}^{2}}\right]\Bigg\}
+  \end{aligned}
   $$
   where $\mu_x$, $\mu_y$, $\sigma_{x}>0, \sigma_{y}>0$, and
   $-1<\rho<1$ are parameters of the Gaussian random pair.
