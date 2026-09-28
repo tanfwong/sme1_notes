@@ -386,14 +386,14 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
 - Similarly, $Y$ is also marginally Gaussian with mean $\mu_y$ and
   variance $\sigma_y^2$. 
 
-- Further, the conditional pdf of $Y$ give $X$ is 
+- Further, the conditional pdf of $Y$ given $X$ is 
   $$
   \begin{aligned}
   & f_{Y \mid X}(y \mid x) \\
   &=\frac{f_{X,Y} (x, y)}{f_X(x)} \\
   & =\frac{1}{\sqrt{2 \pi \sigma_y^{2}\left(1-\rho^{2}\right)}} 
   \exp \left(-\frac{1}{2 \sigma^{2}_y \left(1-p^{2}\right)}
-  \left[y-\mu y-\frac{\rho \sigma_{y}}{\sigma_{x}}(x-\mu_x)\right]^{2}\right)
+  \left[y-\mu_y-\frac{\rho \sigma_{y}}{\sigma_{x}}(x-\mu_x)\right]^{2}\right)
   \end{aligned}
   $$
 - Notice that for any fixed $x\in\mathbb{R}$, $f_{Y \mid X}(y \mid x)$
