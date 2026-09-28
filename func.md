@@ -1,0 +1,139 @@
+---
+numbering:
+  equation: false
+---
+
+# Function of Random Variables
+
+- In many engineering applications, we often have a r.v. $X$ enters
+  into a system as input and the system outputs another r.v. $Y$,
+  which can be described as a function of $X$.
+- More formally, consider a r.v. $X$ defined on a probability space
+  $(\Omega, \mathcal{F}, P)$. Let $g:\mathbb{R} \rightarrow
+  \mathbb{R}$ be a measurable function, i.e.. $g^{-1}(S) \in
+  \mathcal{B}$ for every $S \in \mathcal{B}$. Then, consider the
+  composition $g \circ X:\Omega \rightarrow \mathbb{R}$. Let us write
+  it as $Y(\omega)=g \left(X(\omega)\right)$ for $\omega \in \Omega$.
+
+- Now, consider $S \in \mathcal{B}$ and
+  $Y^{-1}(S)=X^{-1}\left(g^{-1}(S)\right)$. Since $g^{-1}(S) \in
+  \mathcal{B}$ and $X$ is a r.v., $Y^{-1}(S) \in \mathcal{F}$,
+  i.e.. $Y$ is a r.v.! Of course, we can then discuss its
+  distribution, cdf, pdf/pmf.
+
+- It is reasonable to expect that the distribution/cdf/pdf/pmf of $Y$
+  to be closely related to the counterpart of $X$. Our objective in
+  this section is to obtain such a relationship. In most cases, we
+  want to express $F_Y(y)$ in terms of $F_{X}(x)$. If Both r.v's are
+  continuous (discrete), we also want to obtain $f_{Y}(y)$
+  ($p_Y(y)$)in terms of $f_{X}(x)$ ($p_X(x)$).
+
+- The best way to see how that can be done is to start with some
+  examples.
+
+:::{prf:example}
+1. Let $X$ be a uniform r.v. over $(0,1)$ and 
+   $g(x)= \begin{cases}
+   0 & \text { if } x>p \\ 
+   1 & \text { if } x \leq p,
+   \end{cases}$ where $0 \leq p \leq 1$.
+   Consider $Y=g(X)$. Obviously, $Y$ is a discrete r.v. with range
+   $\{0,1\}$. It is easy to see that
+   $$
+   \begin{aligned}
+   p_Y(0) &=P(Y=0)=P(X>p)=1 - F_{X}(p)=1-p . \\
+   p_Y(1) &=P(Y=1)-P(X \leq p)=F_{X}(p)=p .
+   \end{aligned}
+   $$
+   and thus $F_{Y}(y) =\begin{cases}
+   0 & \text { if } y<0 \\ 
+   1-p & \text { if } 0 \leq y<1 \\ 
+   1 & \text { if } y \geq 1.
+   \end{cases}$
+   
+   As a result, $Y$ is a Bernoulli random variable with parameter $p$.
+
+2. Let $X \sim \mathcal{N}(\mu, \sigma^2)$ and $g(x)=a x+b$ where $a \neq 0$.
+   Consider $Y=g(X)=a X+b$. Then
+   $$
+   \begin{aligned}
+   F_{Y}(y) & =P(Y \leq y) \\
+   &=P(a X+b \leq y) \\
+   & = \begin{cases}
+   P\left(X \leq \frac{y-b}{a}\right) & \text { if } a>0 \\
+   P\left(X \geq \frac{y-b}{a}\right) & \text { if } a<0
+   \end{cases} \\
+   & =\begin{cases}
+   F_{X}\left(\frac{y-b}{a}\right) & \text { if } a >0 \\
+   1-F_{X}\left(\frac{y-b}{a}\right) & \text { if }  a<0
+   \end{cases} \\
+   & =\begin{cases}
+   \Phi\left(\frac{y-(a\mu+b)}{a \sigma}\right) & \text { if } a >0 \\
+   Q\left(\frac{y-(a \mu+b)}{a \sigma}\right) & \text { if }  a<0
+   \end{cases}
+   \end{aligned}
+   $$
+   and
+   $$
+   \begin{aligned}
+   f_{Y}(y) & =\frac{d F_{Y}(y)}{d y} 
+   = \begin{cases}
+   \frac{1}{a} f_{X}\left(\frac{y-b}{a}\right) & \text { if }  a>0 \\
+   -\frac{1}{a} f_{X}\left(\frac{y-b}{a}\right) & \text { if }  a<0
+   \end{cases} \\
+   & =\frac{1}{|a|} f_{X}\left(\frac{y-b}{a}\right) \\
+   & =\frac{1}{|a|} \cdot \frac{1}{\sqrt{2 \pi \sigma^{2}}} 
+   e^{-\frac{(\frac{y-b}{a}-\mu)^{2}}{2 \sigma^{2}}} \\
+   & =\frac{1}{\sqrt{2 \pi a^2 \sigma^2}} 
+   e^{-\frac{(y-(a\mu+b))^{2}}{2 a^{2} \sigma^{2}}}.
+   \end{aligned} 
+   $$
+   Thus, $Y \sim \mathcal{N}\left(a\mu+b, (a\sigma)^2\right)$.
+
+3. Again let $X \sim \mathcal{N}(\mu, \sigma^2)$, but now $g(x)=x^{2}$.
+   Consider $Y=g(X)=X^{2}$. Then
+   $$
+   \begin{aligned}
+   F_{Y}(y) & =P(Y \leq y) \\
+   & =P\left(X^{2} \leq y\right) \\
+   & =\begin{cases}
+   P(-\sqrt{y} \leq X \leq \sqrt{y}) & \text { if } y > 0\\
+   0 &  \text { if } y \leq 0 
+   \end{cases} \\
+   & = \begin{cases} 
+   F_{X}(\sqrt{y})-F_{X}(-\sqrt{y}) &  \text { if } y > 0\\
+   0 &  \text { if } y \leq 0 
+   \end{cases} \\
+   & = \begin{cases}
+   \Phi\left(\frac{\sqrt{y}-\mu}{\sigma}\right)-\Phi\left(\frac{-\sqrt{y}-\mu}{\sigma}\right)
+   & \text { if } y>0 \\
+   0 &  \text { if } y \leq 0 
+   \end{cases} \\
+   \end{aligned} 
+   $$
+   and
+   $$
+   \begin{aligned}
+   f_{Y}(y) & =\frac{d F_{Y}(y)}{d y} \\
+   & =\begin{cases}
+   \frac{1}{2 \sqrt{y}} f_{X}(\sqrt{y})+\frac{1}{2 \sqrt{y}} f_{X}(-\sqrt{y}) 
+   & \text { if } y > 0 \\
+   0 &  \text { if } y \leq 0 
+   \end{cases} \\
+   & =\begin{cases}
+   \frac{1}{2 \sqrt{y}} \cdot \frac{1}{\sqrt{2 \pi \sigma^{2}}}
+   \left[e^{-\frac{(\sqrt{y}-\mu)^{2}}{2
+   \sigma^{2}}}+e^{\frac{(-\sqrt{y}+\mu)^{2}}{2 \sigma^{2}}}\right] 
+   & \text { if } y > 0\\
+   0 &  \text { if } y \leq 0 
+   \end{cases} \\
+  & =\begin{cases}
+  \frac{1}{\sqrt{2 \pi \sigma^{2} y}} e^{-\frac{y+\mu^{2}}{2
+   \sigma^{2}}} \cosh \left(\frac{\mu}{\sigma^{2}} \sqrt{y}\right) 
+   & \text{ if } y > 0 \\
+   0 &  \text { if } y \leq 0.
+   \end{cases}
+   \end{aligned}
+   $$
+
+:::
