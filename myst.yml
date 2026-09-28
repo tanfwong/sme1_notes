@@ -21,6 +21,8 @@ project:
       title: Random Variable
     - file: jdistr.md 
       title: Random Pair
+    - file: func.md
+      title: Function of Random Variables
   exports:
     - format: pdf
       template: curvenote

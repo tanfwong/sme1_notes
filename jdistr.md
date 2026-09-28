@@ -337,9 +337,9 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   & = \frac{f_{X,Y}(x,y)}{f_X(x)}
   \end{aligned}
   $$
-  where the last equality is due to the assumption that $(X,Y))$ is a
+  where the last equality is due to the assumption that $(X,Y)$ is a
   continuous random pair; thus, the limit on the second line exists
-  and its the joint pdf of $(X,Y)$.
+  and is the joint pdf of $(X,Y)$.
 - Hence, $\frac{\partial}{\partial y} F_{Y \mid X}(y \mid x)$ exists and we
   may define this derivative as the ***conditional pdf of $Y$ given
   $X$***:
