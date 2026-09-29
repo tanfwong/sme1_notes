@@ -5,6 +5,8 @@ numbering:
 
 # Function of Random Variables
 
+## Type: $Y=g(X)$
+
 - In many engineering applications, we often have a r.v. $X$ enters
   into a system as input and the system outputs another r.v. $Y$,
   which can be described as a function of $X$.
@@ -136,4 +138,20 @@ numbering:
    \end{aligned}
    $$
 
+4. Let $X$ be a uniform r.v. over $(0,1)$ and $g(x)=F^{-1}(x)$, where
+   $F(y)$ is an arbitrary monotone increasing cdf.  Consider $Y=g(X)
+   =F^{-1}(x)$. Then
+   $$
+   \begin{aligned}
+   F_{Y}(y) &= P(Y \leq y) \\
+   & =P\left(F^{-1}(X) \leq y\right) \\
+   & =P(X \leq F(y)) \\
+   & =F(y) .
+   \end{aligned}
+   $$
+   Thus, the cdf of $Y=F^{-1}(X)$ is $F(y)$ itself.
+   
+   *This provides us a way, albeit may not be efficient, to generate
+   realizations of an arbitrarily distributed random variable starting
+   from realizations of a uniform random variable.*
 :::
