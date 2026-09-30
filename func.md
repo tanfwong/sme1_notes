@@ -26,7 +26,7 @@ numbering:
 - It is reasonable to expect that the distribution/cdf/pdf/pmf of $Y$
   to be closely related to the counterpart of $X$. Our objective in
   this section is to obtain such a relationship. In most cases, we
-  want to express $F_Y(y)$ in terms of $F_{X}(x)$. If Both r.v's are
+  want to express $F_Y(y)$ in terms of $F_{X}(x)$. If both r.v's are
   continuous (discrete), we also want to obtain $f_{Y}(y)$
   ($p_Y(y)$)in terms of $f_{X}(x)$ ($p_X(x)$).
 
@@ -201,3 +201,32 @@ numbering:
   $$
   f_{Y}(y)=\sum_{i=1}^{n} f_{X}\left(x_{i}\right)\left|g'\left(x_{i}\right)\right|^{-1} .
   $$
+
+:::{prf:example}
+- Let $X \sim \mathcal{N}(0,1)$ and $Y=\sin (\pi X)$.
+
+- For any $y \in [0,1]$, $y=\sin (\pi x)$ has (countably) infinitely
+  many distinct roots.  For instance, if $y_{1}=\sin \pi x_{1}$, then
+  $y_{1}=\sin \pi\left(x_{2}+2 n\right)$ for $n \in \mathbb{Z}$.
+
+  From the result (extended to the case of countable many roots)
+  above, we have
+  $$
+  \begin{aligned}
+  f_{Y}(y) 
+  &= \begin{cases}
+  \sum_{n=-\infty}^{\infty} f_{z}\left(\frac{1}{\pi} \sin ^{-1} y+2
+  n\right) \cdot \frac{1}{\left|\pi \cos \pi\left(\frac{1}{\pi} \sin
+  ^{-1} y+2 n\right)\right|} & \text{ if } -1<y<1 \\
+  0 & \text{ otherwise}
+  \end{cases} \\
+  & =\begin{cases}
+  \frac{1}{\pi \sqrt{1-y^{2}}} \sum_{n=-\infty}^{\infty}
+  \frac{1}{\sqrt{2 \pi}} \exp \left[-\frac{1}{2}\left(\frac{1}{\pi}
+  \sin ^{-1} y+2 n\right)^{2}\right] & \text{ if } -1<y<1 \\
+  0 & \text{ otherwise.}
+  \end{cases} 
+  \end{aligned}
+  $$
+
+:::

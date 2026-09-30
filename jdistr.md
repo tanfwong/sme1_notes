@@ -403,3 +403,20 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   ***conditional Gaussian*** given $X$.
 
 :::
+
+:::{prf:remark}
+- Example 3 above shows that the both components of a bivariate
+  Gaussian random pair are Gaussian r.v.'s themselves. 
+- I got a question after class asking about whether the converse is
+  true or not. That is, is there a random pair that is not bivariate
+  Gaussian distributed but the marginal distributions of its
+  components are both Gaussian?
+- It turns out that the answer is **YES**. AI gives me the following
+  example. Consider the continuous random pair $(X,Y)$ with joint pdf
+  $$
+  f_{X,Y}(x,y) = \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} \left( 1 + xy
+  e^{-\frac{x^2+y^2}{2}} \right).
+  $$
+- it is easy to check that $f_{X,Y}$ is a valid pdf, and both $X$ and
+  $Y$ are marginally Gaussian r.v.'s with mean $0$ and variance $1$. 
+:::
