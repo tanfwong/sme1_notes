@@ -5,7 +5,7 @@ numbering:
 
 # Function of Random Variables
 
-## Type: $Y=g(X)$
+## Type $Y=g(X)$
 
 - In many engineering applications, we often have a r.v. $X$ enters
   into a system as input and the system outputs another r.v. $Y$,
@@ -155,3 +155,49 @@ numbering:
    realizations of an arbitrarily distributed random variable starting
    from realizations of a uniform random variable.*
 :::
+
+- Now, further assume that
+   - the function $g$ is differentiable,
+   - for a fixed $y$, the equation $y=g(x)$ has $n$ distinct (real) roots $x_1, x_2, \ldots,
+     x_n$, and
+   - $X$ is a continuous r.v. with pdf $f_X(x)$.
+
+- From the figure below
+  ```{image} images/fn_pdf.png
+  :alt: Curve of y=g(x)
+  :align: center
+  :height: 350px
+  ```
+   we observe that the event
+   $$
+   \{y<Y \leq y+\Delta y\}=\bigcup_{i=1}^{n} A_{i}
+   $$
+   where
+   $$
+   A_{i} = \begin{cases}
+   \left\{x_{i}<x \leq x_{i}+\Delta x_{i}\right\} & \text { if }
+   g'(x_{i}) \geq 0 \\
+   \left\{x_{i}-\Delta x_{i}<x \leq x_{i}\right\} & \text { if } 
+   g'(x_{i})<0 .
+   \end{cases}
+   $$
+
+- For a small enough $\Delta y$, $A_{i}$ are disjoint. Hence
+  $$
+  \frac{F_{Y}(y+\Delta y)-F_{Y}(y) }{\Delta y}
+  =\sum_{i=1}^{n} 
+  \begin{cases}
+  \frac{F_{X} \left(x+\Delta
+  x_{i}\right)-F_{X}\left(x_{i}\right)}{\Delta x_{i}}
+  \cdot\left(\frac{\Delta y}{\Delta x_{i}}\right)^{-1} & \text { if }
+  g'\left(x_{i}\right) \geq0 \\ 
+  \frac{F_{X}\left(x_{i}\right)-F_{X}\left(x_{i}-\Delta x_{i}\right)}{\Delta x_{i}} \cdot
+  \left(\frac{\Delta y}{\Delta x_{i}}\right)^{-1} 
+  & \text { if } g'\left(x_{i}\right)<0\end{cases}
+  $$
+  Taking limits on both sides with $\Delta y$ and hence $\Delta x_i$ for
+  $i=1, 2, \ldots, n$ going down to $0$, we have the pdf of $Y$ exists and 
+
+  $$
+  f_{Y}(y)=\sum_{i=1}^{n} f_{X}\left(x_{i}\right)\left|g'\left(x_{i}\right)\right|^{-1} .
+  $$
