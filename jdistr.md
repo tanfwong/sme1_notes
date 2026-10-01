@@ -402,12 +402,32 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   $\sigma_{y}^{2}\left(1-\rho^{2}\right)$. Thus, we say that $Y$ is
   ***conditional Gaussian*** given $X$.
 
+- Consider the special case of $\rho=0$:
+  $$
+  \begin{aligned}
+  f_{X,Y}(x,y) 
+  &= \frac{1}{2 \pi \sigma_x \sigma_y} \exp \left\{
+  -\frac{(x-\mu_x)^2}{2\sigma_x^2} - \frac{(y-\mu_y)^2}{2\sigma_y^2}
+  \right\}\\
+  & = f_X(x) \cdot f_Y(y)
+  \end{aligned}
+  $$
+  and
+  $$
+  \begin{aligned}
+  f_{Y\mid X}(y \mid x) 
+  &= \frac{1}{\sqrt{2 \pi \sigma_y^2}} \exp \left\{
+  -\frac{(y-\mu_y)^2}{2\sigma_y^2} \right\}\\
+  &= f_Y(y).
+  \end{aligned}
+  $$
+  Thus, $X$ and $Y$ are independent Gaussian r.v.'s.
 :::
 
 :::{prf:remark}
 - Example 3 above shows that the both components of a bivariate
   Gaussian random pair are Gaussian r.v.'s themselves. 
-- I got a question after class asking about whether the converse is
+- I got a question after class asking whether the converse is
   true or not. That is, is there a random pair that is not bivariate
   Gaussian distributed but the marginal distributions of its
   components are both Gaussian?
@@ -417,6 +437,6 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   f_{X,Y}(x,y) = \frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}} \left( 1 + xy
   e^{-\frac{x^2+y^2}{2}} \right).
   $$
-- it is easy to check that $f_{X,Y}$ is a valid pdf, and both $X$ and
+- It is left as an exercise to check that $f_{X,Y}$ is a valid pdf, and both $X$ and
   $Y$ are marginally Gaussian r.v.'s with mean $0$ and variance $1$. 
 :::
