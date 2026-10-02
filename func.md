@@ -356,3 +356,40 @@ numbering:
   $$
 
 :::
+
+## Type $\left\{ \begin{array}{rcl} V&\!\!\!\!=\!\!\!\!\!&g(X, Y) \\ W&\!\!\!\!=\!\!\!\!&h(X, Y)\end{array}\right.$
+- Similar to the type before, assume that $(X,Y)$ is a continuous
+  random pair with joint pdf $f_{X,Y}(x,y)$. If $(g,h)$ is measurable,
+  then $(V,W)$ is a random pair. Let $C(v,w)=\{(x, y) \in
+  \mathbb{R}^2: g(x, y) \leq v, h(x, y) \leq w\}$.
+- Then
+  $$
+  F_{V,W}(v, w) &=P\left((X, Y) \in C(v,w)\right).
+  $$
+- Further if where $(V,W)$ is continuous, then its joint pdf exists
+  and is given by
+  $$
+  f_{V,W}(v, w)=\frac{\partial^{2} F_{V,W}(v, w)}{\partial v \partial w}.
+  $$
+- Further, assume that $g$ and $h$ are differentiable
+  in both $x$ and $y$. By a similar argument as before, if for each $(v,w)$, the pair of equations 
+  $$
+  \left\{ \begin{array}{rcl} V&\!\!\!\!=\!\!\!\!\!&g(X, Y) \\ W&\!\!\!\!=\!\!\!\!&h(X, Y)\end{array}\right.
+  $$
+  has $n$ distinct roots $(x_1,y_1), (x_2,y_2), \ldots, (x_n,y_n)$, then the joint pdf of $(V,W)$ is given by
+  $$
+  f_{V,W}(v, w)=\sum_{i=1}^{n} \frac{f_{X,Y}\left(x_{i},
+  y_{i}\right)}{\left| J\left(x_{i}, y_{i}\right)\right|}
+  $$
+  where
+  $$
+  \begin{aligned}
+  J(x,y) &=\det \begin{pmatrix}\frac{\partial g(x,y)}{\partial x} &
+  \frac{\partial h(x,y)}{\partial x} \\ \frac{\partial g(x,y)}{\partial y} &
+  \frac{\partial h(x,y)}{\partial y}\end{pmatrix} \\
+  &=
+  \frac{\partial g(x,y)}{\partial x} \frac{\partial h(x,y)}{\partial y}
+  -\frac{\partial h(x,y)}{\partial x}\frac{\partial g(x,y)}{\partial y} 
+  \end{aligned}
+  $$
+  is the Jacobian of $(g,h)$.
