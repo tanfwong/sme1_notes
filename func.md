@@ -242,7 +242,7 @@ numbering:
   F_{z}(z)=P(Z \leq z)=P\left((X, Y) \in C(z)\right)=\iint_{C(z)} f_{X,Y}(x, y) d x d y.
   $$ 
 - If $F_{Z}(z)$ is absolutely continuous, then its pdf
-  $f_{X}(z)=\frac{d F_{Z}(z)}{d z}$ exists.
+  $f_{Z}(z)=\frac{d F_{Z}(z)}{d z}$ exists.
 
 :::{prf:example}
 1. **Rician and Rayleigh Distribution**
@@ -316,3 +316,43 @@ numbering:
   0 & \text{ if } z < 0.
   \end{cases} 
   $$
+
+2. **Convolution**
+- Let $(X, Y)$ be a continuous random pair with independent components.
+- Consider $Z=X+Y$. Note that the region $C(z) = \{ (x,y) \in \mathbb{R}^2: x+y \leq
+  z\}$ is shown in the figure below.
+   ```{image} images/conv.png
+   :alt: {(x,y): x+y <= z}
+   :align: center
+   :height: 300px
+   ```
+- Hence, the cdf of $Z$ is given by
+  $$
+  \begin{aligned}
+  F_{Z}(z) & =P(X+Y \leq z) \\
+  & =\int_{-\infty}^{\infty} \int_{-\infty}^{y-z} f_{X,Y}(x, y) d x d y \\
+  & =\int_{-\infty}^{\infty} f_{Y}(y)\left(\int_{-\infty}^{y-z}
+  f_{X}(x) d x\right) dy.
+  \end{aligned}
+  $$
+- Thus, the pdf of $Z$ is given by
+  $$
+  \begin{aligned}
+  f_{Z}(z) 
+  & =\frac{d F_{Z}(z)}{d z} \\
+  & =\int_{-\infty}^{\infty} f_{Y}(y)\left(\frac{\partial}{\partial z} \int_{-\infty}^{y-z} f_{X}(x) d x\right) d y \\
+  & =-\int_{-\infty}^{\infty} f_{Y}(y) f_{X}(y-z) d y \\
+  & =\int_{-\infty}^{\infty} f_{Y}(y) f_{X}(z-y) d y
+  \end{aligned}
+  $$
+  where the second equality results from, e.g., the assumption that
+  $f_Y(y)f_X(y-z)$ is dominated by an integrable function. 
+
+- Similarly, if the random pair $(X, Y)$ is discrete, then $Z=X+Y$ is
+  a discrete random variable with pmf 
+  $$
+  p_{Z}\left(z_{i}\right)=\sum_{i} p_{Y}\left(y_{i}\right)
+  p_{X}\left(z_{i}-y_{i}\right).
+  $$
+
+:::
