@@ -487,8 +487,8 @@ numbering:
   respectively.
 
 2. **Convolution Redux**
-- Sometimes, it is handy to change the problem of type $Z=g(X, Y)$ to
-  change the problem to type $\left\{ \begin{array}{rcl}
+- Sometimes, it is handy to change the problem of type $Z=g(X, Y)$ 
+  to type $\left\{ \begin{array}{rcl}
   Z&\!\!\!\!=\!\!\!\!\!&g(X, Y) \\ W&\!\!\!\!=\!\!\!\!&h(X,
   Y)\end{array}\right.$ by defining an auxiliary r.v. $W=Y$. 
 - We can first find the joint pdf of $(Z,W)$ using the "Jacobian
@@ -508,7 +508,7 @@ numbering:
   1 \end{pmatrix} = 1$.
 - Thus, the joint pdf of $(Z,W)$ is given by
   $$
-  f_{Z,W}(z, w) = f_{X,Y}(x, y) |J|^{-1} =f_{X,Y}(z-w, w) = f_{X}(z-w)
+  f_{Z,W}(z, w) = f_{X,Y}(x, y) |J(x,y)|^{-1} =f_{X,Y}(z-w, w) = f_{X}(z-w)
   f_Y(w).
   $$
 - The marginal pdf of $Z$ is then
