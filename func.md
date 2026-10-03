@@ -497,7 +497,7 @@ numbering:
 
 - Consider again $(X,Y)$ is a continuous random pair with independent
   components, and $Z=X+Y$.
-- Add the auxiliary r.v. $W=Y$ and consider the transformation
+- Add the auxiliary r.v. $W=Y$ and consider the one-to-one transformation
   $$
   \left\{\begin{array}{rcl}
   Z&\!\!\!\!=\!\!\!\!& X+Y \\
