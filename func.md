@@ -428,7 +428,7 @@ numbering:
   \end{cases}
   $$
   is called the *four-quadrant arc-tangent function*.
-- Note that the range of $V$ os $[0, \infty)$ and the range of $W$ is
+- Note that the range of $V$ is $[0, \infty)$ and the range of $W$ is
   $[-\pi, \pi)$.
 - To determine $\left|J(x,y)\right|^{-1}$, it is easier in this case
   to consider the inverse transformation from the polar coordinates
@@ -485,5 +485,39 @@ numbering:
   $$
 - Hence, $V$ and $W$ are independent Rayleigh r.v. and uniform r.v.,
   respectively.
+
+2. **Convolution Redux**
+- Sometimes, it is handy to change the problem of type $Z=g(X, Y)$ to
+  change the problem to type $\left\{ \begin{array}{rcl}
+  Z&\!\!\!\!=\!\!\!\!\!&g(X, Y) \\ W&\!\!\!\!=\!\!\!\!&h(X,
+  Y)\end{array}\right.$ by defining an auxiliary r.v. $W=Y$. 
+- We can first find the joint pdf of $(Z,W)$ using the "Jacobian
+  method" above, and then obtain the marginal pdf of $Z$ from the
+  joint pdf.
+
+- Consider again $(X,Y)$ is a continuous random pair with independent
+  components, and $Z=X+Y$.
+- Add the auxiliary r.v. $W=Y$ and consider the transformation
+  $$
+  \left\{\begin{array}{rcl}
+  Z&\!\!\!\!=\!\!\!\!& X+Y \\
+  W&\!\!\!\!=\!\!\!\!&Y
+  \end{array}\right.
+  $$
+- Clearly, the Jacobian is $J(x,y) = \det\begin{pmatrix} 1 & 0 \\ 1 &
+  1 \end{pmatrix} = 1$.
+- Thus, the joint pdf of $(Z,W)$ is given by
+  $$
+  f_{Z,W}(z, w) = f_{X,Y}(x, y) |J|^{-1} =f_{X,Y}(z-w, w) = f_{X}(z-w)
+  f_Y(w).
+  $$
+- The marginal pdf of $Z$ is then
+  $$
+  \begin{aligned}
+  f_{Z}(z) &=\int_{-\infty}^{\infty} f_{Z,W}(z, w) dw \\
+  &=\int_{-\infty}^{\infty} f_{X}(z-w) f_{Y}(w) d w
+  \end{aligned}
+  $$
+  as obtained before.
 
 :::
