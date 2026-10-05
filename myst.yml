@@ -23,6 +23,8 @@ project:
       title: Random Pair
     - file: func.md
       title: Function of Random Variables
+    - file: expect.md
+      title: Expected Value
   exports:
     - format: pdf
       template: curvenote
