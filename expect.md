@@ -118,7 +118,7 @@ numbering:
   is called the ***$k$th central moment*** of the r.v. $X$.
 - Clearly, the first central moment $E\left[X - E[X] \right]=0$. The
   second central moment is also called the ***variance*** of $X$. In
-  particular, it is more often denoted by $\text{var}(X)$ rather than
+  particular, it is more often denoted by $\text{Var}[X]$ rather than
   $E\left[ \left(X - E[X]\right)^2 \right]$.
 
 :::{prf:example} Second Moment and Variance
@@ -138,7 +138,7 @@ numbering:
 
    $$
    \begin{aligned}
-   \text{var}(X) = E\left[(X-E[X])^{2}\right] &=
+   \text{Var}[X] = E\left[(X-E[X])^{2}\right] &=
    \sum_{k=0}^{n}(k-n p)^{2}\binom{n}{k} p^{k}q^{n-k} \\
    & =n p q .
    \end{aligned}
@@ -157,7 +157,7 @@ numbering:
    and 
    $$
    \begin{aligned}
-   \text{var}(X) = E\left[(X-E[X])^{2}\right] &=
+   \text{Var}[X] = E\left[(X-E[X])^{2}\right] &=
    \int_{-\infty}^{\infty} \frac{(x-\mu)^2}{\sqrt{2 \pi \sigma^{2}}} 
    e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}} d x\\
    & = \sigma^2.
@@ -169,12 +169,75 @@ numbering:
 :::
 :::{prf:remark} 
 - One may notice that we have the following identity relating the mean,
-  second moment and variance of the r.v. in each of the two examples
+  second moment, and variance of the r.v. in each of the two examples
   above:
   $$
-  E\left[X^2\right] = \left(E[X]\right)^2 + \text{var}(X).
+  E\left[X^2\right] = \left(E[X]\right)^2 + \text{Var}[X].
   $$ 
 
 - It is easy to verify that the identity is generally true as long as
   all the quantities involved exist.
 :::
+
+:::{prf:theorem} Inequalities 
+1. ***(Markov)*** Let $X$ be a r.v. with range $[0,\infty)$, i.e., $X$ is a
+   non-negative random variable. Then, for any $\alpha >0$,
+   $$
+   P\left( X \geq \alpha \right) \leq \frac{1}{\alpha} E[X].
+   $$
+
+2. ***(Markov)*** For any $\alpha >0$ and $k=1,2,\ldots$,
+   $$
+   P\left( |X| \geq \alpha \right) \leq \frac{1}{\alpha^k}
+   E\left[|X|^k\right].
+   $$
+
+3. ***(Chebyshev)*** Let $X$ be a r.v. with finite mean and variance.
+   Then, for any $\delta > 0$,
+   $$
+   P\left( \left| X - E[X] \right| \geq \delta \right) \leq
+   \frac{1}{\delta^2} \text{Var}[X].
+   $$
+
+4. ***(Jensen)*** Let $X$ be a r.v. and $\varphi: \mathbb{R} \rightarrow
+   \mathbb{R}$ be **convex**. Assuming that $E[X]$ and
+   $E\left[\varphi(X)\right]$ exist, 
+   $$
+   \varphi \left( E[X] \right) \leq E\left[ \varphi(X)\right].
+   $$
+:::
+
+## Joint Moments
+- The idea of expected value can be further extended to functions of
+  random pairs. 
+
+- Let $(X, Y)$ be a random pair defined on $(\Omega, \mathcal{F}, P)$
+  with jout distribution $P_{X,Y}$ and joint cdf $F_{X,Y}(x y)$. Let
+  $Z=g(X, Y)$ where $g:\mathbb{R}^{2} \rightarrow \mathbb{R}$ is
+  measurable. Then
+
+  $$ 
+  \begin{aligned} 
+  E[Z] & =\int_{\Omega} g(X(\omega), Y(\omega)) P(d \omega)  \\
+  & =\int_{\mathbb{R}^{2}} g(x, y) P_{X,Y}(d x d y) \\ 
+  & =\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) d
+  F_{X,Y}(x, y).
+  \end{aligned} 
+  $$ 
+
+ - As before, we may often use the notation $E[g(X, Y)]$ and regard
+ its definition as
+ $$
+ \begin{aligned} 
+ E[g(X, Y)] &=
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) d F_{x y}(x, y) \\
+&= \begin{cases}
+\sum_{i} \sum_{j} g\left(x_{i}, y_{j}\right) p_{X,Y}\left(x_{i},
+y_{j}\right) & \text{ if } (X,Y) \text{ is discrete} \\ 
+\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) f_{X,Y}(x, y) d x d y 
+& \text{ if } (X,Y) \text{ is continuous} 
+\end{cases}
+\end{aligned} 
+$$
+as its definition.
+
