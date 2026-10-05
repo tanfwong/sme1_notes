@@ -157,7 +157,7 @@ numbering:
 :::
 
 - Now, further assume that
-   - the function $g$ is differentiable,
+   - the function $g$ is continuously differentiable,
    - for a fixed $y$, the equation $y=g(x)$ has $n$ distinct (real) roots $x_1, x_2, \ldots,
      x_n$, 
    - $g'(x_i) \neq 0$ for $i=1,2,\ldots,n$, and
@@ -378,7 +378,7 @@ numbering:
   $$
   f_{V,W}(v, w)=\frac{\partial^{2} F_{V,W}(v, w)}{\partial v \partial w}.
   $$
-- Further, assume that $g$ and $h$ are differentiable
+- Further, assume that $g$ and $h$ are continuously differentiable
   in both $x$ and $y$. Let
   $$
   \begin{aligned}
