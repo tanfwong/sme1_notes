@@ -193,10 +193,10 @@ numbering:
    $$
 
 3. ***(Chebyshev)*** Let $X$ be a r.v. with finite mean and variance.
-   Then, for any $\delta > 0$,
+   Then, for any $\alpha > 0$,
    $$
-   P\left( \left| X - E[X] \right| \geq \delta \right) \leq
-   \frac{1}{\delta^2} \text{Var}[X].
+   P\left( \left| X - E[X] \right| \geq \alpha \right) \leq
+   \frac{1}{\alpha^2} \text{Var}[X].
    $$
 
 4. ***(Jensen)*** Let $X$ be a r.v. and $\varphi: \mathbb{R} \rightarrow
@@ -206,6 +206,32 @@ numbering:
    \varphi \left( E[X] \right) \leq E\left[ \varphi(X)\right].
    $$
 :::
+
+:::{prf:proof}
+:enumerated: false
+1. If $X$ is integrable, then
+   $$
+   \begin{aligned}
+   E[X] &= \int_{0}^{\infty} x dF_X(x) \\
+   &= \int_{0}^{\alpha} x dF_X(x) + \int_{\alpha}^{\infty} x dF_X(x) \\
+   & \geq  \int_{\alpha}^{\infty} x dF_X(x)  \\
+   & \geq \alpha  \int_{\alpha}^{\infty} dF_X(x)  \\
+   & = \alpha P\left( X \geq \alpha \right).
+   \end{aligned}
+   $$
+   Otherwise, $E[X] = \infty$ since $X$ is non-negative, and hence the
+   inequality results trivially.
+
+2. Note that $P\left( |X| \geq \alpha \right) = P\left(|X|^k \geq
+  \alpha^k \right)$ for $k=1, 2, \ldots$. Then apply Markov's inequality
+  in 1. to $|X|^k$.
+
+3. Apply Markov's inequality in 2. to $\left| X - E[X] \right|^2$, and
+   notice that $\text{Var}[X] = E\left[ \left|X - E[X] \right|^2
+   \right]$.
+
+:::
+
 
 ## Joint Moments
 - The idea of expected value can be further extended to functions of
