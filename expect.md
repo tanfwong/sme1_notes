@@ -192,7 +192,7 @@ numbering:
    E\left[|X|^k\right].
    $$
 
-3. ***(Chebyshev)*** Let $X$ be a r.v. with finite mean and variance.
+3. ***(Chebyshev)*** Let $X$ be a r.v. with a finite mean.
    Then, for any $\alpha > 0$,
    $$
    P\left( \left| X - E[X] \right| \geq \alpha \right) \leq
@@ -230,6 +230,32 @@ numbering:
    notice that $\text{Var}[X] = E\left[ \left|X - E[X] \right|^2
    \right]$.
 
+4. Since $\varphi(x)$ is convex, there must be a supporting line $y=a
+   x + \varphi\left(E[X]\right) - a E[X]$ with slope $a$ passing through
+   the sigle point $\left(E[X], \varphi\left(E[X]\right)\right)$ on the
+   curve of $y=\varphi(x)$ as shown in the figure below.
+  ```{image} images/convex.png
+  :alt: A convex curve with a supporting line
+  :align: center
+  :height: 400px
+  ```
+   Note that the supporting line must lie below the convex curve. This gives
+   $$
+   \varphi(X) \geq a X + \varphi\left(E[X]\right) - a E[X].
+   $$
+   The left hand side and the right hand side of different functions
+   of the r.v. $X$. Thus, the inequality is preserved by replacing the
+   functions of $X$ with the expected values of the respective 
+   functions. That is,
+   $$
+   \begin{aligned}
+   E\left[\varphi(X)\right] &\geq
+   E\left[a X + \varphi\left(E[X]\right) - a E[X] \right] \\
+   & = a E[X] + E\left[\varphi\left(E[X]\right) - aE[X]\right]\\
+   & = a E[X] + \varphi\left(E[X]\right) - aE[X] \\
+   & = \varphi\left(E[X]\right).
+   \end{aligned}
+   $$
 :::
 
 
