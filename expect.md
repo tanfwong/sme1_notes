@@ -295,7 +295,7 @@ as its definition.
 :::{prf:example} Linearity of expectation 
 
 - Consider $g(x, y)=a x+b y$ where $a$ and $b$ are constants. Let
-  $(X,Y) be a random pair. Suppose that $E[X]$ and $E[Y}$ both are
+  $(X,Y)$ be a random pair for which $E[X]$ and $E[Y]$ both are
   defined and bounded. Then
 
   $$
@@ -325,8 +325,22 @@ as its definition.
   \end{aligned} 
   $$
 
-- Similarly $\int_{-\infty}^{\pi} \int_{-\infty}^{\infty} y d F_{X,Y}(x, y)=E[Y]$.
+- Similarly $\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} y d F_{X,Y}(x, y)=E[Y]$.
 
 - As a consequence, we have $E[aX+b Y]=a E[X]+b E[Y]$.
 
 :::
+
+- The ***$(i, j)$th joint moment*** of $(X,Y)$ is defined as
+  $$
+  E\left[X^{i} Y^j\right]=\int_{-\infty}^{\infty}
+  \int_{-\infty}^{\infty} x^{i} y^j d F_{X,Y}(x, y).
+  $$
+
+- The ***$(i, j)$th joint central moment***  of $(X,Y)$ is defined as
+  $$
+  E\left[(X-E[X])^{i}(Y-E[Y])^j\right]
+  =\int_{-\infty}^{\infty}
+  \int_{-\infty}^{\infty}(x-E[z])^{i}(y-E[y])^{j} d F_{X,Y}(x, y).
+  $$
+
