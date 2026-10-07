@@ -232,7 +232,7 @@ numbering:
 
 4. Since $\varphi(x)$ is convex, there must be a supporting line $y=a
    x + \varphi\left(E[X]\right) - a E[X]$ with slope $a$ passing through
-   the sigle point $\left(E[X], \varphi\left(E[X]\right)\right)$ on the
+   the single point $\left(E[X], \varphi\left(E[X]\right)\right)$ on the
    curve of $y=\varphi(x)$ as shown in the figure below.
   ```{image} images/convex.png
   :alt: A convex curve with a supporting line
@@ -278,7 +278,6 @@ numbering:
   $$ 
 
  - As before, we may often use the notation $E[g(X, Y)]$ and regard
- its definition as
  $$
  \begin{aligned} 
  E[g(X, Y)] &=
@@ -293,3 +292,41 @@ y_{j}\right) & \text{ if } (X,Y) \text{ is discrete} \\
 $$
 as its definition.
 
+:::{prf:example} Linearity of expectation 
+
+- Consider $g(x, y)=a x+b y$ where $a$ and $b$ are constants. Let
+  $(X,Y) be a random pair. Suppose that $E[X]$ and $E[Y}$ both are
+  defined and bounded. Then
+
+  $$
+  \begin{aligned} 
+  E[a X+b Y] &=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}(a x+b
+  y) d F_{X,Y}(x, y) \\
+  &=a \int_{-\infty}^{\infty} \int_{x}^{\infty} x d F_{X,Y}(x, y)
+  +b \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} y d F_{X,Y}.
+  \end{aligned} 
+  $$
+
+ - Further, since $F_{X,Y}(x,-\infty)=0$ and $F_{X,Y}(x,
+ \infty)=F_{X}(x)$,  we have
+   $$
+   \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x d F_{X,Y}(x, y)
+   =\int_{-\infty}^{\infty} x d F_{X}(x)=E[X], 
+   $$
+   or if $(X,Y)$ is continuous, we have
+  $$
+  \begin{aligned} 
+  \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x d F_{X,Y}(x, y)
+  &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x f_{X,Y}(x,y)
+  dxdy \\
+  &=\int_{-\infty}^{\infty} x  \underbrace{\left\{\int_{-\infty}^{\infty}
+  f_{X,Y}(x,y) dy \right\}}_{= f_X(x)} dx \\ 
+  &= E[X]. 
+  \end{aligned} 
+  $$
+
+- Similarly $\int_{-\infty}^{\pi} \int_{-\infty}^{\infty} y d F_{X,Y}(x, y)=E[Y]$.
+
+- As a consequence, we have $E[aX+b Y]=a E[X]+b E[Y]$.
+
+:::
