@@ -18,8 +18,14 @@ numbering:
   &=\int_{-\infty}^{\infty} x \, d F_{X}(x) .
   \end{aligned}
   $$
-  if $X$ is non-negative or $X$ is integrable, i.e., 
-  $\int_{\Omega}|X(\omega)| P\left(d\omega\right)< \infty$.
+  if $X$ is non-negative or $X$ is *absolutely integrable*, i.e., 
+  $\int_{\Omega}|X(\omega)| P\left(d\omega\right)< \infty$. 
+
+- For simplicity, we will simply say $E[X]$ is *defined* when either condition
+  is satisfied. Unless more stringent conditions are explicitly
+  mentioned, hereafter we will implicitly assume that the expected value of a
+  r.v. is defined when we state any results associated with the expected value. 
+ 
 
 
 :::{prf:remark} 
@@ -83,7 +89,7 @@ numbering:
   \end{aligned}
   $$
 
--Hence, there are two ways to calculate $E[Y]$:
+- Hence, there are two ways to calculate $E[Y]$:
   1. first find $F_{Y}(y)$ and then calculate
   $E[Y]=\int_{\infty}^{\infty} y d F_{Y}(y)$, or
   2. calculate $E[Y]=\int_{-\infty}^{\infty} g(x) d F_{X}(x)$ directly.
@@ -180,7 +186,7 @@ numbering:
   $$ 
 
 - It is easy to verify that the identity is generally true as long as
-  all the quantities involved exist.
+  all the quantities involved are finite.
 :::
 
 :::{prf:theorem} Inequalities 
@@ -205,7 +211,7 @@ numbering:
 
 4. ***(Jensen)*** Let $X$ be a r.v. and $\varphi: \mathbb{R} \rightarrow
    \mathbb{R}$ be **convex**. Assuming that $E[X]$ and
-   $E\left[\varphi(X)\right]$ exist, 
+   $E\left[\varphi(X)\right]$ are finite, 
    $$
    \varphi \left( E[X] \right) \leq E\left[ \varphi(X)\right].
    $$
@@ -300,7 +306,7 @@ as its definition.
 
 - Consider $g(x, y)=a x+b y$ where $a$ and $b$ are constants. Let
   $(X,Y)$ be a random pair for which $E[X]$ and $E[Y]$ both are
-  defined and bounded. Then
+  finite. Then
 
   $$
   \begin{aligned} 
@@ -359,12 +365,56 @@ as its definition.
   $\operatorname{cov}(X, Y)=0$.
 
 :::{prf:lemma} Independence implies uncorrelatedness
+Assume that all (central) moments below are finite.
 1. $X$ and $Y$ are uncorrelated if and only if $E[XY]=E[X] E[Y]$.
 
-2.  If $X$ and $Y$ are independent, then $E\left[X^{i}
-   Y^j\right]=E\left[X^{i}\right] E\left[Y^j\right]$ and
-   $E\left[\left(X -E[X]\right)^{i} \left(Y-E[Y]\right)^j\right] =
+2.  If $X$ and $Y$ are independent with both $E\left[X^i\right]$ and
+   $E\left[Y^j\right]$ defined, then 
+   $$
+   \begin{aligned}
+   E\left[X^{i} Y^j\right]
+   &=E\left[X^{i}\right] E\left[Y^j\right]\\
+   E\left[\left(X -E[X]\right)^{i} \left(Y-E[Y]\right)^j\right] 
+   &=
    E\left[\left(X-E[X]\right)^{i}\right]
-   E\left[\left(Y-E[Y]\right)^j\right]$. In particular, $X$ and $Y$
+   E\left[\left(Y-E[Y]\right)^j\right].
+   \end{aligned}
+   $$
+   In particular, $X$ and $Y$
    are uncorrelated if they are independent r.v.'s.
+:::
+
+:::{prf:proof}
+:enumerated: false
+1. Note that 
+   $$
+   \begin{aligned}
+   \operatorname{cov}(X, Y) 
+   & =E\left[\left(X-E[X]\right) \left(Y-E[Y]\right)\right] \\
+   & =E\left[XY-X E[Y]-Y E[X]+E[X] E[Y] \right] \\
+   & = E\left[X Y\right]-E[X] E[Y]-E[Y] E[X]+E[X] E[Y] \\
+   & =E[X Y]-E[X] E[Y].
+   \end{aligned}
+   $$
+   Thus if $\operatorname{cov}(X, Y)=0$ if and only if $E[X Y]=E[X] E[Y]$.
+
+2. If $X$ and $Y$ are independent r.v.'s, then 
+   $$
+   \begin{aligned}
+   E\left[X^i Y^j\right]
+   &=\int_{-\infty}^{\infty} \int^{\infty}_{-\infty} x^{i} y^j 
+   d F_{X}(x) dF_{Y}(y) \\
+   &= \underbrace{\int_{-\infty}^{\infty} x^{j} d F_{X}(x)}_{E\left[X^{i}\right]} \cdot 
+   \underbrace{\int_{-\infty}^{\infty} y^{j} d F_{Y}(y)}_{E\left[Y^{j}\right]}
+   \end{aligned}
+   $$
+   By Fubini's theorem. The central moment result can be proved in the
+   same way.\
+   In the special case of $i=j=1$, we have $ E[X Y]=E[X] E[Y]$, 
+   and hence $X$ and $Y$ are uncorrelated by 1.
+:::
+:::{prf:remark} 
+- The converse of Lemma 1.2 is not generally true. That is, there is a random
+  pair $(X,Y)$ with uncorrelated, but not independent $X$ and $Y$. Can
+  you come up with a counterexample?
 :::
