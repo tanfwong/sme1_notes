@@ -118,8 +118,8 @@ numbering:
   is called the ***$k$th central moment*** of the r.v. $X$.
 - Clearly, the first central moment $E\left[X - E[X] \right]=0$. The
   second central moment is also called the ***variance*** of $X$. In
-  particular, it is more often denoted by $\text{Var}[X]$ rather than
-  $E\left[ \left(X - E[X]\right)^2 \right]$.
+  particular, it is more often denoted by $\operatorname{var}(X)$
+  rather than $E\left[ \left(X - E[X]\right)^2 \right]$.
 
 :::{prf:example} Second Moment and Variance
 1. Let $X$ be a binomial r.v. with pmf $p_X(k)=\binom{n}{k}
@@ -138,7 +138,7 @@ numbering:
 
    $$
    \begin{aligned}
-   \text{Var}[X] = E\left[(X-E[X])^{2}\right] &=
+   \operatorname{var}(X) = E\left[(X-E[X])^{2}\right] &=
    \sum_{k=0}^{n}(k-n p)^{2}\binom{n}{k} p^{k}q^{n-k} \\
    & =n p q .
    \end{aligned}
@@ -157,22 +157,26 @@ numbering:
    and 
    $$
    \begin{aligned}
-   \text{Var}[X] = E\left[(X-E[X])^{2}\right] &=
+   \operatorname{var}(X) = E\left[(X-E[X])^{2}\right] &=
    \int_{-\infty}^{\infty} \frac{(x-\mu)^2}{\sqrt{2 \pi \sigma^{2}}} 
    e^{-\frac{(x-\mu)^{2}}{2\sigma^{2}}} d x\\
    & = \sigma^2.
    \end{aligned}
    $$
    Thus, the variance parameter $\sigma^2$ is the variance (second
-   central moment) of the
-   Gaussian random variable!
+   central moment) of the Gaussian random variable! As a result, a
+   Gaussian r.v. is completely specified by its first two (central)
+   moments,
+   namely $E[X] = \mu$ and $ \operatorname{var}(X) = \sigma^2$.
+
+   
 :::
 :::{prf:remark} 
 - One may notice that we have the following identity relating the mean,
   second moment, and variance of the r.v. in each of the two examples
   above:
   $$
-  E\left[X^2\right] = \left(E[X]\right)^2 + \text{Var}[X].
+  E\left[X^2\right] = \left(E[X]\right)^2 + \operatorname{var}(X).
   $$ 
 
 - It is easy to verify that the identity is generally true as long as
@@ -196,7 +200,7 @@ numbering:
    Then, for any $\alpha > 0$,
    $$
    P\left( \left| X - E[X] \right| \geq \alpha \right) \leq
-   \frac{1}{\alpha^2} \text{Var}[X].
+   \frac{1}{\alpha^2} \operatorname{var}(X).
    $$
 
 4. ***(Jensen)*** Let $X$ be a r.v. and $\varphi: \mathbb{R} \rightarrow
@@ -227,7 +231,7 @@ numbering:
   in 1. to $|X|^k$.
 
 3. Apply Markov's inequality in 2. to $\left| X - E[X] \right|^2$, and
-   notice that $\text{Var}[X] = E\left[ \left|X - E[X] \right|^2
+   notice that $\operatorname{var}(X) = E\left[ \left|X - E[X] \right|^2
    \right]$.
 
 4. Since $\varphi(x)$ is convex, there must be a supporting line $y=a
@@ -337,6 +341,9 @@ as its definition.
   \int_{-\infty}^{\infty} x^{i} y^j d F_{X,Y}(x, y).
   $$
 
+- The $(1,1)$th joint moment $E\left[XY\right]$ is called
+  the ***correlation*** of $X$ and $Y$.
+
 - The ***$(i, j)$th joint central moment***  of $(X,Y)$ is defined as
   $$
   E\left[(X-E[X])^{i}(Y-E[Y])^j\right]
@@ -344,3 +351,20 @@ as its definition.
   \int_{-\infty}^{\infty}(x-E[z])^{i}(y-E[y])^{j} d F_{X,Y}(x, y).
   $$
 
+- The $(1,1)$th joint central moment $E\left[ \left(X-E[X]\right)
+  \left(Y-E[Y]\right)\right]$ is called the ***covariance*** of $X$
+  and $Y$, and is usually denoted by $\operatorname{cov}(X, Y)$. 
+
+- The r.v.'s $X$ and $Y$ are said to be ***uncorrelated*** of
+  $\operatorname{cov}(X, Y)=0$.
+
+:::{prf:lemma} Independence implies uncorrelatedness
+1. $X$ and $Y$ are uncorrelated if and only if $E[XY]=E[X] E[Y]$.
+
+2.  If $X$ and $Y$ are independent, then $E\left[X^{i}
+   Y^j\right]=E\left[X^{i}\right] E\left[Y^j\right]$ and
+   $E\left[\left(X -E[X]\right)^{i} \left(Y-E[Y]\right)^j\right] =
+   E\left[\left(X-E[X]\right)^{i}\right]
+   E\left[\left(Y-E[Y]\right)^j\right]$. In particular, $X$ and $Y$
+   are uncorrelated if they are independent r.v.'s.
+:::
