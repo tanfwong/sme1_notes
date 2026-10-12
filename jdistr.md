@@ -353,7 +353,9 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   x=\int_{-\infty}^{\infty} f_{Y \mid X}(y \mid x) f_{X}(x) d x.
   $$
 
+
 :::{prf:example} Bivariate Gaussian Distribution
+:name: binormal_ex
 - The continuous random pair $(X,Y)$ are said to be ***bivariate (jointly)
   Gaussian*** if its joint pdf has the form 
 

@@ -418,3 +418,121 @@ Assume that all (central) moments below are finite.
   pair $(X,Y)$ with uncorrelated, but not independent $X$ and $Y$. Can
   you come up with a counterexample?
 :::
+
+:::{prf:example} Bivariate Gaussian Distribution
+- Referring back to the [bivariate Gaussain example](binormal_ex)
+  before, let $(X,Y)$ be a bivariate Gaussian random pair with
+  parameters $\mu_x$, $\mu_y$, $\sigma_{x} > 0, \sigma_{y}>0$, and
+  $-1<\rho<1$. 
+
+- We know from the example that $X \sim \mathcal{N}\left(\mu_x,
+  \sigma_x^2\right)$ and $Y \sim \mathcal{N}\left(\mu_y,
+  \sigma_y^2\right)$ marginally. Thus, from Examples 1.2 and 2.2, we
+  have $E[X]=\mu_{x}$, $E[Y]=\mu_{y}$, $\operatorname{var}(X) =
+  \sigma_x^2$, and $\operatorname{var}(X) =
+  \sigma_x^2$.
+
+- Further, the covariance of $X$ and $Y$ is 
+  $$
+  \begin{aligned}
+  & \operatorname{cov}(X,Y) \\
+  & = E\left[ (X-E[X])(Y-E[Y])\right) \\
+  & =\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
+  (x-\mu_x)(y-\mu_y) f_{X,Y}(x,y) \,dxdy \\
+  & =\int_{-\infty}^{\infty} \frac{x-\mu_x}{\sqrt{2 \pi \sigma_x^2}} 
+  \exp\left\{-\frac{(x-\mu_x)^2}{2\sigma_{x}^2}\right\} \cdot\\
+  & ~~~~~ \frac{1}{\sqrt{2 \pi \sigma_y^2 (1-\rho^2)}}
+  \int_{-\infty}^{\infty} (y-\mu_y) \exp\left\{ 
+  -\frac{\left[ y-\mu_{y}- \rho\frac{\sigma_y}{\sigma_x} (x-\mu_{x})\right]^{2}}%
+  {2 \sigma_y^2(1-\rho^{2})} \right\} d y \, dx \\
+  & =\int_{-\infty}^{\infty} \frac{x-\mu_x}{\sqrt{2 \pi \sigma_x^2}} 
+  \exp\left\{-\frac{(x-\mu_x)^2}{2\sigma_{x}^2}\right\} \cdot\\
+  & ~~~~~ \underbrace{\frac{1}{\sqrt{2 \pi \sigma_y^2 (1-\rho^2)}}
+  \int_{-\infty}^{\infty} y\exp\left\{ 
+  -\frac{\left[ y- \rho\frac{\sigma_y}{\sigma_x} (x-\mu_{x})\right]^{2}}%
+  {2 \sigma_y^2(1-\rho^{2})} \right\} d y}_{=
+  \rho\frac{\sigma_y}{\sigma_x} (x-\mu_{x})}\, dx \\
+  &=\rho \frac{\sigma_{y}}{\sigma_{x}} \cdot
+  \underbrace{\frac{1}{\sqrt{2\pi\sigma_{x}^{2}}} \int_{-\infty}^{\infty}
+  \left(x-\mu_{x}\right)^{2} \exp\left\{-\frac{(x-\mu_{x})^2}{2
+  \sigma^2_{x}} \right\}  dx}_{= \sigma_x^2}\\
+  & =\rho \sigma_x \sigma_y.
+  \end{aligned}
+  $$
+
+- Hence, the parameter $\rho=\frac{\operatorname{cov}(X,Y)}{\sigma_{x}
+  \sigma_{y}}$ is simply the covariance of $X$ and $Y$ normalized by the
+  variances of $X$ and $Y$. This is normalized covariance is usually
+  referred to as the ***correlation coefficient*** of $X$ and $Y$.
+
+- If $X$ and $Y$are uncorrelated, i.e. $\operatorname{cov}(X, Y)=0$,
+  $\rho=0$. As discussed in the [bivariate Gaussain example](binormal_ex), 
+  $X$ and $Y$ are independent if $\rho=0$. Conversely, if $X$ and $Y$
+  are independent, then  $X$ and $Y$are uncorrelated by Lemma 1.2
+
+:::
+
+:::{prf:remark} Independence = Uncorrelatedness for Gaussian random pair
+- For a Gaussian random pair $(X,Y)$, $X$ and $Y$ are independent if
+  and only if they are uncorrelated.
+:::
+
+- Extending to any random pair $(X,Y$) with joint cdf $F_{X,Y}(x, y)$,
+  we define the ***correlation coefficient***
+  $$
+  \rho = \frac{\operatorname{cov}(X, Y)}{\sqrt{\operatorname{var}(X)
+  \operatorname{var}(Y)}}.
+  $$
+
+:::{prf:theorem} Cauchy–Schwarz inequality
+1. Let $(X,Y)$ be a random pair, $h: \mathbb{R} \rightarrow
+   \mathbb{R}$, and $g:\mathbb{R} \rightarrow \mathbb{R}$ be measurable
+   mappings such that $E\left[h^2(X)\right]<\infty$ and
+   $E\left[g^2(Y)\right]<\infty$. Then 
+   $$
+   \left|E[h(X) g(Y)] \right| \leq \sqrt{E\left[h^{2}(X)\right] E\left[g^{2}(Y)\right]}
+   $$
+   with equality achieved when and only when $g(Y(\omega))=\lambda
+   h(X(\omega))$ on $\Omega$, except perhaps for an event of
+   probability $0$.
+
+2. The correlation coefficient must satisfy $-1 \leq \rho \leq 1$ with
+  equality achieved when and only when $Y$ is an affine function of $X$.
+:::
+
+:::{prf:proof}
+:enumerated: false
+1. For any $\lambda \in \mathbb{R}$, 
+   $$
+   \begin{aligned}
+   E\left[ \left(g(Y))-\lambda h(X)\right)^{2}\right]
+   & =\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} 
+   \left(g(y)-\lambda h(x)\right)^{2} d F_{X,Y}(x,y)\\
+   &\geq 0
+   \end{aligned}
+   $$
+   because the integrand is nonnegative and $F_{X,Y}(x,y)$ is non-decreasing.
+   But then
+   $$
+   \begin{aligned}
+   E\left[ \left(g(Y)-\lambda h(X)\right)^{2}\right] 
+   & = E\left[ h^2(X)\right] \lambda^2 - 2
+   E\left[h(X)g(Y)\right] \lambda+ E\left[g^2(Y)\right] \\
+   & \geq 0,
+   \end{aligned}
+   $$
+   which is possible if and only if 
+   $$
+   \left( -2 E\left[h(X)g(Y)\right] \right)^2 - 4 E\left[
+   h^2(X)\right]  E\left[g^2(Y)\right] \leq 0.
+   $$
+   Rearranging gives the desired inequality.\
+   Note that equality is achieved when and only when $E\left[
+   \left(g(Y)-\lambda h(X)\right)^{2}\right] = 0$, which is equivalent
+   to 
+   the condition of $g(Y) = \lambda h(X)$ by expressing
+   $E\left[ \left(g(Y)-\lambda h(X)\right)^{2}\right]$ in the integral
+   form as above.
+   
+2. Let $h(X) = X-E[X]$ and $g(Y) = Y-E[Y]$. 
+:::
