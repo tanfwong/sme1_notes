@@ -394,7 +394,7 @@ numbering:
 
 - By a similar argument as before, if for each $(v,w)$, the pair of equations 
   $$
-  \left\{ \begin{array}{rcl} V&\!\!\!\!=\!\!\!\!\!&g(X, Y) \\ W&\!\!\!\!=\!\!\!\!&h(X, Y)\end{array}\right.
+  \left\{ \begin{array}{rcl} v&\!\!\!\!=\!\!\!\!\!&g(x, y) \\ w&\!\!\!\!=\!\!\!\!&h(x, y)\end{array}\right.
   $$
   has $n$ distinct roots $(x_1,y_1), (x_2,y_2), \ldots, (x_n,y_n)$
   with $J(x_i,y_i) \neq 0$ for $i=1,2,\ldots, n$, then the joint pdf of $(V,W)$ is given by

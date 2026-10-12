@@ -536,3 +536,36 @@ Assume that all (central) moments below are finite.
    
 2. Let $h(X) = X-E[X]$ and $g(Y) = Y-E[Y]$. 
 :::
+
+## Moment Gererating Function
+
+- Let $X$ be a r.v. with cdf $F_{X}(x)$. Define its ***moment
+  generating function*** as
+  $$
+  \begin{aligned}
+  \Theta_X(s) &=  E\left[e^{s X}\right] \\
+  & =\int_{-\infty}^{\infty} e^{s x} \,d F_{X}(x) \\
+  & = \begin{cases}
+  \int_{-\infty}^{\infty} e^{s x} f_{X}(x) \, dx & \text { if } X \text{
+  is continuous} \\ 
+  \sum_{i} e^{s x_{i}} p_{X}\left(x_{i}\right) & \text { if } X \text{
+  is discrete}
+  \end{cases}
+  \end{aligned}
+  $$
+  for the range of $s \in \mathbb{R}$ such that the integral is
+  finite.
+
+:::{prf:property} Properties of moment generating function
+- Suppose that $\Theta_X(s)$ is defined on the interval $(-s_0, s_0)$ for
+  some $s_0>0$ is defined on the interval $(-s_0, s_0)$ for
+  some $s_0>0$. 
+  1. Then, for $s \in (-s_0,s_0)$,
+     $$
+     \Theta_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} E\left[ X^k\right].
+     $$
+
+  2. In particular, $\frac{d^k \Theta_X(0)}{d^ks} = E\left[ X^k\right]$
+     for $k=0, 1, \ldots$.
+
+:::
