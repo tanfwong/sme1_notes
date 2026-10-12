@@ -338,7 +338,7 @@ numbering:
   \begin{aligned}
   F_{Z}(z) & =P(X+Y \leq z) \\
   & =\int_{-\infty}^{\infty} \int_{-\infty}^{y-z} f_{X,Y}(x, y) d x d y \\
-  & =\int_{-\infty}^{\infty} f_{Y}(y)\left(\int_{-\infty}^{y-z}
+  & =\int_{-\infty}^{\infty} f_{Y}(y)\left(\int_{-\infty}^{z-y}
   f_{X}(x) d x\right) dy.
   \end{aligned}
   $$
@@ -347,13 +347,13 @@ numbering:
   \begin{aligned}
   f_{Z}(z) 
   & =\frac{d F_{Z}(z)}{d z} \\
-  & =\int_{-\infty}^{\infty} f_{Y}(y)\left(\frac{\partial}{\partial z} \int_{-\infty}^{y-z} f_{X}(x) d x\right) d y \\
-  & =-\int_{-\infty}^{\infty} f_{Y}(y) f_{X}(y-z) d y \\
+  & =\int_{-\infty}^{\infty} f_{Y}(y)\left(\frac{\partial}{\partial z}
+  \int_{-\infty}^{z-y} f_{X}(x) d x\right) d y \\
   & =\int_{-\infty}^{\infty} f_{Y}(y) f_{X}(z-y) d y
   \end{aligned}
   $$
   where the second equality results from, e.g., the assumption that
-  $f_Y(y)f_X(y-z)$ is dominated by an integrable function. 
+  $f_Y(y)f_X(z-y)$ is dominated by an integrable function. 
 
 - Similarly, if the random pair $(X, Y)$ is discrete, then $Z=X+Y$ is
   a discrete random variable with pmf 

@@ -408,7 +408,7 @@ Assume that all (central) moments below are finite.
    \underbrace{\int_{-\infty}^{\infty} y^{j} d F_{Y}(y)}_{E\left[Y^{j}\right]}
    \end{aligned}
    $$
-   By Fubini's theorem. The central moment result can be proved in the
+   by Fubini's theorem. The central moment result can be proved in the
    same way.\
    In the special case of $i=j=1$, we have $ E[X Y]=E[X] E[Y]$, 
    and hence $X$ and $Y$ are uncorrelated by 1.
