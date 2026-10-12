@@ -373,7 +373,7 @@ numbering:
   $$
   F_{V,W}(v, w) =P\left((X, Y) \in C(v,w)\right).
   $$
-- Further if where $(V,W)$ is continuous, then its joint pdf exists
+- Further if $(V,W)$ is continuous, then its joint pdf exists
   and is given by
   $$
   f_{V,W}(v, w)=\frac{\partial^{2} F_{V,W}(v, w)}{\partial v \partial w}.
