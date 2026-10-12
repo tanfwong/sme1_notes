@@ -420,7 +420,7 @@ Assume that all (central) moments below are finite.
 :::
 
 :::{prf:example} Bivariate Gaussian Distribution
-- Referring back to the [bivariate Gaussain example](binormal_ex)
+- Referring back to the [bivariate Gaussain example](#binormal_ex)
   before, let $(X,Y)$ be a bivariate Gaussian random pair with
   parameters $\mu_x$, $\mu_y$, $\sigma_{x} > 0, \sigma_{y}>0$, and
   $-1<\rho<1$. 
@@ -558,14 +558,29 @@ Assume that all (central) moments below are finite.
 
 :::{prf:property} Properties of moment generating function
 - Suppose that $\Theta_X(s)$ is defined on the interval $(-s_0, s_0)$ for
-  some $s_0>0$ is defined on the interval $(-s_0, s_0)$ for
   some $s_0>0$. 
   1. Then, for $s \in (-s_0,s_0)$,
      $$
      \Theta_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} E\left[ X^k\right].
      $$
 
-  2. In particular, $\frac{d^k \Theta_X(0)}{d^ks} = E\left[ X^k\right]$
-     for $k=0, 1, \ldots$.
+  2. In particular, $\frac{d^k \Theta_X(0)}{ds^k} = E\left[ X^k\right]$
+     for $k=1, 2, \ldots$.
 
+:::
+:::{prf:proof}
+:enumerated: false
+1. Since $e^{|sx|} \leq e^{sx} + e^{-sx}$ and $\Theta_X(s)$ is defined
+  on $(-s_0, s_0)$, $ \int_{-\infty}^{\infty} e^{|sx|}dF_X(x) <
+  \infty$. Hence, the dominated convergence theorem and the fact that
+  $e^{|sx|} = \sum_{k=0}^{\infty} \frac{|sx|^k}{k!}$ give $E[X^k] \leq
+  E[|X|^k] < \infty$ for each $k=1, 2, \ldots$, and $\Theta_X(s) =
+  \sum_{k=0}^{\infty} \frac{s^k}{k!} E\left[ X^k\right]$ for any $s
+  \in (-s_0,s_0)$.
+
+2. Note that the series expansion of $\Theta_X(s)$ in 1. is a Taylor series
+about $0$, i.e., $\Theta_X(s) = \sum_{k=0}^{\infty}
+\frac{d^k\Theta_X(0)}{ds^k} \frac{s^k}{k!}$. Equating coefficients
+gives the desired expression of $E\left[ X^k\right]$ in terms of the
+$k$th derivative of $\Theta_X(s)$.
 :::
