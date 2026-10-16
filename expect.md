@@ -396,7 +396,7 @@ Assume that all (central) moments below are finite.
    & =E[X Y]-E[X] E[Y].
    \end{aligned}
    $$
-   Thus if $\operatorname{cov}(X, Y)=0$ if and only if $E[X Y]=E[X] E[Y]$.
+   Thus, $\operatorname{cov}(X, Y)=0$ if and only if $E[X Y]=E[X] E[Y]$.
 
 2. If $X$ and $Y$ are independent r.v.'s, then 
    $$
@@ -583,4 +583,44 @@ about $0$, i.e., $\Theta_X(s) = \sum_{k=0}^{\infty}
 \frac{d^k\Theta_X(0)}{ds^k} \frac{s^k}{k!}$. Equating coefficients
 gives the desired expression of $E\left[ X^k\right]$ in terms of the
 $k$th derivative of $\Theta_X(s)$.
+:::
+
+:::{prf:theorem} Chernoff bound
+
+Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
+  defined on $[0, s_0)$ for some $s_0>0$.
+   
+1. For any $s \in [0, s_0)$ and $a \in \mathbb{R}$, 
+   $$
+   P(X \geq a) \leq e^{-sa} \Theta_X(s).
+   $$
+
+2. For any $a \in \mathbb{R}$, 
+   $$
+   P(X \geq a) \leq \inf_{ s \in [0, s_0)} e^{-sa} \Theta_X(s).
+   $$
+
+- Note that the bound in 2. is the tightest bound on the ***tail
+   probability*** of $X$ of the form in 1. It is often referred to as
+   the ***Chernoff bound***.
+   
+:::
+
+:::{prf:proof}
+:enumerated: false
+1. Let $u(x)= \begin{cases} 1 & x \geq 0 \\ 0 & x <0
+   \end{cases}$. Since $e^{s(x-a)} \geq u(x-a)$ for any $s \in [0,
+   s_0)$, we have
+   $$
+   \begin{aligned}
+   P(X \geq a) & =\int_{-\infty}^{\infty} u(x-a) d F_X(x) \\
+   & \leq \int_{-\infty}^{\infty} e^{s(x-a)} d F_{X}(x) \\
+   & =e^{-s a} \Theta_{X}(s).
+  \end{aligned}
+  $$
+
+2.  Since $\Theta_{X}(s) \geq 0$ for $s\in[0,s_0)$, $\inf_{ s \in [0,
+   s_0)} e^{-sa} \Theta_X(s) \geq 0$, and the bound in 2. is valid
+   as the bound in 1. applies to all $s \in [0,s_0)$.
+
 :::
