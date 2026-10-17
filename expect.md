@@ -558,7 +558,7 @@ Assume that all (central) moments below are finite.
 
 :::{prf:property} Properties of moment generating function
 - Suppose that $\Theta_X(s)$ is defined on the interval $(-s_0, s_0)$ for
-  some $s_0>0$. 
+  some $s_0>0$ (we allow $s_0=\infty$ here). 
   1. Then, for $s \in (-s_0,s_0)$,
      $$
      \Theta_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} E\left[ X^k\right].
@@ -674,5 +674,52 @@ Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
    \end{cases}
    $$
 
+2. Let $X \sim \mathcal{N}\left(\mu, \sigma^{2}\right)$. Then, for any
+   $s \in \mathbb{R}$, 
+   $$
+   \begin{aligned}
+   \Theta_{X}(s) 
+   &= \int_{-\infty}^{\infty} e^{s x} \frac{1}{\sqrt{2 \pi \sigma^2}} 
+   e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} d x\\
+   & =e^{\frac{\sigma^{2} s^{2}}{2}+\mu s} \cdot \underbrace{\frac{1}{\sqrt{2 \pi \sigma^2}} 
+   \int_{-\infty}^{\infty} e^{-\frac{\left(x - \sigma^{2}
+   s-\mu\right)^{2}}{2 \sigma^{2}}} d x}_{=1} \\
+   & =e^{\frac{\sigma^{2} s^{2}}{2}+\mu s}.
+   \end{aligned}
+   $$
+   Hence, from Property 1.2, 
+   $$
+   \begin{aligned}
+   E[X] & =\left.\frac{d\Theta_X}{d s} \right|_{s=0}
+   =\left.\left(\sigma^{2} s +\mu\right) e^{\frac{\sigma^{2}
+   s^{2}}{2}+\mu s}\right|_{s=0} 
+   =\mu \\
+   E\left[X^{2}\right] &=\left.\frac{d^{2}\Theta_X}{ds^{2}} \right|_{s=0}
+   =\left. \left[\left(\sigma^{2} s +\mu\right)^2 + \sigma^2\right] e^{\frac{\sigma^{2}
+   s^{2}}{2}+\mu s}\right|_{s=0}
+   =\mu^{2}+\sigma^{2}
+   \end{aligned}
+   $$
+   From Theorem 3.1, for any $s \geq 0$,
+   $$
+   P(X \geq a) \leq e^{\frac{\sigma^{2} s^{2}}{2}+(\mu-a) s}
+   $$
+   where the bound is minimized at 
+   $$
+   s_{*} = \begin{cases}
+   0 & \text{ if } a \leq \mu \\
+   \frac{a-\mu}{\sigma^{2}} & \text{ if } a>\mu .
+   \end{cases}
+   $$
+   Thus, the Chernoff bound is
+   $$
+   P(X \geq a) = Q\left(\frac{a-\mu}{\sigma}\right) 
+   \leq 
+   \begin{cases}
+   1 & \text{ if }  a \leq \mu\\
+   e^{-\frac{1}{2}\left(\frac{a-\mu}{\sigma}\right)^{2}} & \text{ if }
+   a>\mu .
+   \end{cases}
+   $$
 
 :::
