@@ -564,8 +564,8 @@ Assume that all (central) moments below are finite.
      \Theta_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} E\left[ X^k\right].
      $$
 
-  2. In particular, $\frac{d^k \Theta_X(0)}{ds^k} = E\left[ X^k\right]$
-     for $k=1, 2, \ldots$.
+  2.  For $k=1, 2, \ldots$, $\left. \frac{d^k \Theta_X}{ds^k} \right|_{s=0}
+     = E\left[ X^k\right]$.
 
 :::
 :::{prf:proof}
@@ -579,8 +579,8 @@ Assume that all (central) moments below are finite.
   \in (-s_0,s_0)$.
 
 2. Note that the series expansion of $\Theta_X(s)$ in 1. is a Taylor series
-about $0$, i.e., $\Theta_X(s) = \sum_{k=0}^{\infty}
-\frac{d^k\Theta_X(0)}{ds^k} \frac{s^k}{k!}$. Equating coefficients
+about $0$, i.e., $\Theta_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} \left.
+\frac{d^k \Theta_X}{ds^k} \right|_{s=0}$. Equating coefficients
 gives the desired expression of $E\left[ X^k\right]$ in terms of the
 $k$th derivative of $\Theta_X(s)$.
 :::
@@ -622,5 +622,57 @@ Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
 2.  Since $\Theta_{X}(s) \geq 0$ for $s\in[0,s_0)$, $\inf_{ s \in [0,
    s_0)} e^{-sa} \Theta_X(s) \geq 0$, and the bound in 2. is valid
    as the bound in 1. applies to all $s \in [0,s_0)$.
+
+:::
+
+:::{prf:example}
+1. Let $X$ be a binomial r.v. with pmf $p_{X}(k)=\binom{n}{k} p^{k}
+   q^{k-k}$, for $k=0,1, \ldots, n$, with $0<p \leq \frac{1}{2}$ and
+   $q=1-p$. Then, for any $s \in \mathbb{R}$,
+   $$
+   \begin{aligned}
+   \Theta_{X}(s) 
+   &=\sum_{k=0}^{n} e^{s k}\binom{n}{k} p^{k} q^{n-k} \\
+   & =\sum_{k=0}^{n}\binom{n}{k}\left(p e^{s}\right)^{k} q^{n-k} \\
+   & =\left(p e^{s}+q\right)^{n}.
+   \end{aligned}
+   $$
+   Hence, from Property 1.2, 
+   $$
+   \begin{aligned}
+   E[X] & = \left. \frac{d\Theta_{X}}{d s} \right|_{s=0}
+   = \left. n p e^{s}\left(p e^{s}+q\right)^{n-1}\right|_{s=0}=n p \\
+   E\left[X^{2}\right] &= \left. \frac{d^2\Theta_{X}}{d s^2}
+   \right|_{s=0} \\
+   & =\left. n(n-1) p^2 e^{2s}\left(p e^{s}+q\right)^{n-2}+n p
+   e^{s}\left(p e^{s} + q\right)^{n-1}\right|_{s=0} \\
+   & =n p q+n^{2} p^{2} .
+   \end{aligned}
+   $$
+   From Theorem 3.1, for any $s \geq 0$,
+   $$
+   P(X \geq a) \leq e^{-s a}\left(p e^{s}+q\right)^{n}
+   $$
+   where the bound is minimized at 
+   $$
+   s_{*}=\begin{cases}
+   0 & \text{ if } a \leq n p \\
+   \ln \left(\frac{q}{p}\right) + \ln \left(\frac{a}{n-a}\right) 
+   & \text{ if }  np<a<n \\
+   \infty &  \text{ if }  a \geq n.
+   \end{cases}
+   $$
+   Thus, the Chernoff bound is
+   $$
+   P(X \geq a) \leq 
+   \begin{cases}
+   1 & \text{ if } a \leq n p \\
+   \left(\frac{np}{a}\right)^{a} \left(\frac{n q}{n-a}\right)^{n-a} 
+   & \text{ if } np < a < n \\ 
+   p^n & \text{ if } a = n \\
+   0 & \text{ if } a > n .
+   \end{cases}
+   $$
+
 
 :::
