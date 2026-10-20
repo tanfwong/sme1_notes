@@ -725,3 +725,92 @@ Let $X$ be a r.v. with moment generating function $M_X(s)$
 
 :::
 
+- Similarly, let $(X,Y)$ be a random pair with joint cdf $F_{X,Y}(x,
+  y)$. Then, the ***joint moment generating function*** of the random
+  pair is defined as
+  $$
+  M_{X,Y}(s,t) = E\left[e^{sX+tY}\right]
+  =\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{s x+t y} \,d F_{X,Y}(x, y)
+  $$
+  for the region of $(s,t) \in \mathbb{R}^2$ such that the integral is
+  finite.
+
+- The Taylor's series results in Property 1 extend trivially to the
+  two-dimensional case here.  For example, if $M_{X,Y}(s,t)$ is
+  defined over an open neighborhood centered at $(0,0)$, then
+  $$
+  \left.\frac{\partial^{i+j} M_{X,Y}}{\partial s^{i} \partial
+  t^j}\right|_{(s,t)=(0,0)} = 
+  E\left[X^{i} Y^j\right].
+  $$
+
+- If $X$ and $Y$ are independent, then $M_{X,Y}(s,t) = M_X(s) M_Y(t)$
+  for $(s,t)$ such that $M_{X,Y}(s,t)$ is defined.
+
+## Characteristic function
+
+- Instead of the moment generating function, it is sometimes more
+  convenient to employ the ***characteristic function*** of the
+  r.v. $X$ as defined below:
+  $$
+  \begin{aligned}
+  \Phi_{X}(\omega) &= E\left[e^{j \omega X}\right] \\
+  & =\int_{-\infty}^{\infty} e^{j \omega X} d F_{X}(x) \\
+  & = \begin{cases}
+  \int_{-\infty}^{\infty} e^{j \omega x} f_{X}(x) d x 
+  & \text { if } X \text{ is continuous } \\ 
+  \sum_{i} e^{j \omega x_i} p_{X}\left(x_i\right) 
+  & \text { if } X \text{ is discrete} 
+  \end{cases}
+  \end{aligned}
+  $$
+  for $\omega \in \mathbb{R}$.
+
+- Note that $\Phi_{X}(\omega)$ is defined for all $\omega \in
+  \mathbb{R}$ since $\int_{-\infty}^{\infty} |e^{j \omega x} | \,d F_{X}(x)=1$.
+
+- Also, note that $f_{X}(x)$ ($p_{X}(x_{i})$) and $\Phi_{X}(\omega)$
+  form a (discrete-time) Fourier transform pair. Hence, all Fourier
+  analysis techniques are applicable to the characteristic
+  function. For example, we may use a table to look up the
+  characteristic function as the (discrete-time) Fourier transform of
+  its pdf (pmf), and vice versa.
+
+
+:::{prf:property} Properties of characteristic function
+1. $\Phi_X(\omega)$ is uniformly continuous on $\mathbb{R}$.
+
+2. For any $\omega$ satisfying 
+   $$
+   \lim_{n \rightarrow \infty} \frac{|\omega|^n E\left[ |X|^n
+   \right]}{n!} = 0,
+   $$
+   $$
+   \Phi_X(\omega) = \sum_{k-0}^{\infty} \frac{(j\omega)^k}{k!} E\left[ X^k
+   \right].
+   $$
+   In particular, if $M_X(s)$ is defined on $\mathbb{R}$, then the
+   Taylor's series expansion above is valid for all $\omega \in
+   \mathbb{R}$.
+
+3. If $E\left[ |X|^k \right] < \infty$, then 
+   $$
+   E\left[X^{k}\right] = \left.\frac{1}{j^{k}}
+   \frac{d\Phi_X^{k}}{d\omega^{k}}\right|_{\omega=0} .
+   $$
+
+:::
+
+- Similarly, the ***joint characteristic function*** of the random
+  pair $(X,Y)$ is defined as
+  $$
+  \Phi_{X,Y}(\omega,\nu) = E\left[e^{j(\omega X+\nu Y)}\right]
+  =\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{j(\omega x+ \nu
+  y)} \,d F_{X,Y}(x, y).
+  $$
+
+- The properties of the characteristic function above extend trivially
+  to the joint characteristic function. 
+
+- If $X$ and $Y$ are independent, then $\Phi_{X,Y}(\omega,\nu) =
+  \Phi_X(\omega) \Phi_Y(\nu)$.
