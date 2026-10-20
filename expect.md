@@ -462,7 +462,7 @@ Assume that all (central) moments below are finite.
 
 - Hence, the parameter $\rho=\frac{\operatorname{cov}(X,Y)}{\sigma_{x}
   \sigma_{y}}$ is simply the covariance of $X$ and $Y$ normalized by the
-  variances of $X$ and $Y$. This is normalized covariance is usually
+  variances of $X$ and $Y$. This normalized covariance is usually
   referred to as the ***correlation coefficient*** of $X$ and $Y$.
 
 - If $X$ and $Y$are uncorrelated, i.e. $\operatorname{cov}(X, Y)=0$,
@@ -543,7 +543,7 @@ Assume that all (central) moments below are finite.
   generating function*** as
   $$
   \begin{aligned}
-  \Theta_X(s) &=  E\left[e^{s X}\right] \\
+  M_X(s) &=  E\left[e^{s X}\right] \\
   & =\int_{-\infty}^{\infty} e^{s x} \,d F_{X}(x) \\
   & = \begin{cases}
   \int_{-\infty}^{\infty} e^{s x} f_{X}(x) \, dx & \text { if } X \text{
@@ -557,47 +557,48 @@ Assume that all (central) moments below are finite.
   finite.
 
 :::{prf:property} Properties of moment generating function
-- Suppose that $\Theta_X(s)$ is defined on the interval $(-s_0, s_0)$ for
+%:::{prf:lemma} Properties of moment generating function
+- Suppose that $M_X(s)$ is defined on the interval $(-s_0, s_0)$ for
   some $s_0>0$ (we allow $s_0=\infty$ here). 
   1. Then, for $s \in (-s_0,s_0)$,
      $$
-     \Theta_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} E\left[ X^k\right].
+     M_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} E\left[ X^k\right].
      $$
 
-  2.  For $k=1, 2, \ldots$, $\left. \frac{d^k \Theta_X}{ds^k} \right|_{s=0}
+  2.  For $k=1, 2, \ldots$, $\left. \frac{d^k M_X}{ds^k} \right|_{s=0}
      = E\left[ X^k\right]$.
 
 :::
 :::{prf:proof}
 :enumerated: false
-1. Since $e^{|sx|} \leq e^{sx} + e^{-sx}$ and $\Theta_X(s)$ is defined
+1. Since $e^{|sx|} \leq e^{sx} + e^{-sx}$ and $M_X(s)$ is defined
   on $(-s_0, s_0)$, $ \int_{-\infty}^{\infty} e^{|sx|}dF_X(x) <
   \infty$. Hence, the dominated convergence theorem and the fact that
   $e^{|sx|} = \sum_{k=0}^{\infty} \frac{|sx|^k}{k!}$ give $E[X^k] \leq
-  E[|X|^k] < \infty$ for each $k=1, 2, \ldots$, and $\Theta_X(s) =
+  E[|X|^k] < \infty$ for each $k=1, 2, \ldots$, and $M_X(s) =
   \sum_{k=0}^{\infty} \frac{s^k}{k!} E\left[ X^k\right]$ for any $s
   \in (-s_0,s_0)$.
 
-2. Note that the series expansion of $\Theta_X(s)$ in 1. is a Taylor series
-about $0$, i.e., $\Theta_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} \left.
-\frac{d^k \Theta_X}{ds^k} \right|_{s=0}$. Equating coefficients
+2. Note that the series expansion of $M_X(s)$ in 1. is a Taylor series
+about $0$, i.e., $M_X(s) = \sum_{k=0}^{\infty} \frac{s^k}{k!} \left.
+\frac{d^k M_X}{ds^k} \right|_{s=0}$. Equating coefficients
 gives the desired expression of $E\left[ X^k\right]$ in terms of the
-$k$th derivative of $\Theta_X(s)$.
+$k$th derivative of $M_X(s)$.
 :::
 
 :::{prf:theorem} Chernoff bound
 
-Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
+Let $X$ be a r.v. with moment generating function $M_X(s)$
   defined on $[0, s_0)$ for some $s_0>0$.
    
 1. For any $s \in [0, s_0)$ and $a \in \mathbb{R}$, 
    $$
-   P(X \geq a) \leq e^{-sa} \Theta_X(s).
+   P(X \geq a) \leq e^{-sa} M_X(s).
    $$
 
 2. For any $a \in \mathbb{R}$, 
    $$
-   P(X \geq a) \leq \inf_{ s \in [0, s_0)} e^{-sa} \Theta_X(s).
+   P(X \geq a) \leq \inf_{ s \in [0, s_0)} e^{-sa} M_X(s).
    $$
 
 - Note that the bound in 2. is the tightest bound on the ***tail
@@ -615,12 +616,12 @@ Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
    \begin{aligned}
    P(X \geq a) & =\int_{-\infty}^{\infty} u(x-a) d F_X(x) \\
    & \leq \int_{-\infty}^{\infty} e^{s(x-a)} d F_{X}(x) \\
-   & =e^{-s a} \Theta_{X}(s).
+   & =e^{-s a} M_{X}(s).
   \end{aligned}
   $$
 
-2.  Since $\Theta_{X}(s) \geq 0$ for $s\in[0,s_0)$, $\inf_{ s \in [0,
-   s_0)} e^{-sa} \Theta_X(s) \geq 0$, and the bound in 2. is valid
+2.  Since $M_{X}(s) \geq 0$ for $s\in[0,s_0)$, $\inf_{ s \in [0,
+   s_0)} e^{-sa} M_X(s) \geq 0$, and the bound in 2. is valid
    as the bound in 1. applies to all $s \in [0,s_0)$.
 
 :::
@@ -631,7 +632,7 @@ Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
    $q=1-p$. Then, for any $s \in \mathbb{R}$,
    $$
    \begin{aligned}
-   \Theta_{X}(s) 
+   M_{X}(s) 
    &=\sum_{k=0}^{n} e^{s k}\binom{n}{k} p^{k} q^{n-k} \\
    & =\sum_{k=0}^{n}\binom{n}{k}\left(p e^{s}\right)^{k} q^{n-k} \\
    & =\left(p e^{s}+q\right)^{n}.
@@ -640,9 +641,9 @@ Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
    Hence, from Property 1.2, 
    $$
    \begin{aligned}
-   E[X] & = \left. \frac{d\Theta_{X}}{d s} \right|_{s=0}
+   E[X] & = \left. \frac{dM_{X}}{d s} \right|_{s=0}
    = \left. n p e^{s}\left(p e^{s}+q\right)^{n-1}\right|_{s=0}=n p \\
-   E\left[X^{2}\right] &= \left. \frac{d^2\Theta_{X}}{d s^2}
+   E\left[X^{2}\right] &= \left. \frac{d^2 M_{X}}{d s^2}
    \right|_{s=0} \\
    & =\left. n(n-1) p^2 e^{2s}\left(p e^{s}+q\right)^{n-2}+n p
    e^{s}\left(p e^{s} + q\right)^{n-1}\right|_{s=0} \\
@@ -678,7 +679,7 @@ Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
    $s \in \mathbb{R}$, 
    $$
    \begin{aligned}
-   \Theta_{X}(s) 
+   M_{X}(s) 
    &= \int_{-\infty}^{\infty} e^{s x} \frac{1}{\sqrt{2 \pi \sigma^2}} 
    e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}} d x\\
    & =e^{\frac{\sigma^{2} s^{2}}{2}+\mu s} \cdot \underbrace{\frac{1}{\sqrt{2 \pi \sigma^2}} 
@@ -690,11 +691,11 @@ Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
    Hence, from Property 1.2, 
    $$
    \begin{aligned}
-   E[X] & =\left.\frac{d\Theta_X}{d s} \right|_{s=0}
+   E[X] & =\left.\frac{dM_X}{d s} \right|_{s=0}
    =\left.\left(\sigma^{2} s +\mu\right) e^{\frac{\sigma^{2}
    s^{2}}{2}+\mu s}\right|_{s=0} 
    =\mu \\
-   E\left[X^{2}\right] &=\left.\frac{d^{2}\Theta_X}{ds^{2}} \right|_{s=0}
+   E\left[X^{2}\right] &=\left.\frac{d^{2}M_X}{ds^{2}} \right|_{s=0}
    =\left. \left[\left(\sigma^{2} s +\mu\right)^2 + \sigma^2\right] e^{\frac{\sigma^{2}
    s^{2}}{2}+\mu s}\right|_{s=0}
    =\mu^{2}+\sigma^{2}
@@ -723,3 +724,4 @@ Let $X$ be a r.v. with moment generating function $\Theta_X(s)$
    $$
 
 :::
+
