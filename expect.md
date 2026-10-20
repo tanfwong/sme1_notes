@@ -804,13 +804,74 @@ Let $X$ be a r.v. with moment generating function $M_X(s)$
 - Similarly, the ***joint characteristic function*** of the random
   pair $(X,Y)$ is defined as
   $$
-  \Phi_{X,Y}(\omega,\nu) = E\left[e^{j(\omega X+\nu Y)}\right]
-  =\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{j(\omega x+ \nu
+  \Phi_{X,Y}(\nu, \xi) = E\left[e^{j(\nu X+\xi Y)}\right]
+  =\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{j(\nu x+ \xi
   y)} \,d F_{X,Y}(x, y).
   $$
 
 - The properties of the characteristic function above extend trivially
   to the joint characteristic function. 
 
-- If $X$ and $Y$ are independent, then $\Phi_{X,Y}(\omega,\nu) =
-  \Phi_X(\omega) \Phi_Y(\nu)$.
+- If $X$ and $Y$ are independent, then $\Phi_{X,Y}(\nu,\xi) =
+  \Phi_X(\nu) \Phi_Y(\xi)$.
+
+:::{prf:example} Linear combination iin random pair
+
+1. Let $(X,Y)$ be a continuous random pair with joint characteristic
+   function $\Phi_{X,Y}(\nu, \xi)$. Let $Z=a X+bY$ where $a$ and $b$
+   are non-zero constants.
+  
+- Then
+  $$
+  \begin{aligned}
+  \Phi_{Z}(\omega) & =E\left[e^{j \omega Z}\right] \\
+  & =E\left[e^{j \omega (aX+b Y)}\right] \\
+  & =\Phi_{X,Y}(a \omega, b \omega).
+  \end{aligned}
+  $$
+
+- Thus, the pdf of $Z$ can be obtained by taking the inverse Fourier
+  transform of $\Phi_{Z}(\omega)$. In particular, if $X$ and $Y$ are
+  independent, then 
+  $$
+  \Phi_Z(\omega) = \Phi_{X}(a\omega) \Phi_{Y}(b\omega).
+  $$
+  By the convolution and time-scaling properties of Fourier transform,
+  we have 
+  $$
+  f_Z (z)=\frac{1}{|a|} f_X\left(\frac{x}{a}\right) * \frac{1}{|b|}
+  f_Y\left(\frac{y}{b}\right).
+  $$
+
+2. If $(X,Y)$ is bivariate Gaussian with parameters
+   $\left(\mu_{x}, \mu_{y}, \sigma_{x}, \sigma_{y}, \rho\right)$,
+  
+   $$ 
+   \Phi_{X,Y}(\nu, \xi)=\exp \left\{j\left(\nu \mu_{x}+\xi
+   \mu_{y}\right)-\frac{1}{2}\left[\nu^{2} \sigma_{x}^{2}+2 \nu \xi \rho
+   \sigma_{x} \sigma_{y}+\xi^{2} \sigma_{y}^{2}\right]\right\}.
+   $$
+
+- For $Z=a X+b Y$ ($a \neq 0$ and $b \neq 0$), then
+  
+  $$
+  \begin{aligned}
+  \Phi_{Z}(\omega) &= \Phi_{X,Y}(a \omega, b \omega) \\
+  &= \exp \left\{j(a \omega \mu_x+b \omega \mu_y)
+  - \frac{1}{2}\left[a^{2} \omega^{2} \sigma_{x}^{2}+2 a b \omega^{2}
+  \rho \sigma_{x} \sigma_{y}+b^{2} \omega^{2} \sigma_{y}^{2}\right]\right\} \\
+  & =\exp \left\{j \omega(a \mu_x+b \mu_y)-\frac{1}{2}\left(a^{2}
+\sigma_{x}^{2}+2 a b \sigma_x \sigma y+b^{2} \sigma_{y}^{2}\right)
+\omega^{2}\right\}.
+  \end{aligned}
+  $$
+
+- Notice that this is the characteristic function of a Gaussian r.v.
+  with mean $a \mu_{x}+b \mu_y$ and variance $a^{2} \sigma_{x}^{2}+2 a
+  b \rho \sigma_{x} \sigma_y+b^{2} \sigma_{y}^{2}$. Thus, $Z$ remains
+  Gaussian distributed.
+  
+- In summary, *any linear combination of a pair of jointly Gaussian
+  r.v.'s. is still Gaussian*.
+
+:::
