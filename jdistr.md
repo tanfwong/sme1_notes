@@ -301,7 +301,7 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   F_{X}(x \mid Y \leq y) = \frac{P(X \leq x, Y \leq y)}{P(Y\leq y)} =
   \frac{F_{X,Y}(x, y)}{F_{Y}(y)}.
   $$
-  Assuming that $F_{X}(x \mid Y \leq y)$ is absolutely continuous,
+  Note that $F_{X}(x \mid Y \leq y)$ is absolutely continuous, and 
   the conditional pdf $f_{X}(x \mid Y \leq y) = \frac{\partial F_{X}(x
   \mid Y \leq y)}{\partial x}$ exists.
 

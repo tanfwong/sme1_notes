@@ -19,13 +19,13 @@ numbering:
   to describe how the expected value of $Y$ may change from by knowing
   that $X$ takes on some value.
 
-- To minimize the amount of math machinery needad, we will separately
+- To minimize the amount of math machinery needed, we will separately
   consider the speical cases where the random variables $X$ and $Y$
   are discrete or continuous. A more unifying treatment that subsumes
   all these special cases and other more general cases is possible as
-  discussed in Remark 2 below. 
+  discussed in Remark 3 below. 
 
-## Discrete Conditioning Random Variable
+## Discrete Conditioning R.V.
 - Consider a random pair $(X,Y)$ defined on the probability space
   $(\Omega, \mathcal{F}, P)$ where the range of $X$ is discrete $\{
   x_i\}$ and $E[|Y|] < \infty$.
@@ -34,7 +34,7 @@ numbering:
   conditional cdf of $Y$ given $X$ as
   $$
   F_{Y \mid X} (y \mid x_i) 
-  = \frac{ P(X=x_i, Y \leq y)}{p_X(x_i)}
+  = \frac{ P(X=x_i, Y \leq y)}{p_X(x_i)} 
   $$
   if the marginal pmf value $p_X(x_i)>0$.
 
@@ -197,4 +197,82 @@ numbering:
   & =n p^{2}.
   \end{aligned}
   $$
+:::
+
+## Continuous Conditioning R.V.
+- Now, consider a measurable mapping $g: \mathbb{R}^2 \rightarrow
+   \mathbb{R}$ and a random pair $(X,Y)$ that satisfies the following
+   two conditions:
+   1. the conditional cdf $F_X(x \mid Y \leq y) =
+      \frac{F_{X,Y}(x,y)}{F_Y(y)}$, as defined
+      [before](#cond-distr), is absolutely continuous for all $y$ such
+      that $F_Y(y) > 0$, and
+   2. $E[|g(X,Y)|] < \infty$.
+- As discussed in the [section about conditional
+  distribution given $X$](#cond-distr), condition 1 above
+  implies that the conditional pdf $f_{X}(x \mid Y \leq y) = \frac{\partial F_{X}(x
+  \mid Y \leq y)}{\partial x}$ exists, and we may define the
+  conditional cdf of $Y$ given $X$ as
+  $$
+  F_{Y \mid X}(y \mid x) = \frac{f_{X}(x \mid Y \leq y) F_{Y}(y)}{f_{X}(x)} 
+  $$
+  if the marginal pdf value $f_X(x)>0$.
+- Similar to before, consider the measurable mapping $h:\mathbb{R}
+  \rightarrow \mathbb{R}$ defined by
+  $$
+  h(x) = \begin{cases}
+  \int_{-\infty}^{\infty} g(x,y)\, dF_{Y \mid X}(y|x) & \text{ if }
+  f_X(x) > 0 \\
+  0 & \text{ if } f_X(x) = 0.
+  \end{cases}
+  $$ 
+
+- Then, we can define the r.v. $h(X)$ as the ***conditional expected value of
+  $g(X,Y)$ given $X$***, and it is usually denoted by the notation
+  $E[g(X,Y) \mid X]$. In addition, we may also write $E[g(X,Y) \mid
+  X=x]$ as a surrogate for $h(x)$.
+
+- Note that the results in Lemmas 1 and 2 still hold for this case.
+
+:::{prf:remark}
+ - As before again, we will mainly consider the following two special cases:
+1. If $(X,Y)$ is continuous:\
+   The conditional pdf of $Y$ given $X$ exists and is given by
+   (see [here](#cond-distr)):
+   $$
+   f_{Y\mid X}(y \mid x) = \frac{f_{X,Y}(x, y)}{f_X(x)} 
+   $$
+   if  $f_X(x) > 0$.
+   Thus, 
+   $$
+   h(x) =  \begin{cases} 
+   \int_{-\infty}^{\infty}  g(x,y) f_{Y\mid X}(y \mid x)\, dy 
+   & \text{ if } f_X(x) > 0 \\
+   0 & \text{ if } f_X(x) = 0.
+   \end{cases}
+   $$
+
+2. If the range of $Y$ is discrete $\{y_j\}$ with the ordering that
+   $y_{j-1} < y_{j}$:\
+   In this case, we may define the conditional pmf of $Y$ given $X$ as
+   $$
+   \begin{aligned}
+   p_{Y\mid X}(y_j \mid x) 
+   &= F_{Y \mid X}(y_j \mid x) - F_{Y \mid X}(y_{j-1} \mid x) \\
+   &=\frac{1}{f_{X}(x)} \lim _{\Delta x \downarrow 0}
+  \frac{1}{\Delta x}  \Big[ F_{X,Y}(x+\Delta x, y_j) - F_{X,Y}(x, y_j) \\
+   & \quad\quad\quad\quad\quad\quad\quad\quad - F_{X,Y}(x+\Delta x, y_{j-1})+F_{X,Y}(x, y_{j-1}) \Big] \\
+   \end{aligned}
+   $$
+   if  $f_X(x) > 0$.
+   Thus, 
+   $$
+   h(x) =  \begin{cases} 
+   \sum_{j}  g(x,y_j) p_{Y\mid X}(y_j \mid x) 
+   & \text{ if }
+   f_X(x) > 0 \\
+   0 & \text{ if } f_X(x) = 0.
+   \end{cases}
+   $$
+
 :::
