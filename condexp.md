@@ -276,3 +276,46 @@ numbering:
    $$
 
 :::
+
+:::{prf:example} Bivariate Gaussian random pair
+
+- Let $(X,Y)$ be a bivariate Gaussian random pair with parameters
+  $(\mu_x,\mu_y, \sigma_x, \sigma_y, \rho)$. Recall in a [previous
+  example](#binormal_ex), we worked out that the conditional pdf of
+  $Y$ given $X$ is given by
+  $$
+  \begin{aligned}
+  & f_{Y \mid X}(y \mid x) \\
+  &=\frac{1}{\sqrt{2 \pi \sigma_y^{2}\left(1-\rho^{2}\right)}} 
+  \exp \left(-\frac{1}{2 \sigma^{2}_y \left(1-p^{2}\right)} 
+  \left[y-\mu_y-\frac{\rho \sigma_{y}}{\sigma_{x}}(x-\mu_x)\right]^{2}\right)
+  \end{aligned}
+  $$
+
+- Thus from Remark 2.1, we have
+  $$
+  \begin{aligned}
+  & E[Y\mid X=x] \\
+  &= \int_{-\infty}^{\infty} \frac{y}{\sqrt{2 \pi \sigma_y^{2}\left(1-\rho^{2}\right)}} 
+  \exp \left(-\frac{1}{2 \sigma^{2}_y \left(1-p^{2}\right)} 
+  \left[y-\mu_y-\frac{\rho
+  \sigma_{y}}{\sigma_{x}}(x-\mu_x)\right]^{2}\right)\, dy \\
+  &= \mu_y+\frac{\rho \sigma_{y}}{\sigma_{x}}(x-\mu_x)
+  \end{aligned}
+  $$
+  and hence
+  $$
+  E[Y\mid X] = \mu_y+\frac{\rho \sigma_{y}}{\sigma_{x}}(X-\mu_x).
+  $$
+
+- It is then easy to verify the assertion in Lemma 2 that
+  $$
+  \begin{aligned}
+  E\left[ E[Y \mid X] \right]
+  &= E\left[ \mu_y+\frac{\rho \sigma_{y}}{\sigma_{x}}(X-\mu_x) \right] \\
+  & =  \mu_y+\frac{\rho \sigma_{y}}{\sigma_{x}} E[X-\mu_x] \\
+  & = \mu_y  \\
+  & = E[Y].
+  \end{aligned}
+  $$
+:::
