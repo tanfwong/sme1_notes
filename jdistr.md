@@ -292,6 +292,7 @@ The r.v.'s $X$ $Y$ are independent if and only if any of the following
   $p_{X,Y}(x_i, y_j)=p_{X}(x_i) \cdot p_{Y}(y_j)$ for discrete $(X,Y)$.
 :::
 
+(cond-distr)=
 ## Conditional Distribution
 - Let $(X,Y)$ be a continuous random pair. Using the previous definition of
   [conditional distribution](#rv-condist) and let the conditioned event $B=\{Y \leq

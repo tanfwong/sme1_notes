@@ -482,6 +482,7 @@ happens does not affect the "likelihood" of $B$.
 :::
 
 :::{prf:example} Law of total probability
+:name: ex-2rounds
 - Now, consider a game that includes two rounds of tossing the
   coin. In the first round, the coin is tossed in $n$ times as in the
   previous examples. In the second round, the coin is tossed $k$ times

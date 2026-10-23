@@ -3,6 +3,7 @@ numbering:
   equation: false
 ---
 
+(E)=
 # Expected Value
 
 - The ***expected value*** of a r.v. is the a formalization of the
@@ -493,11 +494,12 @@ Assume that all (central) moments below are finite.
    \left|E[h(X) g(Y)] \right| \leq \sqrt{E\left[h^{2}(X)\right] E\left[g^{2}(Y)\right]}
    $$
    with equality achieved when and only when $g(Y(\omega))=\lambda
-   h(X(\omega))$ on $\Omega$, except perhaps for an event of
-   probability $0$.
+   h(X(\omega))$ on $\Omega$ ***with probability 1 (w.p.1)***, i.e., 
+   $P\left( g(Y) \neq \lambda h(X)\right) = 0$.
 
 2. The correlation coefficient must satisfy $-1 \leq \rho \leq 1$ with
-  equality achieved when and only when $Y$ is an affine function of $X$.
+  equality achieved when and only when $Y$ is an affine function of
+  $X$ w.p.1.
 :::
 
 :::{prf:proof}
@@ -609,7 +611,9 @@ Let $X$ be a r.v. with moment generating function $M_X(s)$
 
 :::{prf:proof}
 :enumerated: false
-1. Let $u(x)= \begin{cases} 1 & x \geq 0 \\ 0 & x <0
+1. Let $u(x)= \begin{cases}
+   1 & \text{ if } x \geq 0 \\ 
+   0 & \text{ if } x <0
    \end{cases}$. Since $e^{s(x-a)} \geq u(x-a)$ for any $s \in [0,
    s_0)$, we have
    $$
@@ -778,6 +782,7 @@ Let $X$ be a r.v. with moment generating function $M_X(s)$
 
 
 :::{prf:property} Properties of characteristic function
+%:::{prf:lemma} Properties of characteristic function
 1. $\Phi_X(\omega)$ is uniformly continuous on $\mathbb{R}$.
 
 2. For any $\omega$ satisfying 
