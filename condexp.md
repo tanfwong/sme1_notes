@@ -376,7 +376,7 @@ numbering:
      \left( g(x) - E\left[Y \mid X=x\right] \right)^2
      \end{aligned}
      $$
-     for each $x \in \mathbb{R}$.
+     is minimized for each $x \in \mathbb{R}$.
   4. The choice of $g(x) = E\left[Y \mid X=x\right]$ clearly minimizes
      the integral in 3., and hence the MSE. As a result, the
      conditional mean of $Y$ given $X$, i.e., $E[ Y\mid X]$, is the
@@ -409,7 +409,7 @@ numbering:
   \end{aligned}
   $$
 - Hence, the MMSE estimator is $E[Y \mid X]$, which is an affined
-  function of $X$, and the achieved MMSE is $$\sigma_y^2 (1-\rho^2)$
+  function of $X$, and the achieved MMSE is $\sigma_y^2 (1-\rho^2)$
   which decreases as the correlation coefficient $\rho$ getting closer
   to $1$ or $-1$. 
 :::
