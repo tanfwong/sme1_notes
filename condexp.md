@@ -322,12 +322,12 @@ numbering:
 
 ## MMSE Estimation
 - One important application of conditional expected value is in the
-  problem of *point estimation*.
+  problem of *estimation*.
 - Consider a random pair $(X,Y)$. Suppose that we can only observe the
   r.v. $X$ and want to know/estimate what $Y$ is from our
   observation. For example, one may consider $X$ as the "noisy" output
   of a system with $Y$ being the input. We observe the output from
-  which we can to figure out what the input is.
+  which we want to figure out what the input is.
 - Let us here restrict ourselves to the class of methods in which the
   estimate of $Y$ is formed by putting $X$ into some function
   $g$. Typically, we want to select the function $g$ such that some
