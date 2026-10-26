@@ -287,7 +287,7 @@ numbering:
   \begin{aligned}
   & f_{Y \mid X}(y \mid x) \\
   &=\frac{1}{\sqrt{2 \pi \sigma_y^{2}\left(1-\rho^{2}\right)}} 
-  \exp \left(-\frac{1}{2 \sigma^{2}_y \left(1-p^{2}\right)} 
+  \exp \left(-\frac{1}{2 \sigma^{2}_y \left(1-\rho^{2}\right)} 
   \left[y-\mu_y-\frac{\rho \sigma_{y}}{\sigma_{x}}(x-\mu_x)\right]^{2}\right)
   \end{aligned}
   $$
@@ -297,7 +297,7 @@ numbering:
   \begin{aligned}
   & E[Y\mid X=x] \\
   &= \int_{-\infty}^{\infty} \frac{y}{\sqrt{2 \pi \sigma_y^{2}\left(1-\rho^{2}\right)}} 
-  \exp \left(-\frac{1}{2 \sigma^{2}_y \left(1-p^{2}\right)} 
+  \exp \left(-\frac{1}{2 \sigma^{2}_y \left(1-\rho^{2}\right)} 
   \left[y-\mu_y-\frac{\rho
   \sigma_{y}}{\sigma_{x}}(x-\mu_x)\right]^{2}\right)\, dy \\
   &= \mu_y+\frac{\rho \sigma_{y}}{\sigma_{x}}(x-\mu_x)
@@ -319,3 +319,99 @@ numbering:
   \end{aligned}
   $$
 :::
+
+## MMSE Estimation
+- One important application of conditional expected value is in the
+  problem of *point estimation*.
+- Consider a random pair $(X,Y)$. Suppose that we can only observe the
+  r.v. $X$ and want to know/estimate what $Y$ is from our
+  observation. For example, one may consider $X$ as the "noisy" output
+  of a system with $Y$ being the input. We observe the output from
+  which we can to figure out what the input is.
+- Let us here restrict ourselves to the class of methods in which the
+  estimate of $Y$ is formed by putting $X$ into some function
+  $g$. Typically, we want to select the function $g$ such that some
+  performance metric. 
+- A common performance metric is the ***mean square error (MSE)***,
+  which is defined as $E\left[(Y - g(X))^2\right]$ for a specific
+  function $g$. The optimal choice of $g(X)$ that minimizes the MSE is
+  called the ***minimum mean square error (MMSE) estimator***.
+- The problem of finding the MMSE estimator is greatly simplified
+  using the law of total expectation (Lemma 2) as follows:
+  1. It suffices to consider those $g$ such that $E\left[(Y -
+     g(X))^2\right] < \infty$.
+  2. By Lemma 2, we have
+     $$
+     \begin{aligned}
+     E\left[(Y - g(X))^2\right] 
+     &= E\left[ E\left[(Y - g(X))^2 \mid X\right] \right] \\
+     &= \int_{-\infty}^{\infty} E\left[(Y - g(X))^2 \mid X=x\right]
+     \, dF_X(x).
+     \end{aligned}
+     $$
+  3. Note that
+     $$
+     \begin{aligned}
+     & E\left[(Y - g(X))^2 \mid X=x\right] \\
+     &=
+     \begin{cases}
+     \int_{-\infty}^{\infty} (y-g(x))^2 \, dF_{Y\mid X} (y|x) & \text
+     { if } f_X(x) \text{ or } p_X(x) > 0\\
+     0 & \text{ if } f_X(x) \text{ or } p_X(x) = 0.
+     \end{cases}
+     \end{aligned}
+     $$
+     Clearly then, the MSE will be minimized by choosing a $g$ such
+     that the integral 
+     $$
+     \begin{aligned}
+     & \int_{-\infty}^{\infty} (y-g(x))^2 \, dF_{Y\mid X} (y|x) \\
+     &= \int_{-\infty}^{\infty} y^2 \, dF_{Y\mid X} (y|x) - 2g(x)
+     \int_{-\infty}^{\infty} y \, dF_{Y\mid X} (y|x) + g^2(x) \\
+     &= E\left[Y^2 \mid X=x\right] - 2g(x) E\left[Y \mid X=x\right] +
+     g^2(x) \\
+     &=  E\left[Y^2 \mid X=x\right] - E^2\left[ Y \mid X=x\right] +
+     \left( g(x) - E\left[Y \mid X=x\right] \right)^2 \\
+     &=  \operatorname{var} (Y \mid X=x) +
+     \left( g(x) - E\left[Y \mid X=x\right] \right)^2
+     \end{aligned}
+     $$
+     for each $x \in \mathbb{R}$.
+  4. The choice of $g(x) = E\left[Y \mid X=x\right]$ clearly minimizes
+     the integral in 3., and hence the MSE. As a result, the
+     conditional mean of $Y$ given $X$, i.e., $E[ Y\mid X]$, is the
+     MMSE estimator for $Y$.
+  5. In addition, the MMSE achieved by the conditional mean is the
+     conditional variance of $Y$ given $X$, i.e., $E\left[\operatorname{var}(
+     Y \mid X) \right]$.
+
+
+:::{prf:example}
+1. *Two-round coin tossing*:
+- Suppose that we observe $X$, the number of $H$s resulted in the first
+  round. The MMSE estimator for $Y$, the number of $H$s obtained in
+  the second round is $E[ Y \mid X] = Xp$.
+- The MMSE achieved by this estimator is 
+  $$
+  \begin{aligned}
+  E\left[ \operatorname{var}(Y \mid X) \right] 
+  &= E[ Xpq] = p^2q
+  \end{aligned}
+  $$
+  since $\operatorname{var}(Y \mid X) = Xpq$.
+
+2. *Bivariate Gaussian random pair*:
+- From Example 2, we have
+  $$
+  \begin{aligned}
+  E[Y \mid X] &= \mu_y+\frac{\rho \sigma_{y}}{\sigma_{x}}(X-\mu_x) \\
+  \operatorname{var}(Y \mid X)  &= \sigma_y^2 (1-\rho^2). 
+  \end{aligned}
+  $$
+- Hence, the MMSE estimator is $E[Y \mid X]$, which is an affined
+  function of $X$, and the achieved MMSE is $$\sigma_y^2 (1-\rho^2)$
+  which decreases as the correlation coefficient $\rho$ getting closer
+  to $1$ or $-1$. 
+:::
+
+ 
