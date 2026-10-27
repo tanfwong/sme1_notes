@@ -396,7 +396,7 @@ numbering:
   $$
   \begin{aligned}
   E\left[ \operatorname{var}(Y \mid X) \right] 
-  &= E[ Xpq] = p^2q
+  &= E[ Xpq] = np^2q
   \end{aligned}
   $$
   since $\operatorname{var}(Y \mid X) = Xpq$.
