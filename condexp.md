@@ -331,7 +331,7 @@ numbering:
 - Let us here restrict ourselves to the class of methods in which the
   estimate of $Y$ is formed by putting $X$ into some function
   $g$. Typically, we want to select the function $g$ such that some
-  performance metric. 
+  performance metric is optimized. 
 - A common performance metric is the ***mean square error (MSE)***,
   which is defined as $E\left[(Y - g(X))^2\right]$ for a specific
   function $g$. The optimal choice of $g(X)$ that minimizes the MSE is
@@ -382,6 +382,7 @@ numbering:
      conditional mean of $Y$ given $X$, i.e., $E[ Y\mid X]$, is the
      MMSE estimator for $Y$.
   5. In addition, the MMSE achieved by the conditional mean is the
+     expected value of the
      conditional variance of $Y$ given $X$, i.e., $E\left[\operatorname{var}(
      Y \mid X) \right]$.
 
