@@ -114,7 +114,7 @@ numbering:
   section](#E).
 
 - In order to avoid defining the function $h$ every time when we
-  discusss the conditional expected value, we may write $E[g(X,Y) \mid
+  discuss the conditional expected value, we may write $E[g(X,Y) \mid
   X=x_i]$ as the stand-in for $h(x_i)$.
 
 :::{prf:lemma} Independent r.v.'s
@@ -462,4 +462,14 @@ numbering:
    be $\sigma$-fields in $\mathcal{F}$. Then $E\left[ E[Y \mid
    \mathcal{G}_2] \mid \mathcal{G}_1 ] \right] = E[ Y \mid
    \mathcal{G}_1]$ w.p.1.
+
+3. This general approach of conditional expected value also subsumes
+   our previous development of [conditional distribution](#cond-distr)
+   because, for example, the conditional cdf of $Y$ given $X$ is
+   simply the conditional expected value of $g(Y)$ given $\sigma(X)$
+   with the function $g(Y) = \begin{cases} 1 & \text{ if } Y \leq y \\
+   0 & \text{ otherwise} \end{cases}$ chosen to be an indicator
+   function. Of course, the conditional cdf should now be understood
+   as a random variable.
+ 
 :::
