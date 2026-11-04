@@ -69,3 +69,117 @@ numbering:
   are independent. We have thus $\mathbf{X}$ and $\mathbf{Y}$ are
   independent if and only if $F_{\mathbf{X}, \mathbf{Y}}(\mathbf{x},
   \mathbf{y}) = F_{\mathbf{X}}(\mathbf{x}) F_{\mathbf{Y}}(\mathbf{y})$.
+
+## Moments and Joint Moments
+- Let $\mathbf{X} = [X_1, X_2, \ldots, X_k]^T$ be a random vector.
+- Define the ***mean (vector)*** of $\mathbf{X}$ as
+  $$
+  E[\mathbf{X}] = \left[ E[X_1], E[X_2], \ldots, E[X_k] \right]^T.
+  $$
+- Define the ***correlation (matrix)*** of $\mathbf{X}$ as
+  $$
+  \mathbf{R}_{\mathbf{X}} = E\left[\mathbf{XX}^T\right]
+  $$
+  with its $(i,j)$th element $[\mathbf{R}_{\mathbf{X}}]_{i,j} = E[X_i
+  X_j]$. Thus, the notation $E\left[\mathbf{XX}^T\right]$ above
+  corresponds to that the expected value operator applies in an
+  elementwise fashion to the element of the matrix
+  $\mathbf{XX}^T$. This interpretation will be assumed hereafter.
+- Similarly, define the ***covariance (matrix)*** of $\mathbf{X}$ as
+  $$
+  \mathbf{K}_{\mathbf{X}} = E\left[ \left( \mathbf{X} - E[\mathbf{X}]
+  \right) \left( \mathbf{X} - E[\mathbf{X}]
+  \right)^T\right]
+  $$
+  with its $(i,j)$th element $[\mathbf{K}_{\mathbf{X}}]_{i,j} =
+  \operatorname{cov}(X_i, X_j)$.
+
+
+- Let $\mathbf{X} = [X_1,X_2, \ldots, X_k]^T$ and $\mathbf{Y} =
+  [Y_1,Y_2, \ldots, Y_m]^T$ be random vectors with joint cdf
+  $F_{\mathbf{X}, \mathbf{Y}}(\mathbf{x}, \mathbf{y})$.
+
+- Define the ***cross-correlation (matrix)*** of $\mathbf{X}$ and
+  $\mathbf{Y}$ as
+  $$
+  \mathbf{R}_{\mathbf{X},\mathbf{Y}} = E\left[\mathbf{XY}^T\right], 
+  $$
+  and the  ***cross-covariance (matrix)*** of $\mathbf{X}$ and
+  $\mathbf{Y}$ as
+  $$
+  \mathbf{K}_{\mathbf{X},\mathbf{Y}} = E\left[ \left( \mathbf{X} - E[\mathbf{X}]
+  \right) \left( \mathbf{Y} - E[\mathbf{Y}] \right)^T\right].
+  $$
+
+- If $\mathbf{R}_{\mathbf{X},\mathbf{Y}} = \mathbf{0}$, then $\mathbf{X}$ and
+  $\mathbf{Y}$ are called ***orthogonal***.
+- If $\mathbf{K}_{\mathbf{X},\mathbf{Y}} = \mathbf{0}$, then $\mathbf{X}$ and
+  $\mathbf{Y}$ are called ***uncorrelated***.
+ 
+:::{prf:property} Properties of correlation and covariance
+%:::{prf:lemma} Properties of correlation and covariance
+
+1. $\mathbf{R}_{\mathbf{X}} = \mathbf{K}_{\mathbf{X}} +
+   E\left[\mathbf{X}\right]  E\left[\mathbf{X}\right]^T$.
+
+2. $\mathbf{R}_{\mathbf{X}, \mathbf{Y}} =
+   \mathbf{K}_{\mathbf{X},\mathbf{Y}} +
+   E\left[\mathbf{X}\right]  E\left[\mathbf{Y}\right]^T$.
+
+3. $\mathbf{X}$ and $\mathbf{Y}$ are uncorrelated if and only if
+   $\mathbf{R}_{\mathbf{X}, \mathbf{Y}} = E\left[\mathbf{X}\right]
+   E\left[\mathbf{Y}\right]^T$.
+
+4. If $\mathbf{X}$ and $\mathbf{Y}$ are independent, then they are
+   uncorrelated.
+
+5. $\mathbf{R}_{\mathbf{X}}$ (and $\mathbf{K}_{\mathbf{X}}$ as well) is
+   symmetric and positive semi-definite. This is equivalent to that
+   all eigenvalues of $\mathbf{R}_{\mathbf{X}}$ are non-negative and
+   to that $\mathbf{z}^T \mathbf{R}_{\mathbf{X}} \mathbf{z} \geq 0$
+   for all $\mathbf{z} \neq \mathbf{0}$.
+
+6. $\mathbf{K}_{\mathbf{X}}$ is not of full rank (i.e., some of its
+   eigenvalues are $0$) if and only if there exists a partition
+   $\mathbf{X} = \left[\mathbf{X}_1^T, \mathbf{X}_2^T \right]^T$ such
+   that $\mathbf{X}_1 - E[\mathbf{X}_1] = \mathbf{A}
+   \left(\mathbf{X}_2 - E[\mathbf{X}_2]\right)$ w.p.1 for some
+   constant matrix $\mathbf{A}$.
+
+7. (Cauchy-Schwartz) For any $\mathbf{z}_1$ and $\mathbf{z}_2$ of
+   proper dimensions, we have 
+   $$
+   \left| \mathbf{z}_1^T \mathbf{R}_{\mathbf{X}, \mathbf{Y}}
+   \mathbf{z}_2 \right|^2 \leq 
+    \left( \mathbf{z}_1^T \mathbf{R}_{\mathbf{X}} \mathbf{z}_1 \right)
+    \left( \mathbf{z}_2^T \mathbf{R}_{\mathbf{Y}} \mathbf{z}_2 \right)
+   $$
+   with equality achieved when and only when $\mathbf{X} = \mathbf{A
+   Y}$ w.p.1 for some constant matrix $\mathbf{A}$.\
+   Similarly,
+   $$
+   \left| \mathbf{z}_1^T \mathbf{K}_{\mathbf{X}, \mathbf{Y}}
+   \mathbf{z}_2 \right|^2 \leq 
+    \left( \mathbf{z}_1^T \mathbf{K}_{\mathbf{X}} \mathbf{z}_1 \right)
+    \left( \mathbf{z}_2^T \mathbf{K}_{\mathbf{Y}} \mathbf{z}_2 \right)
+   $$
+   with equality achieved when and only when $\mathbf{X} -
+   E[\mathbf{X}] = \mathbf{A} \left(\mathbf{Y} - E[\mathbf{Y}]\right)
+   $ w.p.1 for some constant matrix $\mathbf{A}$.
+
+:::
+:::{prf:proof}
+:enumerated: false
+
+7. Without loss of generality, assume that $\mathbf{X}$ has a larger
+   dimension. Note that
+   $$
+   \mathbf{z}_1^T E \left[ \left( \mathbf{X} - \lambda \mathbf{AY}
+   \right) \left( \mathbf{X} - \lambda \mathbf{AY} \right)^T \right]
+   \mathbf{z}_1 \geq 0
+   $$
+   for all $\lambda \in \mathbb{R}$, $\mathbf{z}_1$ and $\mathbf{A}$
+   of proper dimensions. Then proceed as in the proof of the
+   Cauchy-Schwartz inequality as [before](#Cauchy-Schwartz).
+
+:::

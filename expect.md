@@ -504,6 +504,7 @@ Assume that all (central) moments below are finite.
 
 :::{prf:proof}
 :enumerated: false
+:name: Cauchy-Schwartz
 1. For any $\lambda \in \mathbb{R}$, 
    $$
    \begin{aligned}
