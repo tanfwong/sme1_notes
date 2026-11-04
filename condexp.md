@@ -384,7 +384,10 @@ numbering:
   5. In addition, the MMSE achieved by the conditional mean is the
      expected value of the
      conditional variance of $Y$ given $X$, i.e., $E\left[\operatorname{var}(
-     Y \mid X) \right]$.
+     Y \mid X) \right]$. The law of total expectation gives $E\left[
+     E[Y \mid X] \right] = E[Y]$, i.e., the conditional mean is an
+     ***unbiased*** estimator for $Y$ in that the expected value of the
+     estimate given by the conditional mean is indeed the mean of $Y$.
 
 
 :::{prf:example}
