@@ -469,8 +469,8 @@ numbering:
 3. This general approach of conditional expected value also subsumes
    our previous development of [conditional distribution](#cond-distr)
    because, for example, the conditional cdf of $Y$ given $X$ is
-   simply the conditional expected value of $g(Y)$ given $\sigma(X)$
-   with the function $g(Y) = \begin{cases} 1 & \text{ if } Y \leq y \\
+   simply the conditional expected value of $g_y(Y)$ given $\sigma(X)$
+   with the function $g_y(Y) = \begin{cases} 1 & \text{ if } Y \leq y \\
    0 & \text{ otherwise} \end{cases}$ chosen to be an indicator
    function. Of course, the conditional cdf should now be understood
    as a random variable.

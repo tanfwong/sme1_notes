@@ -31,6 +31,11 @@ numbering:
   $P_{X_1,X_2, \ldots,X_k}$ for the joint distribution to explicitly
   highlight the elements of the random vector $\mathbf{X}$.
 
+- The joint cdf of $\mathbf{X}$ is then
+  $F_{\mathbf{X}}(\mathbf{x}) = F_{X_1,X_2, \ldots,X_k}(x_1,x_2,
+  \ldots, x_k) = P(X_1 \leq x_1, X_2 \leq x_2, \ldots,
+  X_k \leq x_k)$.
+
 - Note that this is a direct generalization of a random pair from the
   special case of $2$ dimensions to the general cased of $k$
   dimensions. Thus, it is conceivable that all the properties,
@@ -39,3 +44,28 @@ numbering:
 
 - To avoid repetition, we will state here some common generalizations
   that may not be completely unambiguous.
+
+## Independence
+- The components in the random vector $\mathbf{X} = [X_1, X_2, \ldots,
+  X_k]^T$ are independent random variables if $\sigma(X_1),
+  \sigma(X_2), \ldots, \sigma(X_k)$ are independent, i.e., the set of
+  events $A_1, A_2, \ldots, A_k$ are independent for any
+  $A_i \in \sigma(X_i)$, $i=1,2,\ldots, k$.
+- As before, the component r.v.'s are independent if and only if the
+  joint cdf decomposes into a product of the marginal cdfs, i.e.,
+  $F_{X_1,X_2, \ldots,X_k}(x_1,x_2, \ldots, x_k) = F_{X_1}(x_1)
+  F_{X_2}(x_2) \cdots F_{X_k}(x_k)$. The same is true for the joint
+  pdf (pmf) if $\mathbf{X}$ is continuous (discrete).
+
+- We may break a random vector into two halves, namely $\mathbf{X} =
+  [X_1,X_2, \ldots, X_n]^T$ and $\mathbf{Y} = [Y_1,Y_2, \ldots,
+  Y_m]^T$. Both halves are random vectors. We may treat the joint
+  distribution of the original random vector as the joint distribution
+  $F_{\mathbf{X}, \mathbf{Y}}(\mathbf{x}, \mathbf{y})$ of the random
+  vectors $\mathbf{X}$ and $\mathbf{Y}$.
+
+- We will say that the random vectors $\mathbf{X}$ and $\mathbf{Y}$
+  are independent if $\sigma(\mathbf{X})$ and $\sigma(\mathbf{Y})$
+  are independent. We have thus $\mathbf{X}$ and $\mathbf{Y}$ are
+  independent if and only if $F_{\mathbf{X}, \mathbf{Y}}(\mathbf{x},
+  \mathbf{y}) = F_{\mathbf{X}}(\mathbf{x}) F_{\mathbf{Y}}(\mathbf{y})$.
