@@ -183,3 +183,71 @@ numbering:
    Cauchy-Schwartz inequality as [before](#Cauchy-Schwartz).
 
 :::
+
+## Gaussian Random Vector
+- A continuous random vector $\mathbf{X} = [X_1, X_2, \ldots, X_k]^T$
+  is ***Gaussian*** if its joint pdf has the following form: 
+  $$
+  f_{\mathbf{X}}(\mathbf{x}) = \frac{1}{(2 \pi)^{k / 2}
+  \sqrt{\operatorname{det} \mathbf{K}}} \exp\left\{
+  -\frac{1}{2}(\mathbf{x}- \mathbf{\mu})^T \mathbf{K}^{-1}
+  (\mathbf{x}- \mathbf{\mu}) \right\}
+  $$
+  where $\mathbf{\mu}$ is a $k$-dimensional vector and $\mathbf{K}$ is
+  a symmetric and positive definite $k\times k$ matrix.
+
+- The mean of $\mathbf{X}$ is $E[\mathbf{X}] = \mathbf{\mu}$ and the
+  covariance of $\mathbf{X}$ is $\mathbf{K}_{\mathbf{X}} =
+  \mathbf{K}$. 
+
+- The characteristic function of $\mathbf{X}$ is
+  $$
+  \Phi_{\mathbf{X}} (\mathbf{\omega}) = E\left[ e^{\mathbf{\omega}^T
+  \mathbf{X}} \right] = \exp\left( j \mathbf{\omega}^T
+  \mathbf{\mu} - \frac{1}{2} \mathbf{\omega}^T \mathbf{K\omega} \right)
+  $$
+  where $\mathbf{\omega} = [\omega_1, \omega_2, \ldots, \omega_k]^T$. 
+
+- Let $m \leq k$. For any non-zero $m\times k$ full-rank matrix
+  $\mathbf{A}$, let $\mathbf{Y} = \mathbf{A X}$. Then, $\mathbf{Y}$ is
+  a Gaussian random vector with mean $\mathbf{A\mu}$ and covariance
+  $\mathbf{AKA}^T$. 
+
+- Two random vectors $\mathbf{X}$ and $\mathbf{Y}$ are ***jointly
+  Gaussian*** if the concatenation $\left[\mathbf{X}^T, \mathbf{Y}^T
+  \right]^T$ is a Gaussian random vector. Then, the conditional pdf of
+  $\mathbf{Y}$ given $\mathbf{X}$ is given by
+  $$
+  f_{\mathbf{Y} \mid \mathbf{X}}(\mathbf{y} \mid \mathbf{x}) 
+  = \frac{1}{(2 \pi)^{m / 2}
+  \sqrt{\operatorname{det} \mathbf{K}_{\mathbf{Y} \mid \mathbf{X}}}} 
+  \exp\left\{
+  -\frac{1}{2}(\mathbf{y}- \mathbf{\mu}_{\mathbf{Y} \mid \mathbf{X}})^T 
+  \mathbf{K}^{-1}_{\mathbf{Y} \mid \mathbf{X}}
+  (\mathbf{x}- \mathbf{\mu}_{\mathbf{Y} \mid \mathbf{X}}) \right\}
+  $$
+  where
+  - $m$ is the dimension of $\mathbf{Y}$, 
+  - $\mathbf{\mu}_{\mathbf{Y} \mid \mathbf{X}} 
+    = \mathbf{\mu_Y} + \mathbf{K}_{\mathbf{Y}, \mathbf{X}}
+    \mathbf{K_X}^{-1} \left( \mathbf{x} - \mathbf{\mu}_{\mathbf{X}}
+    \right)$ is the conditional mean of $\mathbf{Y}$ given $\mathbf{X}
+    = \mathbf{x}$, and
+  - $\mathbf{K}_{\mathbf{Y} \mid \mathbf{X}} = \mathbf{K_Y} +
+    \mathbf{K}_{\mathbf{Y}, \mathbf{X}} \mathbf{K_X}^{-1}
+    \mathbf{K}_{\mathbf{X}, \mathbf{Y}}$ is the conditional covariance of
+    $\mathbf{Y}$ given $\mathbf{X}$.
+
+- Hence, $\mathbf{Y}$ is a (conditional) Gaussian random vector given
+  $\mathbf{X} = \mathbf{x}$ with conditional mean
+  $\mathbf{\mu}_{\mathbf{Y} \mid \mathbf{X}}$ and conditional
+  covariance $\mathbf{K}_{\mathbf{Y} \mid \mathbf{X}}.
+    
+- For example, the MMSE estimator for $\mathbf{Y}$ is 
+  $$
+  E[ \mathbf{Y} \mid \mathbf{X} ] 
+  = \mathbf{\mu_Y} + \mathbf{K}_{\mathbf{Y}, \mathbf{X}}
+    \mathbf{K_X}^{-1} \left( \mathbf{X} - \mathbf{\mu}_{\mathbf{X}}
+    \right).
+  $$
+    
