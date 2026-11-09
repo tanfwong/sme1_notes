@@ -82,3 +82,24 @@ numbering:
 - Note that the mean, autocorrelation, and autocovariance functions
   above are defined only when the corresponding expected values are
   defined.
+
+
+:::{prf:property} Properties of autocorrelation and autocovariance
+1. $K_{X}(m, n)=R_{X}(m, n)-\mu_{X}(m) \mu_{X}(n)$.
+
+2. (Cauchy-Schwartz)
+   $$
+   \begin{aligned}
+   \left|R_{X}(m, n)\right|^{2} & \leq R_{X}(m, m) R_{X}(n, n) \\
+   \left|K_{X}(m, n)\right|^{2} & \leq \sigma_{X}^{2}(n) \sigma_{X}^{2}(m) .
+   \end{aligned}
+   $$
+
+3. $K_{X}(m, n)$ (also $R_{X}(m, n)$) is a positive semi-definite
+   function, i.e., 
+   $$
+   \sum_{m} \sum_{n} z_m K_{X}(m, n) z_{n} \geq 0
+   $$
+   for all $\{z_n\}_{n \in \mathbb{Z}}$.
+
+:::
