@@ -116,8 +116,8 @@ numbering:
 - If $\mathbf{K}_{\mathbf{X},\mathbf{Y}} = \mathbf{0}$, then $\mathbf{X}$ and
   $\mathbf{Y}$ are called ***uncorrelated***.
  
-:::{prf:property} Properties of correlation and covariance
-%:::{prf:lemma} Properties of correlation and covariance
+%:::{prf:property} Properties of correlation and covariance
+:::{prf:lemma} Properties of correlation and covariance
 
 1. $\mathbf{R}_{\mathbf{X}} = \mathbf{K}_{\mathbf{X}} +
    E\left[\mathbf{X}\right]  E\left[\mathbf{X}\right]^T$.

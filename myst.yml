@@ -29,6 +29,8 @@ project:
       title: Conditional Expected Value
     - file: randvect.md 
       title: Random Vector
+    - file: randseq.md 
+      title: Random Sequence
   exports:
     - format: pdf
       template: curvenote
