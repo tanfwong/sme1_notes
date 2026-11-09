@@ -153,4 +153,48 @@ numbering:
   sequence $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ ***independent
   and identically distributed (i.i.d.)***. 
 
+- As in the [previous example](finite_bernoulli), it is illustrative
+  here to describe the probability space underlying which the
+  i.i.d. Bernoulli random sequence $\left\{X_{n}\right\}_{n \in
+  \mathbb{Z}}$ is defined.
+- First, let us re-index the i.i.d. Bernoulli r.v.'s in the random sequence
+  to be $\left\{X_{1}, X_{2}, \ldots\right\}$ without loss of
+  generality. 
+- The sample space $\Omega$ is then the set of all infinite-length
+  binary sequences with elements from the binary alphabet $\{H, T\}$
+  or equivalently $\{1, 0\}$. Note that there is a one-to-one
+  correspondence between $\Omega$ and the set of real numbers in the
+  interval $[0, 1)$ via the dyadic numbers with the mapping that the
+  $k$th element in a sequence specifies the value of $k$th fractional
+  binary digit. 
+- Thus, we can take $\mathcal{B}[0,1)$ as the event class
+  $\mathcal{F}$, and map any Borel set back to an event in $\Omega$.
+
+- For the probability measure $P$, we want it to satisfy, in
+  addition to the three basic axioms:
+  - $P\left(X_{n}=1\right)=p$ for all $n$,
+  - $P\left(X_{i_{1}}=x_{i_{1}}, X_{i_{2}}=x_{i_{2}}, \ldots,
+    X_{i_{m}}=x_{i_{m}}\right) =
+    \prod_{k=1}^{m}\left(X_{i_{k}}=x_{i_{k}}\right)$ for all $i_{1},
+    i_2, \ldots, i_{m}$ and $x_{i_k} \in \{0,1\}$. 
+
+
+- It turns out that there exists a unique probability measure that
+  satisfies the requirements above. To describe this probability
+  measure, let us go back to the description of $\Omega$ as the set of
+  dyadic numbers in $[0,1)$ and the event class as
+  $\mathcal{B}[0,1)$. For any $m \geq 1$, consider any $m$-digit
+  dyadic number $0.x_1x_2\cdots x_m$.  Let $n_m$ be the number of
+  digits with value $1$ in the dyadic number consider the $m$-digit
+  dyadic number $0.\underbrace{0 \cdots 0}_{m-1}1$.
+  Then, the probability measure $P$ can be specified by
+  $$
+  P\left( [0.x_1x_2\cdots x_m, 0.x_1x_2\cdots x_m+ 0.0\cdots 01)
+  \right) = p^{n_m} q^{m-n_m}.
+  $$
+  The three basic axioms and the specification of $P$ on the
+  dyadic intervals above completely determine the probability measure
+  $P$ on $\mathcal{B}[0,1)$ as any Borel set can be expressed in terms
+  of the system of dyadic intervals.
+
 :::
