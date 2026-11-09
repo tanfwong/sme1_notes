@@ -426,6 +426,7 @@ happens does not affect the "likelihood" of $B$.
 :::
 
 :::{prf:example} Sequence of $n$ independent Bernoulli trials
+:name: finite_bernoulli
 - Continue in the same way as the previous example, we can construct
   the probability space $(\Omega^n, (2^{\Omega})^n, P^n)$ or $(\Omega,
   2^\Omega, P)^n$ to describe a ***sequence of $n$ independent Bernoulli

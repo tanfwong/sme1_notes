@@ -53,6 +53,13 @@ numbering:
 
 :::
 
+- A generic random sequence may not bave enough structure for us to
+  talk much about it properties. Below, we start by giving out some
+  commonly considered first and second moments associated with any
+  random sequence. Then, we focus on some specific subclasses of
+  random sequences that have interesting structures and properties.
+
+
 ## Mean, autocorrelation, and autocovariance
 - The ***mean (function)*** $\mu_{X}: \mathbb{Z} \rightarrow \mathbb{R}$ of
   the random sequence $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ is
@@ -101,5 +108,49 @@ numbering:
    \sum_{m} \sum_{n} z_m K_{X}(m, n) z_{n} \geq 0
    $$
    for all $\{z_n\}_{n \in \mathbb{Z}}$.
+
+:::
+
+## Independent random sequence
+
+- $\left\{\mathbb{X}_{n}\right\}_{n \in \mathbb{Z}}$ is an
+  ***independent random sequence*** if for any finite index set
+  $\left\{i_{1}, i_{2}, \ldots, i_{m}\right\} \subset \mathbb{Z}$,
+  $\left\{X_{i_{1}}, X_{i_2}, \ldots, X_{i_m}\right\}$ are independent
+  r.v's.
+
+:::{prf:example} Independent Bernoulli random sequence
+- Extending the [previous example](finite_bernoulli) about a sequence
+  of $n$ independent Bernoulli trials, suppose $\left\{X_{n}\right\}_{n
+  \in \mathbb{Z}}$ consists of the Bernoulli r.v.'s, $X_{n}$ corresponding 
+  to a sequence of independent coin tosses such that 
+  - $X_{n}(H)=1$ and $X_{n}(T)=0$,
+  - $P\left(X_{n}=1\right)=p_{n}$ and $P\left(X_{n}=0\right)=q_n$ where
+  $p_{n}>0$ and $q_{n}=1-p_{n}$, and
+  - any finite subcollection of the r.v.'s are independent.  
+
+- The mean, autocorrelation, and autocovariance are 
+  $$
+  \begin{aligned}
+  \mu_{X}(n) &=E\left[X_{n}\right]=p_{n} \\
+  R_{X}(m, n) &=E\left[X_{m} X_{n}\right]=E\left[X_{n}\right]
+  E\left[X_{n}\right]=p_{m} p_{n} \quad (m\neq n)\\
+  K_{X}(m, n) &=\operatorname{cov}\left(X_{m}, X_{n}\right)=0 \quad
+  (m\neq n) \\
+  \sigma_X^2(n) &= K_X(n,n) = \operatorname{var}(X_n) = p_n q_n \\
+  R_X(n,n) &= E\left[X_n^2\right] = p_n q_n + p_n^2 = p_n.
+  \end{aligned}
+  $$
+
+  ```{prf:remark}
+  In general, for any independent random sequence
+    $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$, $K_X(m,n) = 0$ and
+    $R_X(m,n) = \mu_X(m) \mu_X(m)$ when $m\neq n$.
+  ```
+
+- For the special case where $p_{n}=p$ for all $n \in \mathbb{Z}$, the
+  r.v'.s $X_{n}$'s are identically distributed. We call the the random
+  sequence $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ ***independent
+  and identically distributed (i.i.d.)***. 
 
 :::
