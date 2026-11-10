@@ -90,6 +90,14 @@ numbering:
   above are defined only when the corresponding expected values are
   defined.
 
+- The random sequence $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ is
+  ***uncorrelated*** if
+  $$
+  K_{X}(m, n)= \begin{cases}
+  \sigma_{X}^{2}(n) & \text { if } m=n \\ 
+  0 & \text { if } m \neq n.
+  \end{cases}
+  $$
 
 :::{prf:property} Properties of autocorrelation and autocovariance
 1. $K_{X}(m, n)=R_{X}(m, n)-\mu_{X}(m) \mu_{X}(n)$.
@@ -145,7 +153,8 @@ numbering:
   ```{prf:remark}
   In general, for any independent random sequence
     $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$, $K_X(m,n) = 0$ and
-    $R_X(m,n) = \mu_X(m) \mu_X(m)$ when $m\neq n$.
+    $R_X(m,n) = \mu_X(m) \mu_X(m)$ when $m\neq n$. Hence, the random
+    sequence is also uncorrelated.
   ```
 
 - For the special case where $p_{n}=p$ for all $n \in \mathbb{Z}$, the
@@ -198,3 +207,14 @@ numbering:
   of the system of dyadic intervals.
 
 :::
+
+## Gaussian random sequence
+
+- $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ is a ***Gaussian random
+  sequence*** if for any finite index set $\left\{i_{1}, i_2, \ldots, i_{m}\right\} \subset
+  \mathbb{Z}$, $\left[X_{i_{1}}, X_{i_2}, \ldots, X_{i_{m}}\right]^T$
+  is a Gaussian random vector.
+
+- As stated in Remark 2, any independent random sequence is
+  uncorrelated. The converse is true if the random sequence is
+  Gaussian. That is, an uncorrelated Gaussian random sequence is also independent.
