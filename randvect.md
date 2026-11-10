@@ -202,7 +202,7 @@ numbering:
 
 - The characteristic function of $\mathbf{X}$ is
   $$
-  \Phi_{\mathbf{X}} (\mathbf{\omega}) = E\left[ e^{\mathbf{\omega}^T
+  \Phi_{\mathbf{X}} (\mathbf{\omega}) = E\left[ e^{j\mathbf{\omega}^T
   \mathbf{X}} \right] = \exp\left( j \mathbf{\omega}^T
   \mathbf{\mu} - \frac{1}{2} \mathbf{\omega}^T \mathbf{K\omega} \right)
   $$
@@ -241,7 +241,7 @@ numbering:
 - Hence, $\mathbf{Y}$ is a (conditional) Gaussian random vector given
   $\mathbf{X} = \mathbf{x}$ with conditional mean
   $\mathbf{\mu}_{\mathbf{Y} \mid \mathbf{X}}$ and conditional
-  covariance $\mathbf{K}_{\mathbf{Y} \mid \mathbf{X}}.
+  covariance $\mathbf{K}_{\mathbf{Y} \mid \mathbf{X}}$.
     
 - For example, the MMSE estimator for $\mathbf{Y}$ is 
   $$

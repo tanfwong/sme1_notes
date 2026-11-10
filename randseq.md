@@ -218,3 +218,114 @@ numbering:
 - As stated in Remark 2, any independent random sequence is
   uncorrelated. The converse is true if the random sequence is
   Gaussian. That is, an uncorrelated Gaussian random sequence is also independent.
+
+## Independent increment sequence
+
+- In many cases, we build more complicated random sequences from
+  simpler ones. One such example is an ***independent increment
+  sequence***.
+
+- Consider an independent random sequence
+  $\left\{X_{n}\right\}_{n=1}^{\infty}$. Let
+  $$
+  Y_{n}=\sum_{i=1}^{n} X_{i} 
+  $$
+  for $n \in \mathbb{N}$ (note that $Y_0 = 0$). \
+ Then for any finite index set $\left\{i_{1}, i_2, \ldots,
+ i_{m}\right\} \subset \{1, 2, \ldots \}, Y_{i_{1}}-Y_{i_1-1},
+ Y_{i_{2}}-Y_{i_2-1}, \ldots, Y_{i_{m}}-Y_{i_{m}-1}$ are independent
+ r.v.'s. The random sequence $\left\{Y_{n}\right\}_{n \in \mathbb{N}}$
+ is said to have ***independent increments***.
+
+:::{prf:example} Random walk sequence
+- Let $\left\{X_{n}\right\}_{n=1}^{\infty}$ be an i.i.d. Bernoulli
+  sequence with parameter $0 \leq p \leq 1$. Let each $X_n$ have the range
+  $\{1, -1\}$ and the common pmf $p_{X}(1)=p$ and $p_{X}(-1)= q = 1-p$. 
+
+- Consider $Y_{n}=\sum_{i=1}^{n} X_{i}$ (again we set $Y_0 = 0$). The
+  random sequence $\{ Y_n\}_{n \in \mathbb{N}}$ is called a ***random
+  walk sequence***.  By construction, $\{ Y_n\}_{n \in \mathbb{N}}$ is
+  an independent increment sequence.
+
+- The mean of $\{ Y_n\}_{n \in \mathbb{N}}$ is
+  $$
+  \mu_{Y}(n) =E\left[Y_{n}\right]=\sum_{i=1}^{n}
+  E\left[X_{i}\right]=(p-q) n.
+  $$
+
+- The covariance of $\{ Y_n\}_{n \in \mathbb{N}}$ is
+  $$
+  \begin{aligned}
+  K_{Y}(m, n) & =\operatorname{cov}\left(Y_m, Y_{n}\right) \\
+  & =\sum_{i=1}^{m} \sum_{j=1}^{n} E\left[\left(X_{i}- p+q\right)\left(X_{j}- p+q\right)\right] \\
+  & =\sum_{i=1}^{\min (m, n)} \operatorname{var}\left(X_{i}\right) \\
+  & =\min (m, n) \cdot 4 p q
+  \end{aligned}
+  $$
+  where the third equality results because
+  
+  $$
+  E\left[\left(X_{i}- p+q\right)\left(X_{j}- p+q\right)\right]
+  = 
+  \begin{cases}
+  \operatorname{var}\left(X_{i}\right) &\text{ if } i = j \\
+  0 & \text { if } i \neq j.
+  \end{cases}
+  $$
+  As a special case, $\sigma_Y(n) = 4npq$.
+
+- Since the characteristic function of $X_i$ is
+  $$
+  \Phi_{X_{i}}(\omega) = E\left[e^{j \omega X_{i}}\right]
+  =p e^{j \omega}+q e^{-j \omega},
+  $$
+  the characteristic function of $Y_n$ is 
+  $$
+  \begin{aligned}
+  \Phi_{Y_{n}}(\omega) 
+  &= E\left[ e^{j\omega \sum_{i=1}^n X_i} \right] \\
+  & = \prod_{i=1}^{n} \Phi_{X_i} (\omega) \\
+  & = \left(p e^{j \omega}+q e^{-j \omega}\right)^{n} \\
+  & =\sum_{k=0}^{n}\binom{n}{k} p^{k} q^{n-k} e^{-j \omega(n-2 k)}.
+  \end{aligned}
+  $$
+
+- Taking inverse (discrete-time) Fourier transform, we can obtain the
+  pmf of $Y_n$ as below:
+  $$ 
+  \begin{aligned} 
+  p_{Y_n}(l) 
+  & =\frac{1}{2\pi} \int_{-\pi}^{\pi} \Phi_{Y n}(\omega) e^{-j \omega
+  l} \,d \omega \\
+  &=\sum_{k=0}^{n} \binom{n}{k} p^{k} q^{n-k} 
+  \frac{1}{2 \pi} \int_{-\pi}^{\pi} e^{-j \omega(n-2 k+l)} \, d\omega \\ 
+  & = \begin{cases}
+  0 & \text{ if } |l|>n \\
+  0 & \text{ if } -n \leq l \leq n \text{ and } n+l \text{ is odd}\\
+  \binom{n}{\frac{n+l}{2}} p^{\frac{n+l}{2}} q^{\frac{n-l}{2}} 
+  & \text{ if }  -n \leq l \leq n \text{ and } n+l \text{ is even.}
+  \end{cases}
+  \end{aligned} 
+  $$
+
+- Further, let $m>n$,
+  $$
+  \begin{aligned}
+  p_{Y_{m},Y_{n}}(k, l) 
+  & = P\left(Y_{m}=k, Y_{n}=l\right) \\
+  & = P\left(Y_{m} - Y_n =k - l, Y_{n}=l\right) \\
+  & = P\left(Y_{m} - Y_n =k - l \right) P\left(Y_{n}=l\right) \\
+  & =P\left(Y_{m-n}=k-l\right) P\left(Y_{n}=l\right) \\
+  & =p_{Y_{m-n}}(k-l) p_{Y_{n}}(l)
+  \end{aligned}
+  $$
+  where the third equality is due to the fact that the increments are
+  independent and fourth equality is due to the fact that $\{ X_i\}$
+  are i.i.d. and hence the distributions of $Y_{m-n}$ and $Y_m - Y_n$
+  are identical.
+
+- Note that the same approach can be further generalized to find the
+  joint pmf of any finite subset of r.v.'s of the random walk sequence
+  $\left\{Y_{n}\right\}_{n \in \mathbb{N}}$. 
+
+:::
