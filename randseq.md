@@ -100,6 +100,7 @@ numbering:
   $$
 
 :::{prf:property} Properties of autocorrelation and autocovariance
+%:::{prf:lemma} Properties of autocorrelation and autocovariance
 1. $K_{X}(m, n)=R_{X}(m, n)-\mu_{X}(m) \mu_{X}(n)$.
 
 2. (Cauchy-Schwartz)
@@ -408,3 +409,4 @@ numbering:
 :::
 
 
+## Stationary random sequence
