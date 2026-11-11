@@ -129,7 +129,7 @@ numbering:
   r.v's.
 
 :::{prf:example} Independent Bernoulli random sequence
-- Extending the [previous example](finite_bernoulli) about a sequence
+- Extending the [previous example](#finite_bernoulli) about a sequence
   of $n$ independent Bernoulli trials, suppose $\left\{X_{n}\right\}_{n
   \in \mathbb{Z}}$ consists of the Bernoulli r.v.'s, $X_{n}$ corresponding 
   to a sequence of independent coin tosses such that 
@@ -163,7 +163,7 @@ numbering:
   sequence $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ ***independent
   and identically distributed (i.i.d.)***. 
 
-- As in the [previous example](finite_bernoulli), it is illustrative
+- As in the [previous example](#finite_bernoulli), it is illustrative
   here to describe the probability space underlying which the
   i.i.d. Bernoulli random sequence $\left\{X_{n}\right\}_{n \in
   \mathbb{Z}}$ is defined.

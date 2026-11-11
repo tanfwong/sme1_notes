@@ -467,7 +467,7 @@ Assume that all (central) moments below are finite.
   referred to as the ***correlation coefficient*** of $X$ and $Y$.
 
 - If $X$ and $Y$are uncorrelated, i.e. $\operatorname{cov}(X, Y)=0$,
-  $\rho=0$. As discussed in the [bivariate Gaussain example](binormal_ex), 
+  $\rho=0$. As discussed in the [bivariate Gaussain example](#binormal_ex), 
   $X$ and $Y$ are independent if $\rho=0$. Conversely, if $X$ and $Y$
   are independent, then  $X$ and $Y$are uncorrelated by Lemma 1.2
 
