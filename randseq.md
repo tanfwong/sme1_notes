@@ -219,6 +219,83 @@ numbering:
   uncorrelated. The converse is true if the random sequence is
   Gaussian. That is, an uncorrelated Gaussian random sequence is also independent.
 
+:::{prf:example} Filtered Gaussian sequence
+- Let $\left\{X_{n}\right\}_{n \in \mathbb{N}}$ be an i.i.d. Gaussian
+  random sequence with $\mu_X(n)=\mu$ and $\sigma_X(n) = \sigma^2$ for
+  all $n \in \mathbb{N}$.
+- Let $Y_{n}=\lambda Y_{n-1}+X_{n}$ and $Y_{-1}=0$, where
+  $|\lambda|<1$.
+- Note that
+  $$
+  \begin{aligned}
+  Y_{0} &= X_{0} \\
+  Y_{1} &= \lambda X_{0}+X_{1} \\
+  Y_{2} &= \lambda^{2} X_{0}+\lambda X_{1}+X_{2} \\
+  &  \ \ \vdots \\
+  Y_m &= \sum_{l=0}^m \lambda^{m-l} X_l \\
+  &  \ \ \vdots
+  \end{aligned}
+  $$
+  Thus by induction, for any finite index set $\left\{i_{1}, i_{2}, \ldots,
+  i_{m}\right\} \subset \mathbb{N}$ with $i_1 < i_2 < \cdots < i_m$,  
+  $$
+  \left[Y_{i_1}, Y_{i_2}, \ldots ,  Y_{i_m}\right]^T 
+  = \mathbf{A} \left[X_0, X_1, \ldots, X_{i_m} \right]^T
+  $$
+  for some constant full-rank matrix $\mathbf{A}$. As a result,
+  $\left[Y_{i_1}, Y_{i_2}, \ldots , Y_{i_m}\right]^T$ is a Gaussian
+  random vector, and hence $\left\{Y_{n}\right\}_{n \in \mathbb{N}}$ is a
+  Gaussian random sequence.
+
+- Obviously, we have $\mu_Y(0) = \mu$ and 
+  $$
+  \mu_{Y}(n)=\lambda \mu_{Y}(n-1)+\mu
+  $$
+  for $n \geq 1$.\
+  This implies that
+  $$
+  \mu_Y(n) =\mu \sum_{i=0}^{n} \lambda^{i}
+  =\frac{1-\lambda^{n+1}}{1-\lambda} \mu.
+  $$
+
+- Further,
+  $$
+  \begin{aligned}
+  K_{Y}(m, n) &=\operatorname{cov}(Y_{m}, Y_{n})\\
+  & =\sum_{l=0}^{m} \sum_{k=0}^{n} \lambda^{m- l+n-k} 
+  E\left[\left(X_{l}-\mu\right)\left(X_{k}-\mu\right)\right] \\
+  & = \sigma^{2} \sum_{l=0}^{\min (m,n)} \lambda^{m+n-2 l} \\
+  & = \frac{\lambda^{m+n-2\min (m,n)} - \lambda^{m+n+2}}{1 - \lambda^2}
+  \sigma^2.
+  \end{aligned}
+  $$
+  As a special case, 
+  $$
+  \sigma_{Y}^{2}(n) = K_Y(n,n) = \frac{1-\lambda^{2(n+1)}}{1-\lambda^2} \sigma^2
+  $$
+
+- As $Y_n$ is a Gaussian r.v. with mean $\mu_Y(n)$ and variance
+  $\sigma^2_Y(n)$, its pdf is then
+  $$
+  f_{Y_n}(y) = 
+  \frac{1}{\sqrt{2 \pi  \sigma^2_{Y}(n)}} 
+  \exp \left\{-\frac{\left(y-\mu_{Y}(n)\right)^{2}}{2 \sigma^2_{Y}(n)}
+  \right\}
+  $$
+
+- More generally, if $\mathbf{X} = [X_{i_1}, X_{i_2}, \ldots,
+  X_{i_m}]^T$, then its joint pdf is given by
+  $$
+  f_{\mathbf{X}}(\mathbf{x}) = \frac{1}{(2 \pi)^{m / 2}
+  \sqrt{\operatorname{det} \mathbf{K}}} \exp\left\{
+  -\frac{1}{2}(\mathbf{x}- \mathbf{\mu})^T \mathbf{K}^{-1}
+  (\mathbf{x}- \mathbf{\mu}) \right\}
+  $$
+  where $[\mathbf{\mu}]_k = \mu_Y(i_k)$ and $[\mathbf{K}]_{l,k} =
+  K_Y(i_l, i_k)$.
+
+:::
+
 ## Independent increment sequence
 
 - In many cases, we build more complicated random sequences from
@@ -329,3 +406,5 @@ numbering:
   $\left\{Y_{n}\right\}_{n \in \mathbb{N}}$. 
 
 :::
+
+
