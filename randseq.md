@@ -410,3 +410,4 @@ numbering:
 
 
 ## Stationary random sequence
+- A 
