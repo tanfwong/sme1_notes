@@ -122,7 +122,7 @@ numbering:
 
 ## Independent random sequence
 
-- $\left\{\mathbb{X}_{n}\right\}_{n \in \mathbb{Z}}$ is an
+- $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ is an
   ***independent random sequence*** if for any finite index set
   $\left\{i_{1}, i_{2}, \ldots, i_{m}\right\} \subset \mathbb{Z}$,
   $\left\{X_{i_{1}}, X_{i_2}, \ldots, X_{i_m}\right\}$ are independent
@@ -419,5 +419,27 @@ numbering:
   F_{X_{i_{1}+k}, X_{i_{2}+k} , \ldots X_{i_{m}+k}}\left(x_{i_{1}}, x_{i_{2}}, \ldots, x_{i_{i m}}\right).  
   $$
 
-- Thus, all statistical properties of $\left\{X_{n}\right\}_{n \in
-  \mathbb{Z}}$ is *shift (time)-invariant*.
+- Thus, all statistical properties of a stationary random sequence is
+  *shift/time-invariant*.
+
+- A random sequence $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ is
+  ***wide-sense stationary (WSS.)*** if
+  1. $\mu_{X}(n)=\mu$ for all $n \in \mathbb{Z}$, and
+  2. $R_{X}(m, n)=R_{X}(m+k, n+k)$ for all $k \in \mathbb{Z}$, i.e., 
+    $R_{X}(m, n)$ depends only on the difference $m-n$. 
+
+- For a WSS $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$, since the
+  autocorrelation depends only on the difference of its arguments, we
+  usually write $R_{X}(m, n)=R_{X}(m-n)$.
+
+- By Property 1.1, we also have $K_X(m,n) = K_X(m-n)$.
+- For a WSS random sequence, only the first- and second-order
+  moments are shift-invariant. 
+
+:::{prf:remark}
+1. It is easy to see that a stationary random sequence is WSS. However
+    the converse is not generally true.
+2. For a Gaussian random sequence, the converse is indeed true
+   (why?). Hence, for a Gaussian random sequence, wide-sense
+   stationarity is equivalent to stationarity. 
+:::
