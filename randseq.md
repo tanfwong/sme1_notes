@@ -410,4 +410,14 @@ numbering:
 
 
 ## Stationary random sequence
-- A 
+- A random sequence $\{X_n\}_{n \in \mathbb{Z}}$ is ***stationary***
+  if for any $\left\{i_{1}, i_{2}, \ldots, i_{m}\right\} \subset
+  \mathbb{Z}$ and $k \in \mathbb{Z}$, 
+  $$ 
+  F_{X_{i_1}, X_{i_2}, \ldots, X_{i_m}}\left(x_{i_1}, x_{i_{2}}, \ldots,
+  x_{i_{m}}\right) =
+  F_{X_{i_{1}+k}, X_{i_{2}+k} , \ldots X_{i_{m}+k}}\left(x_{i_{1}}, x_{i_{2}}, \ldots, x_{i_{i m}}\right).  
+  $$
+
+- Thus, all statistical properties of $\left\{X_{n}\right\}_{n \in
+  \mathbb{Z}}$ is *shift (time)-invariant*.
