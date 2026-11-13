@@ -423,9 +423,9 @@ numbering:
   *shift/time-invariant*.
 
 - A random sequence $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ is
-  ***wide-sense stationary (WSS.)*** if
+  ***wide-sense stationary (WSS)*** if
   1. $\mu_{X}(n)=\mu$ for all $n \in \mathbb{Z}$, and
-  2. $R_{X}(m, n)=R_{X}(m+k, n+k)$ for all $k \in \mathbb{Z}$, i.e., 
+  2. $R_{X}(m, n)=R_{X}(m+k, n+k)$ for all $k,m,n \in \mathbb{Z}$, i.e., 
     $R_{X}(m, n)$ depends only on the difference $m-n$. 
 
 - For a WSS $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$, since the
@@ -443,3 +443,9 @@ numbering:
    (why?). Hence, for a Gaussian random sequence, wide-sense
    stationarity is equivalent to stationarity. 
 :::
+
+- It is easy to check that the i.i.d. Bernoulli random sequence in
+  Example 1 above is stationary and hence WSS. On the other hand, both
+  the filtered Gaussian random sequence in Example 2 and random walk
+  sequence in Example 3 are not WSS and hence cannot be stationary
+  either.
