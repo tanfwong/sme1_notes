@@ -449,3 +449,90 @@ numbering:
   the filtered Gaussian random sequence in Example 2 and random walk
   sequence in Example 3 are not WSS and hence cannot be stationary
   either.
+
+
+- A random sequence $\{X_n\}_{n \in \mathbb{Z}}$ is ***(wide-sense)
+  cyclostationary with period $N$*** if
+  1. $\mu_{X}(n)=\mu_{X}(n+N)$ and
+  2. $R_{X}(m, n)=R_{X}(m+N, n+N)$
+  
+  for all $m, n \in \mathbb{Z}$.
+
+:::{prf:example}
+- Let $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ be an i.i.d. Bernoulli
+  sequence with $p_{X_n}(1)=p$ and $P_{X_{n}}(0)=q=1-p$ as in Example 1. 
+  Let $Y_{n}=\sin \left(\frac{2 \pi n}{N} X_n \right)$.
+
+- Consider the random sequence $\left\{Y_{n}\right\}_{n \in
+  \mathbb{Z}}$. We have
+  $$
+  \mu_{Y}(n) 
+  = E\left[\sin \left(\frac{2 \pi n}{N} X_n\right) \right]
+  = p \sin \left(\frac{2 \pi n}{N}\right) 
+  $$
+  and
+  $$
+  \begin{aligned}
+  & K_{Y}(m, n) \\
+  &= E\left[\left(\sin \left( \frac{2 \pi m}{N} X_m\right)
+  -p \sin \left(\frac{2 \pi m}{N}\right) \right)
+  \left(\sin\left(\frac{2 \pi n}{N} X_n\right) 
+  -p \sin \left(\frac{2 \pi n}{N} \right)\right)\right] \\
+  & = \begin{cases}
+  p q \sin^{2} \left(\frac{2 \pi m}{N} \right) & \text { if } m=n \\
+  0 & \text { if } m \neq n.
+  \end{cases}
+  \end{aligned}
+  $$
+
+- Thus, $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ is cyclostationary with
+  period $N$. 
+
+- Now, consider $Z_{n}=Y_{n-T}$, where $T$ is a uniform random
+  variable taking value from $\{0,1, \ldots, N-1\}$ with equal
+  probability and is independent of
+  $\left[X_{n}\right\}_{n\in\mathbb{Z}}$. 
+
+- Consider the random sequence
+  $\left\{Z_{n}\right\}_{n\in\mathbb{Z}}$. We have
+  $$
+  \begin{aligned}
+  \mu_{X}(n) &= E\left[Z_{n}\right] \\
+  &= E\left[E\left[Y_{n-T} \mid T\right]\right] \\
+  &= E\left[p \sin\left( \frac{2 \pi(n-T)}{N} \right)\right] \\
+  &=\frac{p}{N} \sum_{k=0}^{N-1} \sin\left(\frac{2 \pi k}{N}\right) \\
+  &= 0 
+  \end{aligned}
+  $$
+  and
+  $$
+  \begin{aligned}
+  K(m, n) &= \operatorname{cov}\left(Z_{m}, Z_{n} \right)\\
+  &= E\left[\operatorname{cov}\left(Y_{m-T}, Y_{n-T} \mid
+  T\right)\right] \\
+  &= \begin{cases}
+  E\left[p q \sin ^{2} \left(\frac{2 \pi(n-T)}{N} \right)\right] &
+  \text{ if }  m=n \\
+  0 & \text{ if } m \neq n
+  \end{cases} \\
+  & = \begin{cases}
+  \frac{p q}{N} \sum_{k=0}^{N-1} \sin^{2}\left(\frac{2 \pi k}{N} \right)
+  & \text{ if }  m=n \\
+  0 & \text{ if } m \neq n
+  \end{cases} \\
+  & = \begin{cases}
+  \frac{p q}{2N} \sum_{k=0}^{N-1} \left(1 - \cos\left(\frac{4 \pi
+  k}{N} \right) \right)
+  & \text{ if }  m=n \\
+  0 & \text{ if } m \neq n
+  \end{cases} \\
+  & = \begin{cases}
+  \frac{p q}{2} & \text{ if }  m=n \\
+  0 & \text{ if } m \neq n.
+  \end{cases} 
+  \end{aligned}
+  $$
+
+- Thus, $\left\{Z_{n}\right\}_{n \in \mathbb{Z}}$ is WSS!
+
+:::
