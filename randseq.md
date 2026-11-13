@@ -69,7 +69,7 @@ numbering:
   $$
 
 - The ***autocorrelation (function)*** $R_{X}: \mathbb{Z} \times
-  \mathbb{Z} \rightarrow \mathbb{R}$ of $\left\{Z_{n}\right\}_{n \in
+  \mathbb{Z} \rightarrow \mathbb{R}$ of $\left\{X_{n}\right\}_{n \in
   \mathbb{Z}}$ is defined as 
   $$ 
   R_{X}(m, n) = E\left[ X_{m} X_{n}\right].  
