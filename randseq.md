@@ -536,3 +536,73 @@ numbering:
 - Thus, $\left\{Z_{n}\right\}_{n \in \mathbb{Z}}$ is WSS!
 
 :::
+
+## Power Spectral Density
+- Let $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$ be a WSS random
+  sequence.  Recall that the autocorrelation $R_{X}(m, n)$
+  depends only on the different (lag) $m-n$ between the two
+  arguments. Thus, it can be written as $R_{X}(n)$. 
+
+- The (discrete-time) Fourier transform of $R_{X}(n)$ is
+  $$
+  S_{X}(\omega)=\sum_{n=-\infty}^{\infty} R_{X}(n) e^{-j \omega n}
+  $$
+  for $-\pi \leq \omega<\pi$.
+  
+- The Fourier transform $S_{X}(\omega)$ is called the ***power
+  spectral density (PSD)*** of $\left\{X_{n}\right\}_{n \in
+  \mathbb{Z}}$. 
+
+- Obviously, we can obtain $R_{X}(n)$ back from $S_{X}(\omega)$ by
+  taking inverse Fourier transform, i.e.,
+  $$
+  R_{X}(n) = \frac{1}{2 \pi} \int_{-\pi}^{\pi} S_X(\omega) e^{j \omega
+  n}\, d \omega .
+  $$
+
+- In particular, 
+  $$
+  E\left[X_{n}^{2}\right] = R_{X}(0) 
+  =\frac{1}{2 \pi} \int_{-\pi}^{\pi} S_{X}(\omega)\, d \omega.
+  $$
+  
+  Since $E\left[X_{n}^{2}\right]$ can be interpreted as the *average
+  power* of the random sequence $\left\{X_{n}\right\}_{n\in
+  \mathbb{Z}}$, $S_{X}(\omega)$ has the meaning as the *density* of
+  the power of $\left\{X_{n}\right\}_{n\in \mathbb{Z}}$ at frequency
+  $\omega$.
+
+:::{prf:property} Properties of PSD
+1. Since $R_{X}(m, n)$ is positive semi-definite, $S_{X}(\omega) \geq 0$ for all $\omega$.
+
+2. $S_{X}(-\omega)=S_{X}(\omega)$, i.e., $S_X(\omega)$ is an even
+   function.
+
+:::
+
+:::{prf:remark}
+- A similar definition of PSD can apply to a cyclostationary random
+  sequence $\left\{X_{n}\right\}_{n\in \mathbb{Z}}$ with period $N$.
+- To do so, first define 
+  $$
+  \bar{R}_{X}(m, n)
+  = \frac{1}{N} \sum_{k=0}^{N-1} R_X(m+k, n+k).
+  $$
+-  A careful inspection of $\bar{R}_{X}(m, n)$ reveals that it
+  depends only on the lag $m-n$. Thus, we can write it as
+  $\bar{R}_{X}(n)$.
+- Then, the PSD of a cyclostationary random sequence
+  can be difined as
+  $$
+  \bar{S}_{X}(\omega) = \sum_{n=-\infty}^{\infty}
+  \bar{R}_{X}(n) e^{-j \omega n}.
+  $$
+- Note that this definition has the exact same interpretation as in
+  Example 4 by defining $\bar{X}_{n}={X}_{n-T}$, where $N$ is a
+  uniform random variable taking value from $\{0,1, \ldots,Nk-1\}$
+  with equal probability and is independent of
+  $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$, and then considering the
+  PSD of the WSS $\left\{ \bar{X}_{n} \right\}_{n \in \mathbb{Z}}$.
+
+
+:::
