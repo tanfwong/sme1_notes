@@ -572,6 +572,7 @@ numbering:
   the power of $\left\{X_{n}\right\}_{n\in \mathbb{Z}}$ at frequency
   $\omega$.
 
+%:::{prf:lemma} Properties of PSD
 :::{prf:property} Properties of PSD
 1. Since $R_{X}(m, n)$ is positive semi-definite, $S_{X}(\omega) \geq 0$ for all $\omega$.
 
@@ -604,5 +605,55 @@ numbering:
   $\left\{X_{n}\right\}_{n \in \mathbb{Z}}$, and then considering the
   PSD of the WSS $\left\{ \bar{X}_{n} \right\}_{n \in \mathbb{Z}}$.
 
-
 :::
+
+## Linear TIme-Invariant System
+- Recall that for each $\omega \in \Omega$, we may interpret
+  $\left\{X_{n}(\omega)\right\}_{n\in\mathbb{Z}}$ as a discrete-time
+  signal. In many applications, we may enter this discrete-time signal
+  into a linear time-invariant (LTI) system to obtain an output
+  signal. Let's us denote the resulting output as
+  $\left\{Y_{n}(\omega)\right\}_{n\in\mathbb{Z}}$. 
+
+- This interpretation gives rise to the notion of passing the random
+  sequence $\left\{X_{n}\right\}_{n\in\mathbb{Z}}$ as input to the LTI
+  system. It is then conceivable that the output
+  $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ would also be a random
+  seqeunce. This is indeed the case if the LTI system is a finite
+  impulse response (FIR) filter as any finite subcollection of r.v.'s
+  in $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ is simply a linearly
+  transformation from a random vector made up of a finite
+  subcollection of r.v.'s in
+  $\left\{X_{n}\right\}_{n\in\mathbb{Z}}$. The same argument goes for
+  the case of an infinite impulse response (IIR) filter that is
+  bounded-input bound-output (BIBO) stable, as illustrated by the
+  filtered Gaussian sequence in Example 2 above.
+
+- For a general LTI system $\mathcal{L}$, the output can be described by the
+  convolution between the input and the impulse response $h_{n}$ of
+  the system, i.e.,
+  $$
+  Y_{n}(\omega)=\sum_{k=-\infty}^{\infty} X_n(\omega) \, h_{n-k}
+  =X_n(\omega) * h_{n}
+  $$
+  if the convolution sum converges. Hence, if the convolution sum
+  converges for every $\omega \in \Omega$, then any finite
+  subcollection of r.v.'s in $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$
+  can be considered as the limit of sequence of linearly transformed
+  r.v.'s in $\left\{X_{n}\right\}_{n\in\mathbb{Z}}$. As the limit
+  is a measurable mapping from $\Omega$, the subcollection of r.v.'s
+  in $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ forms a random vector,
+  and hence $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ is a random
+  process.
+
+- The requirement that the convolution sum converges for all $\omega
+  \in \Omega$ is too stringent for most cases. Other less restrictive
+  notions of convergence may be considered. We will discuss some of
+  those later. For the time being, let us assume that the LTI output
+  $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ is indeed a random sequence.
+
+- To specify the joint distributions of any finite subcollection of
+  r.v.'s in $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ is generally hard,
+  except for case where the input random sequence is Gaussian as in
+  Example 2. Here, we will focus on specifying the mean and
+  autocorrelation of $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$.
