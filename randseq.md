@@ -607,7 +607,7 @@ numbering:
 
 :::
 
-## Linear TIme-Invariant System
+## Linear Time-Invariant System
 - Recall that for each $\omega \in \Omega$, we may interpret
   $\left\{X_{n}(\omega)\right\}_{n\in\mathbb{Z}}$ as a discrete-time
   signal. In many applications, we may enter this discrete-time signal
@@ -658,8 +658,29 @@ numbering:
   Example 2. Here, we will focus on specifying the mean and
   autocorrelation of $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$.
 
-- To that end, let us consider the ***crosscorrelation
-  (function)*** of $X_{n}$ and $Y_{n}$:
+- To that end, let us consider the mean of $\{Y_n\}_{n \in
+  \mathbb{Z}}$:
+  $$
+  \begin{aligned}
+  \mu_{Y}(n) &= E\left[Y_{n}\right]\\
+  & =E\left[\sum_{k=\infty}^{\infty} Y_{k} h_{n-k}\right] \\
+  & =\sum_{k=-\infty}^{\infty} E\left[ Y_k \right] h_{n-k} \\
+  & = \sum_{k=-\infty}^{\infty} \mu_X(k) h_{n-k}\\
+  & = \mu_X(n) * h_n
+  \end{aligned}
+  $$
+  where the interchange of the sum and expected value operator in the
+  third equality is due to the Fubini's theorem under, for example,
+  the sufficient condition that
+  $\sum_{k=\infty}^{\infty}\left|h_{k}\right|<\infty$ (i.e., the LTI
+  system is BIBO stable) and $\left|\mu_{X}(n)\right|$ is bounded for
+  all $n \in \mathbb{Z}$.
+- Thus, we may treat **$\mu_{Y}(n)$ as the output signal given
+  by the LTI system when the input is $\mu_X(n)$**.
+
+
+- Further, the ***crosscorrelation (function)*** of $X_{n}$ and
+  $Y_{n}$ is given by
   $$
   \begin{aligned}
   R_{X,Y}(m, n) &= E\left[X_{m} Y_{n}\right] \\
