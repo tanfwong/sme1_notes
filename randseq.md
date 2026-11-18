@@ -630,8 +630,8 @@ numbering:
   filtered Gaussian sequence in Example 2 above.
 
 - For a general LTI system $\mathcal{L}$, the output can be described by the
-  convolution between the input and the impulse response $h_{n}$ of
-  the system, i.e.,
+  convolution between the input and the impulse response $\{h_{n}\}_{n
+  \in \mathbb{Z}}$ of the system, i.e.,
   $$
   Y_{n}(\omega)=\sum_{k=-\infty}^{\infty} X_n(\omega) \, h_{n-k}
   =X_n(\omega) * h_{n}
@@ -639,7 +639,7 @@ numbering:
   if the convolution sum converges. Hence, if the convolution sum
   converges for every $\omega \in \Omega$, then any finite
   subcollection of r.v.'s in $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$
-  can be considered as the limit of sequence of linearly transformed
+  can be considered as the limit of a sequence of linearly transformed
   r.v.'s in $\left\{X_{n}\right\}_{n\in\mathbb{Z}}$. As the limit
   is a measurable mapping from $\Omega$, the subcollection of r.v.'s
   in $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ forms a random vector,
@@ -652,8 +652,8 @@ numbering:
   those later. For the time being, let us assume that the LTI output
   $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ is indeed a random sequence.
 
-- To specify the joint distributions of any finite subcollection of
-  r.v.'s in $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$ is generally hard,
+- It is generally hard to specify the joint distributions of a finite
+  subcollection of r.v.'s in $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$,
   except for case where the input random sequence is Gaussian as in
   Example 2. Here, we will focus on specifying the mean and
   autocorrelation of $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$.
