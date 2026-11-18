@@ -547,7 +547,9 @@ numbering:
   $$
   S_{X}(\omega)=\sum_{n=-\infty}^{\infty} R_{X}(n) e^{-j \omega n}
   $$
-  for $-\pi \leq \omega<\pi$.
+  for $-\pi \leq \omega<\pi$. Note that it is assumed that the
+  Fourier transfrom is defined. A typical sufficient condition is 
+  $\sum_{n=-\infty}^{\infty} |R_X(n)|^2 < \infty$.
   
 - The Fourier transform $S_{X}(\omega)$ is called the ***power
   spectral density (PSD)*** of $\left\{X_{n}\right\}_{n \in
@@ -759,7 +761,7 @@ numbering:
 Consider a (discrete-time) LTI system with impulse response $h_n$
 satisfying  $\sum_{k=-\infty}^{\infty} |h_k| < \infty$ (i.e., the
 system is BIBO-stable). Suppose a WSS random sequence
-$\{X_n\}_{n\in\mathbb{Z}}$ is entered
+$\{X_n\}_{n\in\mathbb{Z}}$, with PSD $S_X(\omega)$ defined, is entered
 as input to the LTI system and the resulting output
 $\{Y_n\}_{n\in\mathbb{Z}}$ is also a
 random sequence. Then $Y_n$ is WSS, and $X_n$ and $Y_n$ are jointly
