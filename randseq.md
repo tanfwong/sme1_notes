@@ -658,8 +658,7 @@ numbering:
   Example 2. Here, we will focus on specifying the mean and
   autocorrelation of $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$.
 
-- To that end, let us consider the mean of $\{Y_n\}_{n \in
-  \mathbb{Z}}$:
+- To that end, let us consider the mean of $Y_n$:
   $$
   \begin{aligned}
   \mu_{Y}(n) &= E\left[Y_{n}\right]\\
@@ -691,10 +690,29 @@ numbering:
   \end{aligned}
   $$
   where the interchange of the sum and expected value operator in the
-  third equality is due to the Fubini's theorem under, for example,
-  the sufficient condition that
-  $\sum_{k=\infty}^{\infty}\left|h_{k}\right|<\infty$ (i.e., the LTI
-  system is BIBO stable) and $\left|R_{X}(m, n)\right|$ is bounded for
-  all $m,n \in \mathbb{Z}$.
-- Fixing $m$, we may treat $R_{X,Y}(m,n)$ as the output signal given
-  by the LTI system when the input is $R_X(m,n)$. 
+  third equality is again due to the Fubini's theorem under, for
+  example, the sufficient condition that
+  $\sum_{k=\infty}^{\infty}\left|h_{k}\right|<\infty$ and
+  $\left|R_{X}(m, n)\right|$ is bounded for all $m,n \in \mathbb{Z}$.
+- Fixing $m$, we may treat **$R_{X,Y}(m,n)$ as the output signal given
+  by the LTI system when the input is $R_X(m,n)$**. 
+
+- Finally, we may obtain the autocorrelation of $Y_n$ as follows:
+  $$
+  \begin{aligned}
+  R_{Y}(m, n) & =E\left[Y_{m} Y_{n}\right] \\
+  & =E\left[\sum_{l=-\infty}^{\infty} X_{l} Y_{n} \, h_{m-l} \right] \\
+  & = \sum_{l=-\infty}^{\infty} R_{X,Y}(l, n) \, h_{m-l} \\
+  & = \sum_{l=-\infty}^{\infty} \sum_{k=-\infty}^{\infty} R_{X}(l, k)
+  \, h_{m-l} \, h_{n-k} \\
+  & = \left( R_{X}(m,n) * h_n \right) * h_m
+  \end{aligned}
+  $$
+  where the third and four equalities both require the previous
+  sufficient condition that
+  $\sum_{k=\infty}^{\infty}\left|h_{k}\right|<\infty$ and
+  $\left|R_{X}(m, n)\right|$ is bounded for all $m,n \in \mathbb{Z}$.
+- Hence, we may interpret the **process of getting $R_Y(m,n)$ as first
+  passing the signal $R_X(m,n)$ into the LIT system by first fixing
+  $m$ and then passing the corresponding output $R_{X,Y}(m,n)$ in the
+  LTI system again but fixing $n$ instead.** 
