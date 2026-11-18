@@ -755,11 +755,13 @@ numbering:
   Fourier transform of the crosscorrelation $R_{X,Y}(n)$ as a function
   of the lag. Summarizing the results above, we have the following theorem:
 
-:::{prf:theorem} 
+:::{prf:theorem} WSS $\rightarrow$ LTI $\rightarrow$ WSS 
 Consider a (discrete-time) LTI system with impulse response $h_n$
 satisfying  $\sum_{k=-\infty}^{\infty} |h_k| < \infty$ (i.e., the
-system is BIBO-stable). Suppose a WSS random sequence $X_n$ is entered
-as input to the LTI system and the resulting output $Y_n$ is also a
+system is BIBO-stable). Suppose a WSS random sequence
+$\{X_n\}_{n\in\mathbb{Z}}$ is entered
+as input to the LTI system and the resulting output
+$\{Y_n\}_{n\in\mathbb{Z}}$ is also a
 random sequence. Then $Y_n$ is WSS, and $X_n$ and $Y_n$ are jointly
 WSS with
 1. $\mu_Y(n) = \mu_X \sum_{k = -\infty}^{\infty} h_k$,
@@ -777,3 +779,15 @@ of the LTI system, i.e., the (discrete-time) Fourier transform of
 $h_n$. 
 :::
 
+:::{prf:remark}
+- Note that the results in Theorem 1 **does not** apply to Example 2,
+  even though the filter considered in Example 2 is a BIB-stable
+  first-order IIR filter.
+- The reason is that the input sequence in Example 2 "starts" from
+  $n=0$, and hence is not WSS. As a result, the theorem does not apply
+  and the output sequence $Y_n$ is not WSS.
+- One can however verify that the earlier results for $\mu_Y(n)$,
+  $R_{X,Y}(m,n)$, and $R_Y(m,n)$ for the general case (WSS or not) do
+  apply to Example 2.
+
+:::
