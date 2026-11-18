@@ -657,3 +657,23 @@ numbering:
   except for case where the input random sequence is Gaussian as in
   Example 2. Here, we will focus on specifying the mean and
   autocorrelation of $\left\{Y_{n}\right\}_{n\in\mathbb{Z}}$.
+
+- To that end, let us consider the ***crosscorrelation
+  (function)*** of $X_{n}$ and $Y_{n}$:
+  $$
+  \begin{aligned}
+  R_{X,Y}(m, n) &= E\left[X_{m} Y_{n}\right] \\
+  &= E\left[\sum_{k=-\infty}^{\infty} X_m X_{k} \, h_{n-k}\right] \\
+  &= \sum_{k=-\infty}^{\infty} E\left[X_m X_{k}\right] \, h_{n-k} \\
+  & =\sum_{k=-\infty}^{\infty} R_{X}(m, k) \, h_{n-k} \\
+  & = R_{X}(m,n) * h_n
+  \end{aligned}
+  $$
+  where the interchange of the sum and expected value operator in the
+  third equality is due to the Fubini's theorem under, for example,
+  the sufficient condition that
+  $\sum_{k=\infty}^{\infty}\left|h_{k}\right|<\infty$ (i.e., the LTI
+  system is BIBO stable) and $\left|R_{X}(m, n)\right|$ is bounded for
+  all $m,n \in \mathbb{Z}$.
+- Fixing $m$, we may treat $R_{X,Y}(m,n)$ as the output signal given
+  by the LTI system when the input is $R_X(m,n)$. 
