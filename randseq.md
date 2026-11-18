@@ -611,9 +611,9 @@ numbering:
 - Recall that for each $\omega \in \Omega$, we may interpret
   $\left\{X_{n}(\omega)\right\}_{n\in\mathbb{Z}}$ as a discrete-time
   signal. In many applications, we may enter this discrete-time signal
-  into a linear time-invariant (LTI) system to obtain an output
-  signal. Let's us denote the resulting output as
-  $\left\{Y_{n}(\omega)\right\}_{n\in\mathbb{Z}}$. 
+  into a (discrete-time) linear time-invariant (LTI) system to obtain
+  an output signal. Let's us denote the resulting output as
+  $\left\{Y_{n}(\omega)\right\}_{n\in\mathbb{Z}}$.
 
 - This interpretation gives rise to the notion of passing the random
   sequence $\left\{X_{n}\right\}_{n\in\mathbb{Z}}$ as input to the LTI
@@ -705,7 +705,7 @@ numbering:
   & = \sum_{l=-\infty}^{\infty} R_{X,Y}(l, n) \, h_{m-l} \\
   & = \sum_{l=-\infty}^{\infty} \sum_{k=-\infty}^{\infty} R_{X}(l, k)
   \, h_{m-l} \, h_{n-k} \\
-  & = \left( R_{X}(m,n) * h_n \right) * h_m
+  & = \left[ R_{X}(m,n) * h_n \right] * h_m
   \end{aligned}
   $$
   where the third and four equalities both require the previous
@@ -716,3 +716,64 @@ numbering:
   passing the signal $R_X(m,n)$ into the LIT system by first fixing
   $m$ and then passing the corresponding output $R_{X,Y}(m,n)$ in the
   LTI system again but fixing $n$ instead.** 
+
+- Hereafter, let us consider the special case where the input random
+  sequence $X_n$ is WSS with $\mu_X(n) = \mu_X$ and $R_X(m,n) =
+  R_X(m-n)$. Then:
+  1. The mean is given by
+     $$
+     \mu_Y(n) = \mu_X \sum_{k = -\infty}^{\infty} h_{k}.
+     $$
+  2. The crosscorrelation is given by
+     $$
+     \begin{aligned}
+      R_{X,Y}(m, n) &=\sum_{k=-\infty}^{\infty} R_{X}(m-k) h_{n-k} \\
+      &=\sum_{k=-\infty}^{\infty} R_{X}(k) h_{m-n+k} \\
+      &= R_X(m-n) * h_{-n}.
+      \end{aligned}
+      $$ 
+   3. The autocorrelation is given by
+      $$
+      \begin{aligned}
+      R_{Y}(m, n) &=\sum_{l=\infty}^{\infty} R_{X,Y}(l, n) h_{m-l} \\
+      &=  \sum_{l=-\infty}^{\infty} \sum_{k=-\infty}^{\infty} R_X(k)
+      \, h_{l-n+k} \, h_{m-l} \\
+      &=  \sum_{l=-\infty}^{\infty} \sum_{k=-\infty}^{\infty} R_X(k)
+      \, h_{l+k} \, h_{m-n-l} \\
+      & = R_X(m-n) * h_{-n} * h_n.
+      \end{aligned}
+      $$
+
+- Note that the mean $\mu_Y(n)$ is a constant function and both the
+  crosscorrelation $R_{X,Y}(m,n)$ and autocorrelation $R_Y(m,n)$
+  depend only on the lag $m-n$, i.e., they are shift-invariant. We may
+  conclude that the output random sequence $Y_n$ is WSS. We also say
+  that $X_n$ and $Y_n$ are ***jointly WSS** since both $X_n$ and $Y_n$
+  are WSS and the crosscorrelation $R_{X,Y}(m,n)$ is shift-invariant.
+      
+- As before, we can define $S_{X,Y}(\omega)$ to be (discrete-time)
+  Fourier transform of the crosscorrelation $R_{X,Y}(n)$ as a function
+  of the lag. Summarizing the results above, we have the following theorem:
+
+:::{prf:theorem} 
+Consider a (discrete-time) LTI system with impulse response $h_n$
+satisfying  $\sum_{k=-\infty}^{\infty} |h_k| < \infty$ (i.e., the
+system is BIBO-stable). Suppose a WSS random sequence $X_n$ is entered
+as input to the LTI system and the resulting output $Y_n$ is also a
+random sequence. Then $Y_n$ is WSS, and $X_n$ and $Y_n$ are jointly
+WSS with
+1. $\mu_Y(n) = \mu_X \sum_{k = -\infty}^{\infty} h_k$,
+2. $R_{X,Y} (n) = R_X(n) * h_{-n}$,
+3. $R_Y(n) = R_X(n) * h_{-n} * h_{n}$
+
+in the time domain, and
+
+4. $S_{X,Y}(\omega) = S_X(\omega) H^*(\omega) $,
+5. $S_Y(\omega) = S_X(\omega) H^*(\omega) H(\omega) = S_X(\omega)
+\left| H(\omega) \right|^2$
+
+in the frequency domain, where $H(\omega)$ is the frequency response
+of the LTI system, i.e., the (discrete-time) Fourier transform of
+$h_n$. 
+:::
+
