@@ -782,7 +782,7 @@ $h_n$.
 :::
 
 :::{prf:remark}
-- Note that the results in Theorem 1 **does not** apply to Example 2,
+- Note that the results in Theorem 1 **do not** apply to Example 2,
   even though the filter considered in Example 2 is a BIB-stable
   first-order IIR filter.
 - The reason is that the input sequence in Example 2 "starts" from
