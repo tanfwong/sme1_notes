@@ -631,7 +631,7 @@ numbering:
   bounded-input bound-output (BIBO) stable, as illustrated by the
   filtered Gaussian sequence in Example 2 above.
 
-- For a general LTI system $\mathcal{L}$, the output can be described by the
+- For a general LTI system, the output can be described by the
   convolution between the input and the impulse response $\{h_{n}\}_{n
   \in \mathbb{Z}}$ of the system, i.e.,
   $$
@@ -750,7 +750,7 @@ numbering:
   crosscorrelation $R_{X,Y}(m,n)$ and autocorrelation $R_Y(m,n)$
   depend only on the lag $m-n$, i.e., they are shift-invariant. We may
   conclude that the output random sequence $Y_n$ is WSS. We also say
-  that $X_n$ and $Y_n$ are ***jointly WSS** since both $X_n$ and $Y_n$
+  that $X_n$ and $Y_n$ are ***jointly WSS*** since both $X_n$ and $Y_n$
   are WSS and the crosscorrelation $R_{X,Y}(m,n)$ is shift-invariant.
       
 - As before, we can define $S_{X,Y}(\omega)$ to be (discrete-time)
@@ -783,7 +783,7 @@ $h_n$.
 
 :::{prf:remark}
 - Note that the results in Theorem 1 **do not** apply to Example 2,
-  even though the filter considered in Example 2 is a BIB-stable
+  even though the filter considered in Example 2 is a BIBO-stable
   first-order IIR filter.
 - The reason is that the input sequence in Example 2 "starts" from
   $n=0$, and hence is not WSS. As a result, the theorem does not apply
